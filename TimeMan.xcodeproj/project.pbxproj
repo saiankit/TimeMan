@@ -58,6 +58,8 @@
 		6CF634142518B812005F022D /* TimeMan */ = {
 			isa = PBXGroup;
 			children = (
+				6CF634302518B98D005F022D /* Models */,
+				6CF6342F2518B97C005F022D /* Views */,
 				6CF634152518B812005F022D /* AppDelegate.swift */,
 				6CF634172518B812005F022D /* SceneDelegate.swift */,
 				6CF6341C2518B812005F022D /* ContentView.swift */,
@@ -76,6 +78,20 @@
 				6CF634212518B815005F022D /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6CF6342F2518B97C005F022D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		6CF634302518B98D005F022D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
