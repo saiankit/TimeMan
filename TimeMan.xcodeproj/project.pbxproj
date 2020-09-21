@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C16F6E5251904A10010857F /* CourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C16F6E4251904A10010857F /* CourseCard.swift */; };
 		6CF634162518B812005F022D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634152518B812005F022D /* AppDelegate.swift */; };
 		6CF634182518B812005F022D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634172518B812005F022D /* SceneDelegate.swift */; };
 		6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634192518B812005F022D /* TimeMan.xcdatamodeld */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6C16F6E4251904A10010857F /* CourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCard.swift; sourceTree = "<group>"; };
 		6CF634122518B812005F022D /* TimeMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF634152518B812005F022D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CF634172518B812005F022D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -58,11 +60,10 @@
 		6CF634142518B812005F022D /* TimeMan */ = {
 			isa = PBXGroup;
 			children = (
+				6CF634332518BA59005F022D /* Models */,
 				6CF634322518B9C7005F022D /* Core */,
 				6CF634312518B9AD005F022D /* App */,
-				6CF634302518B98D005F022D /* Models */,
 				6CF6342F2518B97C005F022D /* Views */,
-				6CF6341C2518B812005F022D /* ContentView.swift */,
 				6CF6341E2518B815005F022D /* Assets.xcassets */,
 				6CF634202518B815005F022D /* Preview Content */,
 			);
@@ -80,15 +81,10 @@
 		6CF6342F2518B97C005F022D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6CF6341C2518B812005F022D /* ContentView.swift */,
+				6C16F6E4251904A10010857F /* CourseCard.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		6CF634302518B98D005F022D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Models;
 			sourceTree = "<group>";
 		};
 		6CF634312518B9AD005F022D /* App */ = {
@@ -108,6 +104,13 @@
 				6CF634192518B812005F022D /* TimeMan.xcdatamodeld */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		6CF634332518BA59005F022D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,6 +188,7 @@
 				6CF634162518B812005F022D /* AppDelegate.swift in Sources */,
 				6CF6341D2518B812005F022D /* ContentView.swift in Sources */,
 				6CF634182518B812005F022D /* SceneDelegate.swift in Sources */,
+				6C16F6E5251904A10010857F /* CourseCard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
