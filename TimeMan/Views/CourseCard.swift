@@ -52,7 +52,7 @@ struct CourseCard: View {
                             Image(systemName: "video.fill")
                         }
                     }.padding(8)
-                        .background(Color(#colorLiteral(red: 0.3591899574, green: 0.3699074686, blue: 0.8300974965, alpha: 1)))
+                        .background(Color("CourseCardSecondaryAccent"))
                         .cornerRadius(15)
                 }
                 
@@ -83,7 +83,7 @@ struct CourseCard: View {
             }
         }
         .padding(30)
-        .background(Color(#colorLiteral(red: 0.2793821692, green: 0.287648201, blue: 0.6285293698, alpha: 1)))
+        .background(Color("CourseCardPrimaryAccent"))
             //            .background(Color(#colorLiteral(red: 0.3937311172, green: 0.4668064713, blue: 0.6199406981, alpha: 1)))
             .foregroundColor(Color.white)
             .cornerRadius(20).padding(.bottom)

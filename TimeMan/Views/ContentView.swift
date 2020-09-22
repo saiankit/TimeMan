@@ -16,7 +16,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             ZStack {
-                Color(red: 204/255, green: 246/255, blue: 255/255)
+                Color("Background")
                 VStack {
                     
                     Header(isShown: $isShowingAddCourse)
@@ -42,7 +42,7 @@ struct ContentView: View {
                             }) {
                                 Image(systemName: "plus.circle")
                                 .font(.system(size: 24, design: .rounded))
-                                .foregroundColor(Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)))
+                                .foregroundColor(Color("Primary"))
                                 .padding(.bottom,15)
                             }
 
@@ -51,7 +51,7 @@ struct ContentView: View {
                         
                     }
                     .padding(30)
-                    .background(Color(#colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 1)))
+                    .background(Color("CoursesListBackground"))
                     .cornerRadius(50)
                     .edgesIgnoringSafeArea(.bottom)
                     
