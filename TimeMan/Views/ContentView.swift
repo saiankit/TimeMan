@@ -9,58 +9,55 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State var calendarIndex = 0
-
-   
-    var dateComponents = DateComponents();
-  
-//    let endOfDomain = fqdn.index(fqdn.endIndex, offsetBy: -4)
-//    let rangeOfDomain = fqdn.startIndex ..< endOfDomain
-//    fqdn[rangeOfDomain]
-
+    @State var calendarIndex = Calendar.current.component(.weekday, from: Date()) - 2
+    @State var isShowingAddCourse = false
+    
     var body: some View {
-        ZStack {
-            Color(red: 204/255, green: 246/255, blue: 255/255)
-            VStack {
-                Header()
-                    .padding(.top, 60.0)
-                    .padding(.bottom,30)
-               WeekScroll(index: $calendarIndex)
-                Spacer()
-                if(self.calendarIndex == 0)
-                {
-                    MondayClasses()
-                }
-                else
-                {
+        NavigationView{
+            ZStack {
+                Color(red: 204/255, green: 246/255, blue: 255/255)
+                VStack {
+                    
+                    Header(isShown: $isShowingAddCourse)
+                        .padding(.top, 60.0)
+                        .padding(.bottom,30)
+
+                    WeekScroll(index: $calendarIndex)
+                    NavigationLink(destination: Text("Second View"), isActive: $isShowingAddCourse) { EmptyView() }
+                    
+                    Spacer()
                     TuesdayClasses()
                 }
-            }
-        }.edgesIgnoringSafeArea([.top,.bottom])
-           
+            }.edgesIgnoringSafeArea([.top,.bottom])
+            
+        }
+        
     }
 }
 
 
 struct Header: View {
+    @Binding var isShown: Bool
     var body: some View{
-        VStack {
-            HStack {
-                Text("TimeMan")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
+        HStack {
+            VStack {
+                HStack {
+                    Text("TimeMan")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                    
+                }
+                HStack {
+                    Text("Track your Timetable")
+                        .font(.callout)
+                        .fontWeight(.thin)
+                    
+                }
                 
-                Spacer()
-            }
-            HStack {
-                Text("Track your Timetable")
-                    .font(.callout)
-                    .fontWeight(.thin)
-                
-                Spacer()
-            }
+            }.padding(.leading)
+            Spacer()
             
-        }.padding(.leading)
+        }
     }
     
 }
@@ -75,22 +72,24 @@ struct ContentView_Previews: PreviewProvider {
 
 struct MondayClasses: View {
     var body: some View{
-      VStack(alignment: .leading){
-                     Text("Today's Classes")
-                         .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
-                     ScrollView(.vertical,showsIndicators: false){
-                         VStack(alignment: .leading){
-                             CourseCard(courseTitle: "Srimad Bhagavad Gita", courseCode: "HSS F334", profName: "Dr.Aruna Lolla", lectureNumber: "L1",classTime: "9:00 AM")
-                             CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
-                             
-                         }
-                     }
-                     
-                 }
-                 .padding(30)
-                 .background(Color(#colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 1)))
-                 .cornerRadius(50)
-                 .edgesIgnoringSafeArea(.bottom)
+        VStack(alignment: .leading){
+            HStack {
+                Text("Today's Classes")
+                    .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
+            }
+            ScrollView(.vertical,showsIndicators: false){
+                VStack(alignment: .leading){
+                    CourseCard(courseTitle: "Srimad Bhagavad Gita", courseCode: "HSS F334", profName: "Dr.Aruna Lolla", lectureNumber: "L1",classTime: "9:00 AM")
+                    CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
+                    
+                }
+            }
+            
+        }
+        .padding(30)
+        .background(Color(#colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 1)))
+        .cornerRadius(50)
+        .edgesIgnoringSafeArea(.bottom)
     }
     
 }
@@ -98,22 +97,22 @@ struct MondayClasses: View {
 
 struct TuesdayClasses: View {
     var body: some View{
-      VStack(alignment: .leading){
-                     Text("Today's Classes")
-                         .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
-                     ScrollView(.vertical,showsIndicators: false){
-                         VStack(alignment: .leading){
-                             CourseCard(courseTitle: "Public Policy", courseCode: "HSS F334", profName: "Zaq", lectureNumber: "L1",classTime: "9:00 AM")
-                             CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
-                             
-                         }
-                     }
-                     
-                 }
-                 .padding(30)
-                 .background(Color(#colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 1)))
-                 .cornerRadius(50)
-                 .edgesIgnoringSafeArea(.bottom)
+        VStack(alignment: .leading){
+            Text("Today's Classes")
+                .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
+            ScrollView(.vertical,showsIndicators: false){
+                VStack(alignment: .leading){
+                    CourseCard(courseTitle: "Public Policy", courseCode: "HSS F334", profName: "Zaq", lectureNumber: "L1",classTime: "9:00 AM")
+                    CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
+                    
+                }
+            }
+            
+        }
+        .padding(30)
+        .background(Color(#colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 1)))
+        .cornerRadius(50)
+        .edgesIgnoringSafeArea(.bottom)
     }
     
 }
