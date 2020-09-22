@@ -84,7 +84,6 @@ struct CourseCard: View {
         }
         .padding(30)
         .background(Color("CourseCardPrimaryAccent"))
-            //            .background(Color(#colorLiteral(red: 0.3937311172, green: 0.4668064713, blue: 0.6199406981, alpha: 1)))
             .foregroundColor(Color.white)
             .cornerRadius(20).padding(.bottom)
     }

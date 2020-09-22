@@ -11,12 +11,10 @@ struct CalendarItem: View{
     
     var isSelected: Bool
     var weekDay: String
-    var symbol: String
     var body: some View{
         
         
         VStack {
-            Image(systemName: self.symbol).foregroundColor(Color.black)
             Text(self.weekDay)
                 .font(.headline)
                 .fontWeight(.semibold)
@@ -35,6 +33,6 @@ struct CalendarItem: View{
 
 struct CalendarItem_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarItem(isSelected: true, weekDay: "J", symbol: "star")
+        CalendarItem(isSelected: true, weekDay: "J")
     }
 }
