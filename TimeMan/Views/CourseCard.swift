@@ -21,6 +21,8 @@ struct CourseCard: View {
     var tutorialLink: String = ""
     var practicalLink: String = ""
     var classTime: String
+    
+    //CardView
     var body: some View {
         VStack{
             HStack(alignment: .top){
