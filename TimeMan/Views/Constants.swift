@@ -9,3 +9,5 @@
 import Foundation
 
 var weekDaySymbols: [String] = ["Mon","Tue","Wed","Thu","Fri","Sat"]
+
+var longWeekDaySymbols : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
