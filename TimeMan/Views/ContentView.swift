@@ -9,8 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-//    @State var calendarIndex = (Calendar.current.component(.weekday, from: Date()) - 2)
-    @State var calendarIndex = 4
+    @State var calendarIndex = (Calendar.current.component(.weekday, from: Date()) - 2)    
     @State var isShowingAddCourse = false
     
     var body: some View {

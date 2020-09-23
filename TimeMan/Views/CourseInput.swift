@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CourseInput: View {
-    @ObservedObject var viewModel: CourseViewModel
+    @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @State var isTutorialExisting : Bool = false
     @State var isPracticalExisting : Bool = false
     
