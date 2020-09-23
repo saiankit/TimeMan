@@ -17,8 +17,7 @@ struct ContentView: View {
         NavigationView{
             ZStack {
                 Color("Background")
-                VStack {
-                    
+               VStack {
                     Header(isShown: $isShowingAddCourse)
                         .padding(.top, 60.0)
                         .padding(.bottom,30)
@@ -59,7 +58,6 @@ struct ContentView: View {
             }.edgesIgnoringSafeArea([.top,.bottom])
             
         }
-        
     }
 }
 

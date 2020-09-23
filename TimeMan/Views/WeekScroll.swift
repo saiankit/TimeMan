@@ -13,7 +13,6 @@ struct WeekScroll: View {
     var body: some View {
         ScrollView(.horizontal,showsIndicators: false) {
             HStack(spacing: 20) {
-                
                CalendarItem(isSelected: self.index == 0  ?true  :false,weekDay: "Mon").onTapGesture {
                                                    self.index = 0
                                                }

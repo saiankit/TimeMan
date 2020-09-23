@@ -12,6 +12,7 @@
 		6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B42519B7370023B4BD /* WeekScroll.swift */; };
 		6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B72519B7A70023B4BD /* CalendarItem.swift */; };
 		6C4589BC2519F75D0023B4BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589BB2519F75D0023B4BD /* Constants.swift */; };
+		6CD5FF75251B6E7E00DBB204 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */; };
 		6CF634162518B812005F022D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634152518B812005F022D /* AppDelegate.swift */; };
 		6CF634182518B812005F022D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634172518B812005F022D /* SceneDelegate.swift */; };
 		6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634192518B812005F022D /* TimeMan.xcdatamodeld */; };
@@ -27,6 +28,7 @@
 		6C4589B42519B7370023B4BD /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		6C4589B72519B7A70023B4BD /* CalendarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
 		6C4589BB2519F75D0023B4BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		6CF634122518B812005F022D /* TimeMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF634152518B812005F022D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CF634172518B812005F022D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		6CD5FF73251B6E6700DBB204 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 		6CF634092518B812005F022D = {
 			isa = PBXGroup;
 			children = (
@@ -76,8 +86,8 @@
 		6CF634142518B812005F022D /* TimeMan */ = {
 			isa = PBXGroup;
 			children = (
+				6CD5FF73251B6E6700DBB204 /* ViewModels */,
 				6CF634322518B9C7005F022D /* Core */,
-				6CF634332518BA59005F022D /* Models */,
 				6CF634312518B9AD005F022D /* App */,
 				6CF6342F2518B97C005F022D /* Views */,
 				6CF6341E2518B815005F022D /* Assets.xcassets */,
@@ -126,13 +136,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		6CF634332518BA59005F022D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -160,7 +163,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Sai Ankit";
 				TargetAttributes = {
 					6CF634112518B812005F022D = {
@@ -211,6 +214,7 @@
 				6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */,
 				6CF634182518B812005F022D /* SceneDelegate.swift in Sources */,
 				6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */,
+				6CD5FF75251B6E7E00DBB204 /* CourseViewModel.swift in Sources */,
 				6C16F6E5251904A10010857F /* CourseCard.swift in Sources */,
 				6C4589BC2519F75D0023B4BD /* Constants.swift in Sources */,
 			);
@@ -256,6 +260,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -316,6 +321,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
