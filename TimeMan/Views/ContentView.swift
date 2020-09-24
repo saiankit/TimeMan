@@ -16,10 +16,10 @@ struct ContentView: View {
         NavigationView{
             ZStack {
                 Color("Background")
-               VStack {
+                VStack {
                     Header(isShown: $isShowingAddCourse)
                         .padding(.top, 60.0)
-                        .padding(.bottom,30)
+                        .padding(.bottom,20)
                     
                     WeekScroll(index: $calendarIndex)
                     
@@ -33,7 +33,6 @@ struct ContentView: View {
                                 .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
                             
                             Spacer()
-                            
                             
                             Button(action: {
                                 self.isShowingAddCourse = true

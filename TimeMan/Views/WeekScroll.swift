@@ -12,12 +12,10 @@ struct WeekScroll: View {
     @Binding var index: Int
     var body: some View {
         ScrollView(.horizontal,showsIndicators: false) {
-            HStack(spacing: 20) {
+            HStack(spacing: 15) {
                CalendarItem(isSelected: self.index == 0  ?true  :false,weekDay: "Mon").onTapGesture {
-                                                   self.index = 0
-                                               }
-             
-                
+                    self.index = 0
+               }
                 CalendarItem(isSelected: self.index == 1 ?true  :false,weekDay: "Tue").onTapGesture {
                     self.index = 1
                 }
@@ -34,7 +32,7 @@ struct WeekScroll: View {
                     self.index = 5
                 }
             }
-        }.padding(.bottom,40)
+        }.padding(.bottom,20)
             .padding(.leading)
     }
 }
