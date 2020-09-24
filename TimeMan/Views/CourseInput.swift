@@ -7,12 +7,31 @@
 //
 
 import SwiftUI
+struct WeekDayName: Hashable, Identifiable {
+    var name: String
+    var id: String { name }
+}
+
+struct Task {
+    var name: String
+    var servingGoals: Set<WeekDayName>
+}
 
 struct CourseInput: View {
+    let weekDays : [WeekDayName] = [
+        WeekDayName(name: "Monday"),
+        WeekDayName(name: "Tuesday"),
+        WeekDayName(name: "Wednesday"),
+        WeekDayName(name: "Thursday"),
+        WeekDayName(name: "Friday"),
+        WeekDayName(name: "Saturday")
+    ]
+
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @State var isTutorialExisting : Bool = false
     @State var isPracticalExisting : Bool = false
-    
+    @State var task = Task(name: "", servingGoals: [])
+  
     var body: some View {
         Form{
             Section(header: Text("Course Information")){
@@ -30,6 +49,13 @@ struct CourseInput: View {
                 }
                 DatePicker("Lecture Time", selection: $viewModel.lectureTime, displayedComponents: .hourAndMinute)
                 TextField("Lecture Meet Link", text: $viewModel.lectureMeetLink)
+                MultiSelector(
+                    label: Text("WeekDay Repeat"),
+                    options: weekDays,
+                    optionToString: { $0.name },
+                    selected: $task.servingGoals
+                )
+                
             }
             
             
