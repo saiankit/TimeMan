@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+
 struct MultiSelector<LabelView: View, Selectable: Identifiable & Hashable>: View {
     let label: LabelView
     let options: [Selectable]
@@ -39,6 +40,7 @@ struct MultiSelector<LabelView: View, Selectable: Identifiable & Hashable>: View
     }
 }
 
+//Previews
 struct MultiSelector_Previews: PreviewProvider {
     struct IdentifiableString: Identifiable, Hashable {
         let string: String

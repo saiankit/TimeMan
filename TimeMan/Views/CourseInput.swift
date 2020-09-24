@@ -107,8 +107,20 @@ struct CourseInput: View {
                     )
                 }
             }
-        }.padding()
+            
+//            Section {
+//              Button(action: addCourseAction) {
+//                Text("Add Course")
+//              }
+//            }
+        }
     }
+//    private func addCourseAction() {
+//      onComplete(
+//        title.isEmpty ? AddMovie.DefaultMovieTitle : title,
+//        genre.isEmpty ? AddMovie.DefaultMovieGenre : genre,
+//        releaseDate)
+//    }
 }
 
 struct CourseInput_Previews: PreviewProvider {

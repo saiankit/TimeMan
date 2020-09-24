@@ -26,7 +26,6 @@ struct CourseCard: View {
     var body: some View {
         VStack{
             HStack(alignment: .top){
-                
                 VStack(alignment: .leading){
                     Text(self.courseTitle)
                         .font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
@@ -40,7 +39,6 @@ struct CourseCard: View {
                 }
                 Spacer()
                 VStack {
-                    
                     Text(self.classTime)
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
