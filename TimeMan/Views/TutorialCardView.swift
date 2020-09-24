@@ -1,5 +1,5 @@
 //
-//  LectureCardView.swift
+//  TutorialCardView.swift
 //  TimeMan
 //
 //  Created by Sai Ankit on 9/24/20.
@@ -8,8 +8,7 @@
 
 import SwiftUI
 
-struct LectureCardView: View {
-    
+struct TutorialCardView: View {
     let lecture: Lecture
     let lectureTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -113,9 +112,8 @@ struct LectureCardView: View {
     }
 }
 
-
-struct LectureCourseCard_Previews: PreviewProvider {
+struct TutorialCardView_Previews: PreviewProvider {
     static var previews: some View {
-        LectureCardView(lecture: Lecture(courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", number: "L1", time: Date(), weekDayRepeat: ["Mon", "Wed"], meetLink: "www.google.com", isTutorial: true, tutorialNumber: "T1", isPractical: false, practicalNumber: ""))
+        TutorialCardView(lecture: Lecture(courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", number: "L1", time: Date(), weekDayRepeat: ["Mon", "Wed"], meetLink: "www.google.com", isTutorial: true, tutorialNumber: "T1", isPractical: false, practicalNumber: ""))
     }
 }

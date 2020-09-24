@@ -1,5 +1,5 @@
 //
-//  LectureCardView.swift
+//  PracticalCardView.swift
 //  TimeMan
 //
 //  Created by Sai Ankit on 9/24/20.
@@ -8,9 +8,8 @@
 
 import SwiftUI
 
-struct LectureCardView: View {
-    
-    let lecture: Lecture
+struct PracticalCardView: View {
+    let practical: Practical
     let lectureTimeFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.dateStyle = .long
@@ -20,18 +19,18 @@ struct LectureCardView: View {
         VStack{
             HStack(alignment: .top){
                 VStack(alignment: .leading){
-                    Text(lecture.courseTitle)
+                    Text(practical.courseTitle)
                         .font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
                     HStack{
-                        Text(lecture.courseCode)
+                        Text(practical.courseCode)
                             .font(.system(size: 18, design: .rounded))
                             .padding(.bottom, 10)
-                        Text(lecture.courseID)
+                        Text(practical.courseID)
                             .font(.system(size: 18, design: .rounded))
                             .padding(.bottom, 10)
                     }
                     HStack {
-                        Text(lecture.instructorName)
+                        Text(practical.instructorName)
                             .font(.system(size: 16, design: .rounded))
                     }
                 }
@@ -43,7 +42,7 @@ struct LectureCardView: View {
                     
                     Button(action: {}){
                         HStack{
-                            Text(lecture.number)
+                            Text(practical.number)
                                 .font(.largeTitle)
                                 .fontWeight(.heavy)
                             Image(systemName: "video.fill")
@@ -59,50 +58,50 @@ struct LectureCardView: View {
                 .frame(height: 2)
                 .padding(.vertical)
             
-            if(lecture.isTutorial == true && lecture.isPractical == true)
+            if(practical.isTutorial == true && practical.isPractical == true)
             {
                 HStack{
                     HStack{
-                        Text(lecture.number)
+                        Text(practical.number)
                     }
                 Spacer()
                     HStack{
-                        Text(lecture.tutorialNumber)
+                        Text(practical.tutorialNumber)
                     }
                 Spacer()
                     HStack{
-                        Text(lecture.practicalNumber)
+                        Text(practical.practicalNumber)
                     }
                 }
             }
-            else if(lecture.isTutorial == true && lecture.isPractical == false)
+            else if(practical.isTutorial == true && practical.isPractical == false)
             {
                 HStack{
                     HStack{
-                        Text(lecture.number)
+                        Text(practical.number)
                     }
                 Spacer()
                     HStack{
-                        Text(lecture.tutorialNumber)
+                        Text(practical.tutorialNumber)
                     }
                 }
             }
-            else if(lecture.isTutorial == false && lecture.isPractical == true)
+            else if(practical.isTutorial == false && practical.isPractical == true)
             {
                 HStack{
                     HStack{
-                        Text(lecture.number)
+                        Text(practical.number)
                     }
                 Spacer()
                     HStack{
-                        Text(lecture.practicalNumber)
+                        Text(practical.lectureNumber)
                     }
                 }
             }
-            else if(lecture.isTutorial == false && lecture.isPractical == false)
+            else if(practical.isTutorial == false && practical.isPractical == false)
             {
                 HStack{
-                    Text(lecture.number)
+                    Text(practical.number)
                 }
             }
         }
@@ -113,9 +112,8 @@ struct LectureCardView: View {
     }
 }
 
-
-struct LectureCourseCard_Previews: PreviewProvider {
+struct PracticalCardView_Previews: PreviewProvider {
     static var previews: some View {
-        LectureCardView(lecture: Lecture(courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", number: "L1", time: Date(), weekDayRepeat: ["Mon", "Wed"], meetLink: "www.google.com", isTutorial: true, tutorialNumber: "T1", isPractical: false, practicalNumber: ""))
+        PracticalCardView(practical: Practical(courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", number: "L1", time: Date(), weekDayRepeat: ["Mon", "Wed"], meetLink: "www.google.com", isTutorial: true, tutorialNumber: "T1", isLecture: false, practicalNumber: ""))
     }
 }

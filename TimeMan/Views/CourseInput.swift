@@ -30,6 +30,7 @@ struct CourseInput: View {
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @State var isTutorialExisting : Bool = false
     @State var isPracticalExisting : Bool = false
+    @State var isLectureExisting: Bool = false
     @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
@@ -43,7 +44,14 @@ struct CourseInput: View {
                 TextField("Course ID ( F215 )", text: $viewModel.courseID)
             }
             // MARK: - Lecture
-            Section(header: Text("Lecture Information")){
+            Toggle(isOn: $isLectureExisting)
+            {
+                Text("Lecture")
+            }
+            if(self.isLectureExisting)
+            {
+                Section(header: Text("Lecture Information")){
+                
                 TextField("Lecture Instructor", text: $viewModel.lectureInstructorName)
                 Stepper(value: $viewModel.lectureNumber, in: 1...10){
                     Text("L" + String(viewModel.lectureNumber))
@@ -56,7 +64,7 @@ struct CourseInput: View {
                     optionToString: { $0.name },
                     selected: $lectureRepeatWeek.weekDays
                 )
-                
+            }
             }
             
             

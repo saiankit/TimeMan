@@ -18,5 +18,5 @@ struct Practical {
     let weekDayRepeat: Set<String>
     let meetLink: String
     let isTutorial: Bool
-    let isPractical: Bool
+    let isLecture: Bool
 }
