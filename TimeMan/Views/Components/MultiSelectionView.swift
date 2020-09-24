@@ -22,7 +22,7 @@ struct MultiSelectionView<Selectable: Identifiable & Hashable>: View {
                         Text(optionToString(selectable)).foregroundColor(Color("Primary"))
                         Spacer()
                         if selected.contains { $0.id == selectable.id } {
-                            Image(systemName: "checkmark").foregroundColor(.accentColor)
+                            Image(systemName: "checkmark.circle").foregroundColor(.accentColor)
                         }
                     }
                 }.tag(selectable.id)

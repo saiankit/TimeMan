@@ -12,9 +12,9 @@ struct WeekDayName: Hashable, Identifiable {
     var id: String { name }
 }
 
-struct Task {
+struct ClassTypeRepeat {
     var name: String
-    var servingGoals: Set<WeekDayName>
+    var weekDays: Set<WeekDayName>
 }
 
 struct CourseInput: View {
@@ -30,8 +30,9 @@ struct CourseInput: View {
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @State var isTutorialExisting : Bool = false
     @State var isPracticalExisting : Bool = false
-    @State var task = Task(name: "", servingGoals: [])
-  
+    @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
+    @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
+    @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     var body: some View {
         Form{
             Section(header: Text("Course Information")){
@@ -53,7 +54,7 @@ struct CourseInput: View {
                     label: Text("WeekDay Repeat"),
                     options: weekDays,
                     optionToString: { $0.name },
-                    selected: $task.servingGoals
+                    selected: $lectureRepeatWeek.weekDays
                 )
                 
             }
@@ -73,6 +74,12 @@ struct CourseInput: View {
                                   }
                     DatePicker("Tutorial Time", selection: $viewModel.tutorialTime, displayedComponents: .hourAndMinute)
                     TextField("Tutorial Meet Link", text: $viewModel.tutorialMeetLink)
+                    MultiSelector(
+                        label: Text("WeekDay Repeat"),
+                        options: weekDays,
+                        optionToString: { $0.name },
+                        selected: $tutorialRepeatWeek.weekDays
+                    )
                     
                 }
             }
@@ -92,6 +99,12 @@ struct CourseInput: View {
                                   }
                     DatePicker("Practical Time", selection: $viewModel.practicalTime, displayedComponents: .hourAndMinute)
                     TextField("Practical Meet Link", text: $viewModel.practicalMeetLink)
+                    MultiSelector(
+                        label: Text("WeekDay Repeat"),
+                        options: weekDays,
+                        optionToString: { $0.name },
+                        selected: $practicalRepeatWeek.weekDays
+                    )
                 }
             }
         }.padding()
