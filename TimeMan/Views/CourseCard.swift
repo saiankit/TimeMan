@@ -148,4 +148,3 @@ struct CourseCard_Previews: PreviewProvider {
         ))
     }
 }
-

@@ -37,9 +37,9 @@ struct ContentView: View {
                                 .padding(.bottom,15)
                             }
                         }
-//                        TuesdayClasses().sheet(isPresented: $isPresented){
-//                            CourseInput()
-//                        }
+                        TuesdayClasses().sheet(isPresented: $isPresented){
+                            CourseInput()
+                        }
                     }
                     .padding(30)
                     .background(Color("CoursesListBackground"))
@@ -61,45 +61,48 @@ struct ContentView_Previews: PreviewProvider {
     }
 }
 
-//
-//struct TuesdayClasses: View {
-//    @State var courses = TuesdayClasses.makeCourseDefaults()
-//    static func makeCourseDefaults() -> [Course] {
-//        let mockLecture = Course(
-//            courseTitle: "Digital Design", courseCode: "ECE"
-//            , courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P1", weekDayRepeat: ["Mon","Wed","Fri"], meetLink: "www.google.com", tutorialExists: true, practicalExits: true, lectureExists: true, isLecture: true, isTutorial: false, isPractical: false
-//        )
-//
-//        let mockTutorial = Course(
-//            courseTitle: "Control Systems", courseCode: "ECE"
-//            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: true, practicalExits: false, lectureExists: true, isLecture: false, isTutorial: true, isPractical: false
-//        )
-//
-//        return [mockLecture, mockTutorial]
-//    }
-//
-//
-//    func addCourse(course: Course) {
-//      courses.append(course)
-//    }
-//
-//    var body: some View{
-//        ScrollView(.vertical,showsIndicators: false){
-//            if #available(iOS 14.0, *) {
-//                LazyVStack(alignment: .leading){
-//                    CourseCard(courseTitle: "Public Policy", courseCode: "HSS F334", profName: "Zaq", lectureNumber: "L1",classTime: "9:00 AM")
-//                    CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
-//                    CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
-//
-//                }
-//            } else {
-//                VStack(alignment: .leading){
-//                    CourseCard(courseTitle: "Public Policy", courseCode: "HSS F334", profName: "Zaq", lectureNumber: "L1",classTime: "9:00 AM")
-//                    CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
-//                    CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
-//
-//                }
-//            }
-//        }
-//}
-//}
+
+struct TuesdayClasses: View {
+    @State var courses = TuesdayClasses.makeCourseDefaults()
+    static func makeCourseDefaults() -> [Course] {
+        let mockLecture = Course(
+            courseTitle: "Digital Design", courseCode: "ECE"
+            , courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P1", weekDayRepeat: ["Mon","Wed","Fri"], meetLink: "www.google.com", tutorialExists: true, practicalExits: true, lectureExists: true, isLecture: true, isTutorial: false, isPractical: false
+        )
+
+        let mockTutorial = Course(
+            courseTitle: "Control Systems", courseCode: "ECE"
+            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: true, practicalExits: false, lectureExists: true, isLecture: false, isTutorial: true, isPractical: false
+        )
+        
+        let mockPractical = Course(
+            courseTitle: "Biology Laboratory", courseCode: "BIO"
+            , courseID: "F110", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P10", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: false, practicalExits: true, lectureExists: false, isLecture: false, isTutorial: true, isPractical: true
+        )
+
+        return [mockLecture, mockTutorial, mockPractical]
+    }
+
+
+    func addCourse(course: Course) {
+      courses.append(course)
+    }
+
+    var body: some View{
+        ScrollView(.vertical,showsIndicators: false){
+            if #available(iOS 14.0, *) {
+                LazyVStack(alignment: .leading){
+                    ForEach(courses, id: \.courseTitle) {
+                      CourseCard(course: $0)
+                    }
+                }
+            } else {
+                VStack(alignment: .leading){
+                    ForEach(courses, id: \.courseTitle) {
+                      CourseCard(course: $0)
+                    }
+                }
+            }
+        }
+}
+}
