@@ -12,6 +12,7 @@ import SwiftUI
 struct ContentView: View{
     @State var calendarIndex = (Calendar.current.component(.weekday, from: Date()) - 2)
     @State var isPresented = false
+    @State var courseList = mockCoursesList
     var body: some View {
         NavigationView{
             ZStack {
@@ -38,8 +39,8 @@ struct ContentView: View{
                                 .padding(.bottom,15)
                             }
                         }
-                        CoursesList(calendarIndex: $calendarIndex).sheet(isPresented: $isPresented){
-                            CourseInput(isPresented: $isPresented)
+                        CoursesList(courses: $courseList, calendarIndex: $calendarIndex).sheet(isPresented: $isPresented){
+                            CourseInput(isPresented: $isPresented, coursesList: $courseList)
                         }
                     }
                     .padding(30)
@@ -64,29 +65,9 @@ struct ContentView_Previews: PreviewProvider {
 
 
 struct CoursesList: View {
-    @State var courses = CoursesList.makeCourseDefaults()
+    @Binding var courses: [Course]
     @Binding var calendarIndex: Int
-    static func makeCourseDefaults() -> [Course] {
-        let mockLecture = Course(
-            courseTitle: "Digital Design", courseCode: "ECE"
-            , courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P1", weekDayRepeat: ["Monday","Wednesday","Friday"], meetLink: "www.meet.google.com", tutorialExists: true, practicalExits: true, lectureExists: true)
 
-        let mockTutorial = Course(
-            courseTitle: "Control Systems", courseCode: "ECE"
-            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tuesday"], meetLink: "www.meet.google.com", tutorialExists: true, practicalExits: false, lectureExists: true)
-        
-        let mockPractical = Course(
-            courseTitle: "Biology Laboratory", courseCode: "BIO"
-            , courseID: "F110", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P10", weekDayRepeat: ["Monday"], meetLink: "www.meet.google.com", tutorialExists: false, practicalExits: true, lectureExists: false)
-
-        return [mockLecture, mockTutorial, mockPractical]
-    }
-
-
-    func addCourse(course: Course) {
-      courses.append(course)
-    }
-    
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
        let weekDayName = longWeekDaySymbols[index]
        let mapped = course.weekDayRepeat.map{ $0 == weekDayName }

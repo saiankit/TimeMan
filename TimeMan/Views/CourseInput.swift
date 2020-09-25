@@ -34,6 +34,7 @@ struct CourseInput: View {
     @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @Binding var isPresented: Bool
+    @Binding var coursesList: [Course]
     private func getTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
@@ -41,6 +42,10 @@ struct CourseInput: View {
         timeType = hour >= 12 ? "PM" : "AM"
         hour = hour > 12 ? hour - 12 : hour
         return String(hour) + ":" + String(minute) + " " + timeType
+    }
+    private func addCourse(course: Course)
+    {
+        coursesList.append(course)
     }
     var body: some View {
         NavigationView{
@@ -126,9 +131,10 @@ struct CourseInput: View {
             }
             Section {
                 Button(action:{
-//                    let final = lectureRepeatWeek.weekDays.map { $0.name }
-//                    print(getTime(time: viewModel.lectureTime))
-//                    print(final)
+                    let final = lectureRepeatWeek.weekDays.map { $0.name }
+                    let newCourse = Course(courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.lectureInstructorName, time: Date(), lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), weekDayRepeat: final, meetLink: viewModel.lectureMeetLink, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
+                      addCourse(course: newCourse)
+                    print(coursesList)
                     self.isPresented.toggle()
                 }){
                 Text("Add Course")
