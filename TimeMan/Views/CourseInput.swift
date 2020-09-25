@@ -117,11 +117,11 @@ struct CourseInput: View {
                     )
                 }
             }
-            Section {
-              Button(action: addMoveAction) {
-                Text("Add Course")
-              }
-            }
+//            Section {
+//              Button(action: addCourseAction) {
+//                Text("Add Course")
+//              }
+//            }
             
         }.navigationBarTitle(Text("Add Course"),displayMode: .inline)
         }

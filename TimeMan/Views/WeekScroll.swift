@@ -39,6 +39,6 @@ struct WeekScroll: View {
 
 struct WeekScroll_Previews: PreviewProvider {
     static var previews: some View {
-       Text("Hi")
+        Text("Hi")
     }
 }

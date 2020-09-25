@@ -10,41 +10,40 @@ import SwiftUI
 
 struct CourseCard: View {
     
-    //Attributes
-    var courseTitle: String
-    var courseCode: String
-    var profName: String
-    var lectureNumber: String
-    var tutorialNumber: String = ""
-    var practicalNumber: String = ""
-    var lectureLink: String = ""
-    var tutorialLink: String = ""
-    var practicalLink: String = ""
-    var classTime: String
-    
+    var course: Course
+    var date: Int = (Calendar.current.component(.minute, from: Date()))
+    private func getTime(time : Date) -> String {
+        var timeType: String = "AM"
+        var hour: Int = (Calendar.current.component(.hour, from: time))
+        let minute: Int = (Calendar.current.component(.minute, from: time))
+        timeType = hour >= 12 ? "PM" : "AM"
+        hour = hour > 12 ? hour - 12 : hour
+        return String(hour) + ":" + String(minute) + " " + timeType
+    }
     //CardView
     var body: some View {
         VStack{
             HStack(alignment: .top){
                 VStack(alignment: .leading){
-                    Text(self.courseTitle)
+                    Text(course.courseTitle)
                         .font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
-                    Text(self.courseCode)
+                    Text(course.courseCode + "  " + course.courseID)
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 10)
                     HStack {
-                        Text(self.profName)
+                        Text(course.instructorName)
                             .font(.system(size: 16, design: .rounded))
                     }
                 }
                 Spacer()
                 VStack {
-                    Text(self.classTime)
+                    Text(getTime(time: course.time))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
+                         
                     Button(action: {}){
                         HStack{
-                            Text(self.lectureNumber)
+                            Text("L1")
                                 .font(.largeTitle)
                                 .fontWeight(.heavy)
                             Image(systemName: "video.fill")
@@ -89,6 +88,10 @@ struct CourseCard: View {
 
 struct CourseCard_Previews: PreviewProvider {
     static var previews: some View {
-        CourseCard(courseTitle: "Srimad Bhagavad Gita", courseCode: "HSS F334", profName: "Dr.Aruna Lolla", lectureNumber: "L1",classTime: "9:00 AM")
+        
+        CourseCard(course: Course(
+            courseTitle: "Control Systems", courseCode: "ECE"
+            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: true, practicalExits: false, lectureExists: true, isLecture: false, isTutorial: true, isPractical: false
+        ))
     }
 }
