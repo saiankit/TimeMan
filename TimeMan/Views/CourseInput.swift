@@ -34,7 +34,9 @@ struct CourseInput: View {
     @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
+
     var body: some View {
+        NavigationView{
         Form{
             Section(header: Text("Course Information")){
                 TextField("Course Title ( Digital Design )", text: $viewModel.courseTitle)
@@ -115,22 +117,10 @@ struct CourseInput: View {
                     )
                 }
             }
-            
-//            Section {
-//              Button(action: addCourseAction) {
-//                Text("Add Course")
-//              }
-//            }
         }
+        }.navigationBarTitle(Text("Add Course"),displayMode: .inline)
     }
-//    private func addCourseAction() {
-//      onComplete(
-//        title.isEmpty ? AddMovie.DefaultMovieTitle : title,
-//        genre.isEmpty ? AddMovie.DefaultMovieGenre : genre,
-//        releaseDate)
-//    }
 }
-
 struct CourseInput_Previews: PreviewProvider {
     static var previews: some View {
         Text("Hello")

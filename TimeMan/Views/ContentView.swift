@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     @State var calendarIndex = (Calendar.current.component(.weekday, from: Date()) - 2)    
     @State var isShowingAddCourse = false
-    
+    @State var isPresented = false
     var body: some View {
         NavigationView{
             ZStack {
@@ -22,30 +22,26 @@ struct ContentView: View {
                         .padding(.bottom,20)
                     
                     WeekScroll(index: $calendarIndex)
-                    
-                    NavigationLink(destination: CourseInput(), isActive: $isShowingAddCourse) { EmptyView() }
-                    
+
                     Spacer()
-                    
                     VStack(alignment: .leading){
                         HStack {
                             Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 2) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")
                                 .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
-                            
                             Spacer()
-                            
                             Button(action: {
                                 self.isShowingAddCourse = true
+                                self.isPresented.toggle()
                             }) {
                                 Image(systemName: "plus.circle")
                                 .font(.system(size: 24, design: .rounded))
                                 .foregroundColor(Color("Primary"))
                                 .padding(.bottom,15)
                             }
-
                         }
-                        TuesdayClasses()
-                        
+                        TuesdayClasses().sheet(isPresented: $isPresented){
+                            CourseInput(isTutorialExisting: false, isPracticalExisting: false, isLectureExisting: false)
+                        }
                     }
                     .padding(30)
                     .background(Color("CoursesListBackground"))
@@ -69,18 +65,15 @@ struct Header: View {
                     Text("TimeMan")
                         .font(.largeTitle)
                         .fontWeight(.bold)
-                    
                 }
                 HStack {
                     Text("Track your Timetable")
                         .font(.callout)
                         .fontWeight(.thin)
-                    
                 }
                 
             }.padding(.leading)
             Spacer()
-            
         }
     }
     
@@ -89,33 +82,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-}
-
-
-
-
-struct MondayClasses: View {
-    var body: some View{
-        VStack(alignment: .leading){
-            HStack {
-                Text("Today's Classes")
-                    .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
-            }
-            ScrollView(.vertical,showsIndicators: false){
-                VStack(alignment: .leading){
-                    CourseCard(courseTitle: "Srimad Bhagavad Gita", courseCode: "HSS F334", profName: "Dr.Aruna Lolla", lectureNumber: "L1",classTime: "9:00 AM")
-                    CourseCard(courseTitle: "Digital Design", courseCode: "ECE F215", profName: "Prof. Sanjay Vidhyadharan", lectureNumber: "T2", classTime: "2:00 PM")
-                    
-                }
-            }
-            
-        }
-        .padding(30)
-        .background(Color(#colorLiteral(red: 0.9961728454, green: 0.9902502894, blue: 1, alpha: 1)))
-        .cornerRadius(50)
-        .edgesIgnoringSafeArea(.bottom)
-    }
-    
 }
 
 
@@ -128,6 +94,5 @@ struct TuesdayClasses: View {
                 
             }
         }
-        
 }
 }

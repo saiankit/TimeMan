@@ -74,36 +74,36 @@ struct PracticalCardView: View {
                     }
                 }
             }
-            else if(practical.isTutorial == true && practical.isPractical == false)
-            {
-                HStack{
-                    HStack{
-                        Text(practical.number)
-                    }
-                Spacer()
-                    HStack{
-                        Text(practical.tutorialNumber)
-                    }
-                }
-            }
-            else if(practical.isTutorial == false && practical.isPractical == true)
-            {
-                HStack{
-                    HStack{
-                        Text(practical.number)
-                    }
-                Spacer()
-                    HStack{
-                        Text(practical.lectureNumber)
-                    }
-                }
-            }
-            else if(practical.isTutorial == false && practical.isPractical == false)
-            {
-                HStack{
-                    Text(practical.number)
-                }
-            }
+//            else if(practical.isTutorial == true && practical.isPractical == false)
+//            {
+//                HStack{
+//                    HStack{
+//                        Text(practical.number)
+//                    }
+//                Spacer()
+//                    HStack{
+//                        Text(practical.tutorialNumber)
+//                    }
+//                }
+//            }
+//            else if(practical.isTutorial == false && practical.isPractical == true)
+//            {
+//                HStack{
+//                    HStack{
+//                        Text(practical.number)
+//                    }
+//                Spacer()
+//                    HStack{
+//                        Text(practical.lectureNumber)
+//                    }
+//                }
+//            }
+//            else if(practical.isTutorial == false && practical.isPractical == false)
+//            {
+//                HStack{
+//                    Text(practical.number)
+//                }
+//            }
         }
         .padding(30)
         .background(Color("CourseCardPrimaryAccent"))
@@ -114,6 +114,7 @@ struct PracticalCardView: View {
 
 struct PracticalCardView_Previews: PreviewProvider {
     static var previews: some View {
-        PracticalCardView(practical: Practical(courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", number: "L1", time: Date(), weekDayRepeat: ["Mon", "Wed"], meetLink: "www.google.com", isTutorial: true, tutorialNumber: "T1", isLecture: false, practicalNumber: ""))
+//        PracticalCardView(practical: Practical(courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", number: "L1", time: Date(), weekDayRepeat: ["Mon", "Wed"], meetLink: "www.google.com", isTutorial: true, tutorialNumber: "T1", isLecture: false, practicalNumber: ""))
+        Text("Hi")
     }
 }
