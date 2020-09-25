@@ -110,19 +110,22 @@ struct CourseCard: View {
                     Text(getTime(time: course.time))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
-                         
-                    Button(action: {}){
-                        HStack{
-                            Text("L1")
-                                .font(.largeTitle)
-                                .fontWeight(.heavy)
-                            Image(systemName: "video.fill")
-                        }
-                    }.padding(8)
+                    if #available(iOS 14.0, *) {
+                        Link(destination: URL(string: course.meetLink)!, label: {
+                            HStack{
+                                Text("L1")
+                                    .font(.largeTitle)
+                                    .fontWeight(.heavy)
+                                Image(systemName: "video.fill")
+                            }.padding(8)
                         .background(Color("CourseCardSecondaryAccent"))
                         .cornerRadius(15)
+                        })
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                           
                 }
-                
             }
             Rectangle()
                 .fill(Color.white)
@@ -144,7 +147,6 @@ struct CourseCard_Previews: PreviewProvider {
         
         CourseCard(course: Course(
             courseTitle: "Control Systems", courseCode: "ECE"
-            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P3", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: false, practicalExits: true, lectureExists: false, isLecture: false, isTutorial: false, isPractical: true
-        ))
+            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P3", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: false, practicalExits: true, lectureExists: false))
     }
 }

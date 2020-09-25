@@ -21,7 +21,4 @@ struct Course {
     let tutorialExists: Bool
     let practicalExits: Bool
     let lectureExists: Bool
-    let isLecture: Bool
-    let isTutorial: Bool
-    let isPractical: Bool
 }

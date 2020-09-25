@@ -8,8 +8,9 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    @State var calendarIndex = (Calendar.current.component(.weekday, from: Date()) - 2)    
+
+struct ContentView: View{
+    @State var calendarIndex = (Calendar.current.component(.weekday, from: Date()) - 2)
     @State var isPresented = false
     var body: some View {
         NavigationView{
@@ -67,18 +68,15 @@ struct TuesdayClasses: View {
     static func makeCourseDefaults() -> [Course] {
         let mockLecture = Course(
             courseTitle: "Digital Design", courseCode: "ECE"
-            , courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P1", weekDayRepeat: ["Mon","Wed","Fri"], meetLink: "www.google.com", tutorialExists: true, practicalExits: true, lectureExists: true, isLecture: true, isTutorial: false, isPractical: false
-        )
+            , courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P1", weekDayRepeat: ["Mon","Wed","Fri"], meetLink: "www.meet.google.com", tutorialExists: true, practicalExits: true, lectureExists: true)
 
         let mockTutorial = Course(
             courseTitle: "Control Systems", courseCode: "ECE"
-            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: true, practicalExits: false, lectureExists: true, isLecture: false, isTutorial: true, isPractical: false
-        )
+            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tue"], meetLink: "www.meet.google.com", tutorialExists: true, practicalExits: false, lectureExists: true)
         
         let mockPractical = Course(
             courseTitle: "Biology Laboratory", courseCode: "BIO"
-            , courseID: "F110", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P10", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: false, practicalExits: true, lectureExists: false, isLecture: false, isTutorial: true, isPractical: true
-        )
+            , courseID: "F110", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P10", weekDayRepeat: ["Tue"], meetLink: "www.meet.google.com", tutorialExists: false, practicalExits: true, lectureExists: false)
 
         return [mockLecture, mockTutorial, mockPractical]
     }

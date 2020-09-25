@@ -34,7 +34,7 @@ struct CourseInput: View {
     @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
-
+    
     var body: some View {
         NavigationView{
         Form{
@@ -117,15 +117,19 @@ struct CourseInput: View {
                     )
                 }
             }
-//            Section {
-//              Button(action: addCourseAction) {
-//                Text("Add Course")
-//              }
-//            }
+            Section {
+                Button(action:{
+                    print("Hi")
+                    
+                }){
+                Text("Add Course")
+              }
+            }
             
         }.navigationBarTitle(Text("Add Course"),displayMode: .inline)
         }
     }
+    
 }
 struct CourseInput_Previews: PreviewProvider {
     static var previews: some View {

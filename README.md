@@ -13,6 +13,12 @@ TimeMan is a native iOS app to enable the people of BPHC to keep track of their 
 ------
 
 
+| ![1](Screenshots/LightMode-Home.png) | ![1](Screenshots/LightMode-Add.png)  |
+| ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- | ----------------------------------------------------- |
+| ![1](Screenshots/DarkMode-Home.png) | ![1](Screenshots/DarkMode-Add.png)|
+
+------
+
 #### How to use the app locally on your machine ?
 
 <u>Requirements</u>
