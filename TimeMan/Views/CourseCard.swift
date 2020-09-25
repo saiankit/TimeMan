@@ -8,6 +8,76 @@
 
 import SwiftUI
 
+struct Single: View {
+    var input: String
+    var body: some View {
+        HStack{
+            Text(input)
+        }
+    }
+}
+
+struct Double: View {
+    var ip1: String
+    var ip2: String
+    var body: some View {
+        HStack{
+            Text(ip1)
+            Spacer()
+            Text(ip2)
+        }
+    }
+}
+
+struct Triple: View {
+    var ip1: String
+    var ip2: String
+    var ip3: String
+    var body: some View {
+        HStack{
+            Text(ip1)
+            Spacer()
+            Text(ip2)
+            Spacer()
+            Text(ip3)
+        }
+    }
+}
+
+struct CourseNumbers: View {
+    var course: Course
+    var body: some View {
+        if(course.lectureExists && (course.tutorialExists && course.practicalExits) )
+        {
+            Triple(ip1: course.lectureNumber, ip2: course.tutorialNumber, ip3: course.practicalNumber)
+        }
+        else if(course.lectureExists && course.tutorialExists)
+        {
+            Double(ip1: course.lectureNumber, ip2: course.tutorialNumber)
+        }
+        else if(course.lectureExists && course.practicalExits)
+        {
+            Double(ip1: course.lectureNumber, ip2: course.practicalNumber)
+        }
+        else if(course.tutorialExists && course.practicalExits)
+        {
+            Double(ip1: course.tutorialNumber, ip2: course.practicalNumber)
+        }
+        else if(course.lectureExists)
+        {
+            Single(input: course.lectureNumber)
+        }
+        else if(course.tutorialExists)
+        {
+            Single(input: course.tutorialNumber)
+        }
+        else if(course.practicalExits)
+        {
+            Single(input: course.practicalNumber)
+        }
+    }
+}
+
 struct CourseCard: View {
     
     var course: Course
@@ -59,25 +129,8 @@ struct CourseCard: View {
                 .frame(height: 2)
                 .padding(.vertical)
             
-            HStack{
-                Button(action: {}){
-                    HStack{
-                        Text("L1")
-                    }
-                }
-                Spacer()
-                Button(action: {}){
-                    HStack{
-                        Text("T5")
-                    }
-                }
-                Spacer()
-                Button(action: {}){
-                    HStack{
-                        Text("P2")
-                    }
-                }
-            }
+            CourseNumbers(course: course)
+            
         }
         .padding(30)
         .background(Color("CourseCardPrimaryAccent"))
@@ -91,7 +144,8 @@ struct CourseCard_Previews: PreviewProvider {
         
         CourseCard(course: Course(
             courseTitle: "Control Systems", courseCode: "ECE"
-            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: true, practicalExits: false, lectureExists: true, isLecture: false, isTutorial: true, isPractical: false
+            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P3", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: false, practicalExits: true, lectureExists: false, isLecture: false, isTutorial: false, isPractical: true
         ))
     }
 }
+
