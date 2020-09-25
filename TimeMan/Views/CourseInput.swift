@@ -117,8 +117,14 @@ struct CourseInput: View {
                     )
                 }
             }
-        }
+            Section {
+              Button(action: addMoveAction) {
+                Text("Add Course")
+              }
+            }
+            
         }.navigationBarTitle(Text("Add Course"),displayMode: .inline)
+        }
     }
 }
 struct CourseInput_Previews: PreviewProvider {
