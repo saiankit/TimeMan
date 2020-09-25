@@ -26,7 +26,6 @@ struct CourseInput: View {
         WeekDayName(name: "Friday"),
         WeekDayName(name: "Saturday")
     ]
-
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @State var isTutorialExisting : Bool = false
     @State var isPracticalExisting : Bool = false
@@ -34,7 +33,14 @@ struct CourseInput: View {
     @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
-    
+    private func getTime(time : Date) -> String {
+        var timeType: String = "AM"
+        var hour: Int = (Calendar.current.component(.hour, from: time))
+        let minute: Int = (Calendar.current.component(.minute, from: time))
+        timeType = hour >= 12 ? "PM" : "AM"
+        hour = hour > 12 ? hour - 12 : hour
+        return String(hour) + ":" + String(minute) + " " + timeType
+    }
     var body: some View {
         NavigationView{
         Form{
@@ -119,8 +125,9 @@ struct CourseInput: View {
             }
             Section {
                 Button(action:{
-                    print("Hi")
-                    
+                    let final = lectureRepeatWeek.weekDays.map { $0.name }
+                    print(getTime(time: viewModel.lectureTime))
+                    print(final)
                 }){
                 Text("Add Course")
               }
