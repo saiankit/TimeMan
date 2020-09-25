@@ -13,9 +13,6 @@ struct CalendarItem: View{
     var weekDay: String
     var body: some View{
         VStack {
-            if(weekDaySymbols[(Calendar.current.component(.weekday, from: Date()) - 2)] == weekDay)
-            {
-                Circle().frame(width: 5, height: 5).foregroundColor(.red)}
             Text(self.weekDay)
                 .font(.headline)
                 .fontWeight(.semibold)
@@ -25,6 +22,7 @@ struct CalendarItem: View{
         .padding([.vertical],20)
         .padding([.horizontal],15)
         .background(isSelected ? Color(#colorLiteral(red: 0.7912799716, green: 1, blue: 0.8202505708, alpha: 1)) : Color.white)
+        .foregroundColor(weekDaySymbols[(Calendar.current.component(.weekday, from: Date()) - 2)] == weekDay ? Color(#colorLiteral(red: 0.9568627477, green: 0.6588235497, blue: 0.5450980663, alpha: 1)) : Color.white)
         .cornerRadius(25)
     }
 }
