@@ -39,7 +39,7 @@ struct ContentView: View{
                             }
                         }
                         CoursesList(calendarIndex: $calendarIndex).sheet(isPresented: $isPresented){
-                            CourseInput()
+                            CourseInput(isPresented: $isPresented)
                         }
                     }
                     .padding(30)

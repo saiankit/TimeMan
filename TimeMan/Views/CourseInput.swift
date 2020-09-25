@@ -33,6 +33,7 @@ struct CourseInput: View {
     @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
+    @Binding var isPresented: Bool
     private func getTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
@@ -125,9 +126,10 @@ struct CourseInput: View {
             }
             Section {
                 Button(action:{
-                    let final = lectureRepeatWeek.weekDays.map { $0.name }
-                    print(getTime(time: viewModel.lectureTime))
-                    print(final)
+//                    let final = lectureRepeatWeek.weekDays.map { $0.name }
+//                    print(getTime(time: viewModel.lectureTime))
+//                    print(final)
+                    self.isPresented.toggle()
                 }){
                 Text("Add Course")
               }
