@@ -84,7 +84,7 @@ struct CoursesList: View {
             if #available(iOS 14.0, *) {
                 LazyVStack(alignment: .leading){
                     
-                    ForEach(courses, id: \.courseTitle) {
+                    ForEach(courses, id: \.id) {
                         if(shouldCourseBeIncluded(course: $0, index: self.calendarIndex))
                         {
                             CourseCard(course: $0)
@@ -94,7 +94,7 @@ struct CoursesList: View {
                 }
             } else {
                 VStack(alignment: .leading){
-                    ForEach(courses, id: \.courseTitle) {
+                    ForEach(courses, id: \.id) {
                       CourseCard(course: $0)
                     }
                 }

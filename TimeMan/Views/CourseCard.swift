@@ -85,10 +85,11 @@ struct CourseCard: View {
     private func getTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
-        let minute: Int = (Calendar.current.component(.minute, from: time))
+        let aminute: Int = (Calendar.current.component(.minute, from: time))
+        let minute = (aminute == 0) ? "00" : String(aminute)
         timeType = hour >= 12 ? "PM" : "AM"
         hour = hour > 12 ? hour - 12 : hour
-        return String(hour) + ":" + String(minute) + " " + timeType
+        return String(hour) + ":" + minute + " " + timeType
     }
     //CardView
     var body: some View {
@@ -113,9 +114,24 @@ struct CourseCard: View {
                     if #available(iOS 14.0, *) {
                         Link(destination: URL(string: course.meetLink)!, label: {
                             HStack{
-                                Text("L1")
+                                if(course.isLecture)
+                                {
+                                    Text(course.lectureNumber)
                                     .font(.largeTitle)
                                     .fontWeight(.heavy)
+                                }
+                                else if(course.isTutorial)
+                                {
+                                    Text(course.tutorialNumber)
+                                    .font(.largeTitle)
+                                    .fontWeight(.heavy)
+                                }
+                                else if(course.isPractical)
+                                {
+                                    Text(course.practicalNumber)
+                                    .font(.largeTitle)
+                                    .fontWeight(.heavy)
+                                }
                                 Image(systemName: "video.fill")
                             }.padding(8)
                         .background(Color("CourseCardSecondaryAccent"))
@@ -145,8 +161,6 @@ struct CourseCard: View {
 struct CourseCard_Previews: PreviewProvider {
     static var previews: some View {
         
-        CourseCard(course: Course(
-            courseTitle: "Control Systems", courseCode: "ECE"
-            , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P3", weekDayRepeat: ["Tue"], meetLink: "www.google.com", tutorialExists: false, practicalExits: true, lectureExists: false))
+        CourseCard(course: Course(id: 1 , courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhaydharan", time: Date(), weekDayRepeat: ["Mon"], meetLink: "www.meet.google.com", lectureNumber: "L1", tutorialNumber: "T3", practicalNumber: "P9", isLecture: false, isTutorial: false, isPractical: true, tutorialExists: true, practicalExits: true, lectureExists: true))
     }
 }

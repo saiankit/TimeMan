@@ -13,13 +13,7 @@ var weekDaySymbols: [String] = ["Mon","Tue","Wed","Thu","Fri","Sat"]
 var longWeekDaySymbols : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 var mockCoursesList = [
-    Course(
-        courseTitle: "Digital Design", courseCode: "ECE"
-        , courseID: "F215", instructorName: "Prof. Sanjay Vidhyadharan", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P1", weekDayRepeat: ["Monday","Wednesday","Friday"], meetLink: "www.meet.google.com", tutorialExists: true, practicalExits: true, lectureExists: true),
-    Course(
-        courseTitle: "Control Systems", courseCode: "ECE"
-        , courseID: "F242", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "", weekDayRepeat: ["Tuesday"], meetLink: "www.meet.google.com", tutorialExists: true, practicalExits: false, lectureExists: true),
-    Course(
-        courseTitle: "Biology Laboratory", courseCode: "BIO"
-        , courseID: "F110", instructorName: "Alivelu Manga", time: Date(), lectureNumber: "L1", tutorialNumber: "T1", practicalNumber: "P10", weekDayRepeat: ["Monday"], meetLink: "www.meet.google.com", tutorialExists: false, practicalExits: true, lectureExists: false)
+    Course(id: 1 ,courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhaydharan", time: Date(), weekDayRepeat: ["Monday", "Wednesday", "Friday"], meetLink: "www.meet.google.com", lectureNumber: "L1", tutorialNumber: "T3", practicalNumber: "P9", isLecture: true, isTutorial: false, isPractical: false, tutorialExists: true, practicalExits: true, lectureExists: true),
+    Course(id : 2, courseTitle: "Srimad Bhagavad Gita", courseCode: "HSS", courseID: "F334", instructorName: "Dr. Aruna Lolla", time: Date(), weekDayRepeat: ["Monday", "Wednesday", "Friday"], meetLink: "www.meet.google.com", lectureNumber: "L1", tutorialNumber: "", practicalNumber: "", isLecture: true, isTutorial: false, isPractical: false, tutorialExists: false, practicalExits: false, lectureExists: true),
+    Course(id : 3, courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhaydharan", time: Date(), weekDayRepeat: ["Monday"], meetLink: "www.meet.google.com", lectureNumber: "L1", tutorialNumber: "T3", practicalNumber: "P9", isLecture: false, isTutorial: false, isPractical: true, tutorialExists: true, practicalExits: true, lectureExists: true),
 ]

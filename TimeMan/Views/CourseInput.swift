@@ -131,10 +131,29 @@ struct CourseInput: View {
             }
             Section {
                 Button(action:{
-                    let final = lectureRepeatWeek.weekDays.map { $0.name }
-                    let newCourse = Course(courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.lectureInstructorName, time: Date(), lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), weekDayRepeat: final, meetLink: viewModel.lectureMeetLink, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
-                      addCourse(course: newCourse)
-                    print(coursesList)
+                    let mappedLectureRepeatWeek = lectureRepeatWeek.weekDays.map { $0.name }
+                    let mappedTutorialRepeatWeek = tutorialRepeatWeek.weekDays.map { $0.name }
+                    let mappedPracticalRepeatWeek = practicalRepeatWeek.weekDays.map { $0.name }
+                    
+                    
+                    let newLecture = Course(id: ( coursesList.count + 1 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.lectureInstructorName, time: viewModel.lectureTime, weekDayRepeat: mappedLectureRepeatWeek, meetLink: viewModel.lectureMeetLink, lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), isLecture: true, isTutorial: false, isPractical: false, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
+                    
+                    let newTutorial = Course(id: ( coursesList.count + 2 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.tutorialInstructorName, time: viewModel.tutorialTime, weekDayRepeat: mappedTutorialRepeatWeek, meetLink: viewModel.tutorialMeetLink, lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), isLecture: false, isTutorial: true, isPractical: false, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
+                    
+                    let newPractical = Course(id: ( coursesList.count + 3 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.practicalInstructorName, time: viewModel.practicalTime, weekDayRepeat: mappedPracticalRepeatWeek, meetLink: viewModel.practicalMeetLink, lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), isLecture: false, isTutorial: false, isPractical: true, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
+                    
+                    if(isLectureExisting)
+                    {
+                        addCourse(course: newLecture)
+                    }
+                    if(isTutorialExisting)
+                    {
+                        addCourse(course: newTutorial)
+                    }
+                    if(isPracticalExisting)
+                    {
+                        addCourse(course: newPractical)
+                    }
                     self.isPresented.toggle()
                 }){
                 Text("Add Course")
