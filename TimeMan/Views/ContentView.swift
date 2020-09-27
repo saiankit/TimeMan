@@ -7,10 +7,11 @@
 //
 
 import SwiftUI
-
+import UserNotifications
 
 struct ContentView: View{
-    @State var calendarIndex = (Calendar.current.component(.weekday, from: Date()) - 2)
+    @State var alert = false
+    @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
     @State var isPresented = false
     @State var courseList = mockCoursesList
     var body: some View {
@@ -27,9 +28,41 @@ struct ContentView: View{
                     Spacer()
                     VStack(alignment: .leading){
                         HStack {
-                            Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 2) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")
+                            Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")
                                 .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
                             Spacer()
+                            Button(action: {
+                                
+                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (status, _) in
+                                    if status{
+                                        
+                                        let content = UNMutableNotificationContent()
+                                        content.title = "ECE F215"
+                                        content.body = "Lecture in 10 min"
+                                        
+                                        // this time interval represents the delay time of notification
+                                        // ie., the notification will be delivered after the delay.....
+                                        let date = Date(timeIntervalSinceNow: 5)
+                                        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+                                        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+                                        
+                                        let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
+                                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                                        
+                                        return
+                                    }
+                                    
+                                    self.alert.toggle()
+                                }
+                                
+                            }) {
+                                
+                                Text("Send Notification")
+                                
+                            }.alert(isPresented: $alert) {
+                                
+                                return Alert(title: Text("Please Enable Notification Access In Settings Pannel !!!"))
+                            }
                             Button(action: {
                                 self.isPresented.toggle()
                             }) {

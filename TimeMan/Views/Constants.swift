@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-var weekDaySymbols: [String] = ["Mon","Tue","Wed","Thu","Fri","Sat"]
+var weekDaySymbols: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
 
-var longWeekDaySymbols : [String] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+var longWeekDaySymbols : [String] = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 var mockCoursesList = [
     Course(id: 1 ,courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhaydharan", time: Date(), weekDayRepeat: ["Monday", "Wednesday", "Friday"], meetLink: "www.meet.google.com", lectureNumber: "L1", tutorialNumber: "T3", practicalNumber: "P9", isLecture: true, isTutorial: false, isPractical: false, tutorialExists: true, practicalExits: true, lectureExists: true),

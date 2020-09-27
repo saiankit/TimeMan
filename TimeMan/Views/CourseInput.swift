@@ -29,7 +29,7 @@ struct CourseInput: View {
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @State var isTutorialExisting : Bool = false
     @State var isPracticalExisting : Bool = false
-    @State var isLectureExisting: Bool = false
+    @State var isLectureExisting: Bool = true
     @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
