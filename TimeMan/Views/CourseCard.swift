@@ -44,36 +44,64 @@ struct Triple: View {
     }
 }
 
+struct CourseLink: View {
+    var course: Course
+    var body: some View {
+        if(course.isLecture)
+                          {
+            Text(course.lectureNumber ?? "L1")
+                              .font(.largeTitle)
+                              .fontWeight(.heavy)
+                          }
+                          else if(course.isTutorial)
+                          {
+                            Text(course.tutorialNumber ?? "T1")
+                              .font(.largeTitle)
+                              .fontWeight(.heavy)
+                          }
+                          else if(course.isPractical)
+                          {
+                            Text(course.practicalNumber ?? "P1")
+                              .font(.largeTitle)
+                              .fontWeight(.heavy)
+                          }
+    }
+}
+
+
+
+
+
 struct CourseNumbers: View {
     var course: Course
     var body: some View {
-        if(course.lectureExists && (course.tutorialExists && course.practicalExits) )
+        if(course.lectureExists && (course.tutorialExists && course.practicalExists) )
         {
-            Triple(ip1: course.lectureNumber, ip2: course.tutorialNumber, ip3: course.practicalNumber)
+            Triple(ip1: course.lectureNumber ?? "L1", ip2: course.tutorialNumber ?? "T1", ip3: course.practicalNumber ?? "P1")
         }
         else if(course.lectureExists && course.tutorialExists)
         {
-            Double(ip1: course.lectureNumber, ip2: course.tutorialNumber)
+            Double(ip1: course.lectureNumber ?? "L1", ip2: course.tutorialNumber ?? "T1")
         }
-        else if(course.lectureExists && course.practicalExits)
+        else if(course.lectureExists && course.practicalExists)
         {
-            Double(ip1: course.lectureNumber, ip2: course.practicalNumber)
+            Double(ip1: course.lectureNumber ?? "L1", ip2: course.practicalNumber ?? "P1")
         }
-        else if(course.tutorialExists && course.practicalExits)
+        else if(course.tutorialExists && course.practicalExists)
         {
-            Double(ip1: course.tutorialNumber, ip2: course.practicalNumber)
+            Double(ip1: course.tutorialNumber ?? "T1", ip2: course.practicalNumber ?? "P1")
         }
         else if(course.lectureExists)
         {
-            Single(input: course.lectureNumber)
+            Single(input: course.lectureNumber ?? "L1")
         }
         else if(course.tutorialExists)
         {
-            Single(input: course.tutorialNumber)
+            Single(input: course.tutorialNumber ?? "T1")
         }
-        else if(course.practicalExits)
+        else if(course.practicalExists)
         {
-            Single(input: course.practicalNumber)
+            Single(input: course.practicalNumber ?? "P1")
         }
     }
 }
@@ -97,50 +125,32 @@ struct CourseCard: View {
         VStack{
             HStack(alignment: .top){
                 VStack(alignment: .leading){
-                    Text(course.courseTitle)
+                    Text(course.courseTitle ?? "Course Title")
                         .font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
-                    Text(course.courseCode + "  " + course.courseID)
+                    Text(course.courseCode ?? "CCC" + "  " + course.courseID!)
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 10)
                     HStack {
-                        Text(course.instructorName)
+                        Text(course.instructorName ?? "Prof. Instructor")
                             .font(.system(size: 16, design: .rounded))
                     }
                 }
                 Spacer()
                 VStack {
-                    Text(getTime(time: course.time))
+                    Text(getTime(time: course.time ?? Date()))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {
-                        Link(destination: URL(string: course.meetLink)!, label: {
+                        Link(destination: URL(string: course.meetLink ?? "www.google.com")!, label: {
                             HStack{
-                                if(course.isLecture)
-                                {
-                                    Text(course.lectureNumber)
-                                    .font(.largeTitle)
-                                    .fontWeight(.heavy)
-                                }
-                                else if(course.isTutorial)
-                                {
-                                    Text(course.tutorialNumber)
-                                    .font(.largeTitle)
-                                    .fontWeight(.heavy)
-                                }
-                                else if(course.isPractical)
-                                {
-                                    Text(course.practicalNumber)
-                                    .font(.largeTitle)
-                                    .fontWeight(.heavy)
-                                }
+                                CourseLink(course: course)
                                 Image(systemName: "video.fill")
                             }.padding(8)
                         .background(Color("CourseCardSecondaryAccent"))
                         .cornerRadius(15)
                         })
-                    } else {
-                        // Fallback on earlier versions
                     }
+                    
                            
                 }
             }
@@ -154,14 +164,14 @@ struct CourseCard: View {
         }
         .padding(30)
         .background(Color("CourseCardPrimaryAccent"))
-            .foregroundColor(Color.white)
+        .foregroundColor(Color.white)
             .cornerRadius(20).padding(.bottom)
     }
 }
 
-struct CourseCard_Previews: PreviewProvider {
-    static var previews: some View {
-        
-        CourseCard(course: Course(id: 1 , courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhaydharan", time: Date(), weekDayRepeat: ["Mon"], meetLink: "https://meet.google.com/mgz-vjqy-gei", lectureNumber: "L1", tutorialNumber: "T3", practicalNumber: "P9", isLecture: false, isTutorial: false, isPractical: true, tutorialExists: true, practicalExits: true, lectureExists: true))
-    }
-}
+//struct CourseCard_Previews: PreviewProvider {
+//    static var previews: some View {
+//
+////        CourseCard(course: Course)
+//    }
+//}

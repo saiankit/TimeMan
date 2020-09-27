@@ -12,12 +12,9 @@ import UserNotifications
 struct ContentView: View{
     
     @Environment(\.managedObjectContext) var managedObjectContext
-  
-    
     @State var alert = false
     @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
     @State var isPresented = false
-    @State var courseList = mockCoursesList
     var body: some View {
         NavigationView{
             ZStack {
@@ -44,8 +41,8 @@ struct ContentView: View{
                                 .padding(.bottom,15)
                             }
                         }
-                        CoursesList(courses: $courseList, calendarIndex: $calendarIndex).sheet(isPresented: $isPresented){
-                            CourseInput(isPresented: $isPresented, coursesList: $courseList)
+                        CoursesList(calendarIndex: $calendarIndex).sheet(isPresented: $isPresented){
+                            CourseInput(isPresented: $isPresented)
                         }
                     }
                     .padding(30)

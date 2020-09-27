@@ -13,7 +13,7 @@ struct CourseInput: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @Binding var isPresented: Bool
-    @Binding var coursesList: [Course]
+//    @Binding var coursesList: [Course]
     private func getTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
@@ -22,10 +22,10 @@ struct CourseInput: View {
         hour = hour > 12 ? hour - 12 : hour
         return String(hour) + ":" + String(minute) + " " + timeType
     }
-    private func addCourse(course: Course)
-    {
-        coursesList.append(course)
-    }
+//    private func addCourse(course: Course)
+//    {
+//        coursesList.append(course)
+//    }
     var body: some View {
         NavigationView{
         Form{
@@ -110,58 +110,92 @@ struct CourseInput: View {
             }
             Section {
                 Button(action:{
-                    var fmappedLectureRepeatWeek = viewModel.lectureRepeatWeek.weekDays.map { $0.name }
-                    let mappedLectureRepeatWeek:Set<String>
-                    for rep in fmappedLectureRepeatWeek {
-                        mappedLectureRepeatWeek.insert(rep)
-                    }
+                    let fmappedLectureRepeatWeek = viewModel.lectureRepeatWeek.weekDays.map { $0.name }
+                    let mappedLectureRepeatWeek = Set(fmappedLectureRepeatWeek)
                     
-                    var fmappedTutorialRepeatWeek = viewModel.tutorialRepeatWeek.weekDays.map { $0.name }
-                    let mappedTutorialRepeatWeek:Set<String>
-                    for tut in fmappedTutorialRepeatWeek {
-                        mappedTutorialRepeatWeek.insert(tut)
-                    }
+                    let fmappedTutorialRepeatWeek = viewModel.tutorialRepeatWeek.weekDays.map { $0.name }
+                    let mappedTutorialRepeatWeek = Set(fmappedTutorialRepeatWeek)
+
                     
                     
-                    var fmappedPracticalRepeatWeek = viewModel.practicalRepeatWeek.weekDays.map { $0.name }
-                    let mappedPracticalRepeatWeek:Set<String>
-                    for pra in fmappedPracticalRepeatWeek {
-                        mappedPracticalRepeatWeek.insert(pra)
-                    }
-                    
-                    let newLecture = Course(context: self.managedObjectContext)
-                    newLecture.courseTitle = viewModel.courseTitle
-                    newLecture.courseID = viewModel.courseID
-                    newLecture.courseCode = viewModel.courseCode
-                    newLecture.instructorName = viewModel.lectureInstructorName
-                    newLecture.weekDayRepeat = mappedLectureRepeatWeek
-                    newLecture.meetLink = viewModel.generateLink(meetCode: viewModel.lectureMeetCode)
-                    newLecture.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
-                    newLecture.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
-                    newLecture.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
-                    newLecture.isLecture = true
-                    newLecture.isTutorial = false
-                    newLecture.isPractical = false
-                    newLecture.lectureExists = viewModel.isLectureExisting
-                    newLecture.tutorialExists = viewModel.isTutorialExisting
-                    newLecture.practicalExists = viewModel.isPracticalExisting
-                    
-                    
-                    let newTutorial = Course(id: ( coursesList.count + 2 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.tutorialInstructorName, time: viewModel.tutorialTime, weekDayRepeat: mappedTutorialRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.tutorialMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: false, isTutorial: true, isPractical: false, tutorialExists: viewModel.isTutorialExisting, practicalExits: viewModel.isPracticalExisting, lectureExists: viewModel.isLectureExisting,context: self.managedObjectContext)
-                    
-                    let newPractical = Course(id: ( coursesList.count + 3 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.practicalInstructorName, time: viewModel.practicalTime, weekDayRepeat: mappedPracticalRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.practicalMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: false, isTutorial: false, isPractical: true, tutorialExists: viewModel.isTutorialExisting, practicalExits: viewModel.isPracticalExisting, lectureExists: viewModel.isLectureExisting)
+                    let fmappedPracticalRepeatWeek = viewModel.practicalRepeatWeek.weekDays.map { $0.name }
+                    let mappedPracticalRepeatWeek = Set(fmappedPracticalRepeatWeek)
                     
                     if(viewModel.isLectureExisting)
                     {
-                        addCourse(course: newLecture)
+                        let newLecture = Course(context: self.managedObjectContext)
+                        newLecture.courseTitle = viewModel.courseTitle
+                        newLecture.courseID = viewModel.courseID
+                        newLecture.courseCode = viewModel.courseCode
+                        newLecture.instructorName = viewModel.lectureInstructorName
+                        newLecture.weekDayRepeat = mappedLectureRepeatWeek
+                        newLecture.meetLink = viewModel.generateLink(meetCode: viewModel.lectureMeetCode)
+                        newLecture.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
+                        newLecture.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+                        newLecture.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                        newLecture.isLecture = true
+                        newLecture.isTutorial = false
+                        newLecture.isPractical = false
+                        newLecture.lectureExists = viewModel.isLectureExisting
+                        newLecture.tutorialExists = viewModel.isTutorialExisting
+                        newLecture.practicalExists = viewModel.isPracticalExisting
+                        
+                        do {
+                            try self.managedObjectContext.save()
+                        } catch{
+                            print(error)
+                        }
+                        
+
                     }
                     if(viewModel.isTutorialExisting)
                     {
-                        addCourse(course: newTutorial)
+                        let newTutorial = Course(context: self.managedObjectContext)
+                        newTutorial.courseTitle = viewModel.courseTitle
+                        newTutorial.courseID = viewModel.courseID
+                        newTutorial.courseCode = viewModel.courseCode
+                        newTutorial.instructorName = viewModel.tutorialInstructorName
+                        newTutorial.weekDayRepeat = mappedTutorialRepeatWeek
+                        newTutorial.meetLink = viewModel.generateLink(meetCode: viewModel.tutorialMeetCode)
+                        newTutorial.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
+                        newTutorial.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+                        newTutorial.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                        newTutorial.isLecture = false
+                        newTutorial.isTutorial = true
+                        newTutorial.isPractical = false
+                        newTutorial.lectureExists = viewModel.isLectureExisting
+                        newTutorial.tutorialExists = viewModel.isTutorialExisting
+                        newTutorial.practicalExists = viewModel.isPracticalExisting
+                        
+                        do {
+                            try self.managedObjectContext.save()
+                        } catch{
+                            print(error)
+                        }
                     }
                     if(viewModel.isPracticalExisting)
                     {
-                        addCourse(course: newPractical)
+                        let newPractical = Course(context: self.managedObjectContext)
+                        newPractical.courseTitle = viewModel.courseTitle
+                        newPractical.courseID = viewModel.courseID
+                        newPractical.courseCode = viewModel.courseCode
+                        newPractical.instructorName = viewModel.practicalInstructorName
+                        newPractical.weekDayRepeat = mappedPracticalRepeatWeek
+                        newPractical.meetLink = viewModel.generateLink(meetCode: viewModel.practicalMeetCode)
+                        newPractical.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
+                        newPractical.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+                        newPractical.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                        newPractical.isLecture = false
+                        newPractical.isTutorial = false
+                        newPractical.isPractical = true
+                        newPractical.lectureExists = viewModel.isLectureExisting
+                        newPractical.tutorialExists = viewModel.isTutorialExisting
+                        newPractical.practicalExists = viewModel.isPracticalExisting
+                        do {
+                                                  try self.managedObjectContext.save()
+                                              } catch{
+                                                  print(error)
+                                              }
                     }
                     self.isPresented.toggle()
                 }){
