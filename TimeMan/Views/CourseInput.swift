@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct CourseInput: View {
-   
+    @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @Binding var isPresented: Bool
     @Binding var coursesList: [Course]
@@ -110,14 +110,44 @@ struct CourseInput: View {
             }
             Section {
                 Button(action:{
-                    let mappedLectureRepeatWeek = viewModel.lectureRepeatWeek.weekDays.map { $0.name }
-                    let mappedTutorialRepeatWeek = viewModel.tutorialRepeatWeek.weekDays.map { $0.name }
-                    let mappedPracticalRepeatWeek = viewModel.practicalRepeatWeek.weekDays.map { $0.name }
+                    var fmappedLectureRepeatWeek = viewModel.lectureRepeatWeek.weekDays.map { $0.name }
+                    let mappedLectureRepeatWeek:Set<String>
+                    for rep in fmappedLectureRepeatWeek {
+                        mappedLectureRepeatWeek.insert(rep)
+                    }
+                    
+                    var fmappedTutorialRepeatWeek = viewModel.tutorialRepeatWeek.weekDays.map { $0.name }
+                    let mappedTutorialRepeatWeek:Set<String>
+                    for tut in fmappedTutorialRepeatWeek {
+                        mappedTutorialRepeatWeek.insert(tut)
+                    }
                     
                     
-                    let newLecture = Course(id: ( coursesList.count + 1 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.lectureInstructorName, time: viewModel.lectureTime, weekDayRepeat: mappedLectureRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.lectureMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: true, isTutorial: false, isPractical: false, tutorialExists: viewModel.isTutorialExisting, practicalExits: viewModel.isPracticalExisting, lectureExists: viewModel.isLectureExisting)
+                    var fmappedPracticalRepeatWeek = viewModel.practicalRepeatWeek.weekDays.map { $0.name }
+                    let mappedPracticalRepeatWeek:Set<String>
+                    for pra in fmappedPracticalRepeatWeek {
+                        mappedPracticalRepeatWeek.insert(pra)
+                    }
                     
-                    let newTutorial = Course(id: ( coursesList.count + 2 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.tutorialInstructorName, time: viewModel.tutorialTime, weekDayRepeat: mappedTutorialRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.tutorialMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: false, isTutorial: true, isPractical: false, tutorialExists: viewModel.isTutorialExisting, practicalExits: viewModel.isPracticalExisting, lectureExists: viewModel.isLectureExisting)
+                    let newLecture = Course(context: self.managedObjectContext)
+                    newLecture.courseTitle = viewModel.courseTitle
+                    newLecture.courseID = viewModel.courseID
+                    newLecture.courseCode = viewModel.courseCode
+                    newLecture.instructorName = viewModel.lectureInstructorName
+                    newLecture.weekDayRepeat = mappedLectureRepeatWeek
+                    newLecture.meetLink = viewModel.generateLink(meetCode: viewModel.lectureMeetCode)
+                    newLecture.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
+                    newLecture.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+                    newLecture.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                    newLecture.isLecture = true
+                    newLecture.isTutorial = false
+                    newLecture.isPractical = false
+                    newLecture.lectureExists = viewModel.isLectureExisting
+                    newLecture.tutorialExists = viewModel.isTutorialExisting
+                    newLecture.practicalExists = viewModel.isPracticalExisting
+                    
+                    
+                    let newTutorial = Course(id: ( coursesList.count + 2 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.tutorialInstructorName, time: viewModel.tutorialTime, weekDayRepeat: mappedTutorialRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.tutorialMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: false, isTutorial: true, isPractical: false, tutorialExists: viewModel.isTutorialExisting, practicalExits: viewModel.isPracticalExisting, lectureExists: viewModel.isLectureExisting,context: self.managedObjectContext)
                     
                     let newPractical = Course(id: ( coursesList.count + 3 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.practicalInstructorName, time: viewModel.practicalTime, weekDayRepeat: mappedPracticalRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.practicalMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: false, isTutorial: false, isPractical: true, tutorialExists: viewModel.isTutorialExisting, practicalExits: viewModel.isPracticalExisting, lectureExists: viewModel.isLectureExisting)
                     

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		6C04E3C0251A17A70018BD77 /* CourseInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C04E3BF251A17A70018BD77 /* CourseInput.swift */; };
-		6C14449C251DCBA300CFA2BF /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C14449B251DCBA300CFA2BF /* Course.swift */; };
 		6C1444A3251DE18500CFA2BF /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C1444A2251DE18500CFA2BF /* Header.swift */; };
 		6C16F6E5251904A10010857F /* CourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C16F6E4251904A10010857F /* CourseCard.swift */; };
 		6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B42519B7370023B4BD /* WeekScroll.swift */; };
@@ -18,6 +17,8 @@
 		6CB2C3E9251CAC1400D70E8A /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2C3E8251CAC1400D70E8A /* MultiSelectionView.swift */; };
 		6CD5FF75251B6E7E00DBB204 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */; };
 		6CE81F932520966D00E6D390 /* CoursesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE81F922520966D00E6D390 /* CoursesList.swift */; };
+		6CE81FA92520B6A100E6D390 /* Course+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE81FA72520B6A100E6D390 /* Course+CoreDataClass.swift */; };
+		6CE81FAA2520B6A100E6D390 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE81FA82520B6A100E6D390 /* Course+CoreDataProperties.swift */; };
 		6CF634162518B812005F022D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634152518B812005F022D /* AppDelegate.swift */; };
 		6CF634182518B812005F022D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634172518B812005F022D /* SceneDelegate.swift */; };
 		6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 6CF634192518B812005F022D /* TimeMan.xcdatamodeld */; };
@@ -29,7 +30,6 @@
 
 /* Begin PBXFileReference section */
 		6C04E3BF251A17A70018BD77 /* CourseInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInput.swift; sourceTree = "<group>"; };
-		6C14449B251DCBA300CFA2BF /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		6C1444A2251DE18500CFA2BF /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		6C16F6E4251904A10010857F /* CourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCard.swift; sourceTree = "<group>"; };
 		6C4589B42519B7370023B4BD /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
@@ -39,6 +39,8 @@
 		6CB2C3E8251CAC1400D70E8A /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
 		6CE81F922520966D00E6D390 /* CoursesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesList.swift; sourceTree = "<group>"; };
+		6CE81FA72520B6A100E6D390 /* Course+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataClass.swift"; sourceTree = "<group>"; };
+		6CE81FA82520B6A100E6D390 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6CF634122518B812005F022D /* TimeMan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeMan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CF634152518B812005F022D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CF634172518B812005F022D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -153,8 +155,9 @@
 		6CF634322518B9C7005F022D /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6CE81FA72520B6A100E6D390 /* Course+CoreDataClass.swift */,
+				6CE81FA82520B6A100E6D390 /* Course+CoreDataProperties.swift */,
 				6CF634192518B812005F022D /* TimeMan.xcdatamodeld */,
-				6C14449B251DCBA300CFA2BF /* Course.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -230,12 +233,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CE81FA92520B6A100E6D390 /* Course+CoreDataClass.swift in Sources */,
 				6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */,
 				6CF634162518B812005F022D /* AppDelegate.swift in Sources */,
 				6CB2C3E6251CAB4000D70E8A /* MultiSelector.swift in Sources */,
 				6CB2C3E9251CAC1400D70E8A /* MultiSelectionView.swift in Sources */,
-				6C14449C251DCBA300CFA2BF /* Course.swift in Sources */,
 				6CF6341D2518B812005F022D /* ContentView.swift in Sources */,
+				6CE81FAA2520B6A100E6D390 /* Course+CoreDataProperties.swift in Sources */,
 				6C04E3C0251A17A70018BD77 /* CourseInput.swift in Sources */,
 				6CE81F932520966D00E6D390 /* CoursesList.swift in Sources */,
 				6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */,

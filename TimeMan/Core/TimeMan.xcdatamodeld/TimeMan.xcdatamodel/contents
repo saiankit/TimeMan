@@ -1,4 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="false" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Course" representedClassName="Course" syncable="YES">
+        <attribute name="courseCode" optional="YES" attributeType="String"/>
+        <attribute name="courseID" optional="YES" attributeType="String"/>
+        <attribute name="courseTitle" optional="YES" attributeType="String"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="instructorName" optional="YES" attributeType="String"/>
+        <attribute name="isLecture" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isPractical" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="isTutorial" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lectureExists" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="lectureNumber" optional="YES" attributeType="String"/>
+        <attribute name="meetLink" optional="YES" attributeType="String"/>
+        <attribute name="practicalExists" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="practicalNumber" optional="YES" attributeType="String"/>
+        <attribute name="time" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="tutorialExists" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="tutorialNumber" optional="YES" attributeType="String"/>
+        <attribute name="weekDayRepeat" optional="YES" attributeType="Transformable" customClassName="Set&lt;String&gt;"/>
+    </entity>
+    <elements>
+        <element name="Course" positionX="-63" positionY="-18" width="128" height="298"/>
+    </elements>
 </model>

@@ -10,6 +10,10 @@ import SwiftUI
 import UserNotifications
 
 struct ContentView: View{
+    
+    @Environment(\.managedObjectContext) var managedObjectContext
+  
+    
     @State var alert = false
     @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
     @State var isPresented = false

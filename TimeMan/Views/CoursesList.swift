@@ -12,10 +12,11 @@ import SwiftUI
 struct CoursesList: View {
     @Binding var courses: [Course]
     @Binding var calendarIndex: Int
-
+    @FetchRequest(fetchRequest: Course.getAllCourseItems()) var courseItemsList: FetchedResults<Course>
+    
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
        let weekDayName = longWeekDaySymbols[index]
-       let mapped = course.weekDayRepeat.map{ $0 == weekDayName }
+        let mapped = course.weekDayRepeat.map{ $0 == weekDayName }
        for mappedCourse in mapped {
            if(mappedCourse == true)
            {
