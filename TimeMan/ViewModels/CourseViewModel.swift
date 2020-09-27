@@ -7,8 +7,30 @@
 //
 
 import Foundation
+struct WeekDayName: Hashable, Identifiable {
+    var name: String
+    var id: String { name }
+}
+
+struct ClassTypeRepeat {
+    var name: String
+    var weekDays: Set<WeekDayName>
+}
+
 class CourseViewModel: ObservableObject {
+    let weekDays : [WeekDayName] = [
+        WeekDayName(name: "Monday"),
+        WeekDayName(name: "Tuesday"),
+        WeekDayName(name: "Wednesday"),
+        WeekDayName(name: "Thursday"),
+        WeekDayName(name: "Friday"),
+        WeekDayName(name: "Saturday")
+    ]
     //Input
+    
+    @Published var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
+    @Published var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
+    @Published var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     
     @Published var courseTitle : String = ""
     @Published var courseCode : String = ""
@@ -18,17 +40,35 @@ class CourseViewModel: ObservableObject {
     @Published var lectureInstructorName : String = ""
     @Published var lectureNumber : Int = 1
     @Published var lectureTime = Date()
-    @Published var lectureMeetLink: String = ""
-    
+    @Published var lectureMeetCode: String = ""
     
     @Published var tutorialInstructorName : String = ""
     @Published var tutorialNumber : Int = 1
     @Published var tutorialTime = Date()
-    @Published var tutorialMeetLink: String = ""
+    @Published var tutorialMeetCode: String = ""
     
     
     @Published var practicalInstructorName : String = ""
     @Published var practicalNumber : Int = 1
     @Published var practicalTime = Date()
-    @Published var practicalMeetLink: String = ""
+    @Published var practicalMeetCode: String = ""
+    
+    
+    func generateLink(meetCode: String) -> String {
+        let linkPreccedence = "https://meet.google.com/"
+        return linkPreccedence + meetCode
+    }
+    
+    func generateLectureNumber( lectureNumber: Int) -> String {
+        return "L" + String(lectureNumber)
+    }
+    
+    func generateTutorialNumber( tutorialNumber: Int) -> String {
+        return "T" + String(tutorialNumber)
+    }
+    
+    func generatePracticalNumber( practicalNumber: Int) -> String {
+        return "P" + String(practicalNumber)
+    }
+    
 }

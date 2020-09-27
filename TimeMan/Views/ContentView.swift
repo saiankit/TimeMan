@@ -29,40 +29,8 @@ struct ContentView: View{
                     VStack(alignment: .leading){
                         HStack {
                             Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")
-                                .font(.system(size: 24, weight: .bold, design: .rounded)).padding(.bottom,15)
+                                .font(.system(size: 20, weight: .bold, design: .rounded)).padding(.bottom,15)
                             Spacer()
-                            Button(action: {
-                                
-                                UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (status, _) in
-                                    if status{
-                                        
-                                        let content = UNMutableNotificationContent()
-                                        content.title = "ECE F215"
-                                        content.body = "Lecture in 10 min"
-                                        
-                                        // this time interval represents the delay time of notification
-                                        // ie., the notification will be delivered after the delay.....
-                                        let date = Date(timeIntervalSinceNow: 5)
-                                        let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
-                                        let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-                                        
-                                        let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
-                                        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-                                        
-                                        return
-                                    }
-                                    
-                                    self.alert.toggle()
-                                }
-                                
-                            }) {
-                                
-                                Text("Send Notification")
-                                
-                            }.alert(isPresented: $alert) {
-                                
-                                return Alert(title: Text("Please Enable Notification Access In Settings Pannel !!!"))
-                            }
                             Button(action: {
                                 self.isPresented.toggle()
                             }) {
@@ -97,41 +65,37 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 
-struct CoursesList: View {
-    @Binding var courses: [Course]
-    @Binding var calendarIndex: Int
 
-    func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
-       let weekDayName = longWeekDaySymbols[index]
-       let mapped = course.weekDayRepeat.map{ $0 == weekDayName }
-       for mappedCourse in mapped {
-           if(mappedCourse == true)
-           {
-               return true
-           }
-        }
-       return false
-       }
-    var body: some View{
-        ScrollView(.vertical,showsIndicators: false){
-            if #available(iOS 14.0, *) {
-                LazyVStack(alignment: .leading){
-                    
-                    ForEach(courses, id: \.id) {
-                        if(shouldCourseBeIncluded(course: $0, index: self.calendarIndex))
-                        {
-                            CourseCard(course: $0)
-                        }
-                        
-                    }
-                }
-            } else {
-                VStack(alignment: .leading){
-                    ForEach(courses, id: \.id) {
-                      CourseCard(course: $0)
-                    }
-                }
-            }
-        }
-}
-}
+
+//Button(action: {
+//
+//    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (status, _) in
+//        if status{
+//
+//            let content = UNMutableNotificationContent()
+//            content.title = "ECE F215"
+//            content.body = "Lecture in 10 min"
+//
+//            // this time interval represents the delay time of notification
+//            // ie., the notification will be delivered after the delay.....
+//            let date = Date(timeIntervalSinceNow: 5)
+//            let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
+//            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+//
+//            let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
+//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+//
+//            return
+//        }
+//
+//        self.alert.toggle()
+//    }
+//
+//}) {
+//
+//    Text("Send Notification")
+//
+//}.alert(isPresented: $alert) {
+//
+//    return Alert(title: Text("Please Enable Notification Access In Settings Pannel !!!"))
+//}

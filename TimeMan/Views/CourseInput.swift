@@ -7,32 +7,14 @@
 //
 
 import SwiftUI
-struct WeekDayName: Hashable, Identifiable {
-    var name: String
-    var id: String { name }
-}
 
-struct ClassTypeRepeat {
-    var name: String
-    var weekDays: Set<WeekDayName>
-}
 
 struct CourseInput: View {
-    let weekDays : [WeekDayName] = [
-        WeekDayName(name: "Monday"),
-        WeekDayName(name: "Tuesday"),
-        WeekDayName(name: "Wednesday"),
-        WeekDayName(name: "Thursday"),
-        WeekDayName(name: "Friday"),
-        WeekDayName(name: "Saturday")
-    ]
+   
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @State var isTutorialExisting : Bool = false
     @State var isPracticalExisting : Bool = false
     @State var isLectureExisting: Bool = true
-    @State var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
-    @State var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
-    @State var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @Binding var isPresented: Bool
     @Binding var coursesList: [Course]
     private func getTime(time : Date) -> String {
@@ -71,12 +53,12 @@ struct CourseInput: View {
                     Text("L" + String(viewModel.lectureNumber))
                 }
                 DatePicker("Lecture Time", selection: $viewModel.lectureTime, displayedComponents: .hourAndMinute)
-                TextField("Lecture Meet Link", text: $viewModel.lectureMeetLink)
+                TextField("Lecture Meet Code", text: $viewModel.lectureMeetCode)
                 MultiSelector(
                     label: Text("WeekDay Repeat"),
-                    options: weekDays,
+                    options: viewModel.weekDays,
                     optionToString: { $0.name },
-                    selected: $lectureRepeatWeek.weekDays
+                    selected: $viewModel.lectureRepeatWeek.weekDays
                 )
             }
             }
@@ -95,12 +77,12 @@ struct CourseInput: View {
                         Text("T" + String(viewModel.tutorialNumber))
                                   }
                     DatePicker("Tutorial Time", selection: $viewModel.tutorialTime, displayedComponents: .hourAndMinute)
-                    TextField("Tutorial Meet Link", text: $viewModel.tutorialMeetLink)
+                    TextField("Tutorial Meet Code", text: $viewModel.tutorialMeetCode)
                     MultiSelector(
                         label: Text("WeekDay Repeat"),
-                        options: weekDays,
+                        options: viewModel.weekDays,
                         optionToString: { $0.name },
-                        selected: $tutorialRepeatWeek.weekDays
+                        selected: $viewModel.tutorialRepeatWeek.weekDays
                     )
                     
                 }
@@ -120,27 +102,27 @@ struct CourseInput: View {
                         Text("P" + String(viewModel.practicalNumber))
                                   }
                     DatePicker("Practical Time", selection: $viewModel.practicalTime, displayedComponents: .hourAndMinute)
-                    TextField("Practical Meet Link", text: $viewModel.practicalMeetLink)
+                    TextField("Practical Meet Code", text: $viewModel.practicalMeetCode)
                     MultiSelector(
                         label: Text("WeekDay Repeat"),
-                        options: weekDays,
+                        options: viewModel.weekDays,
                         optionToString: { $0.name },
-                        selected: $practicalRepeatWeek.weekDays
+                        selected: $viewModel.practicalRepeatWeek.weekDays
                     )
                 }
             }
             Section {
                 Button(action:{
-                    let mappedLectureRepeatWeek = lectureRepeatWeek.weekDays.map { $0.name }
-                    let mappedTutorialRepeatWeek = tutorialRepeatWeek.weekDays.map { $0.name }
-                    let mappedPracticalRepeatWeek = practicalRepeatWeek.weekDays.map { $0.name }
+                    let mappedLectureRepeatWeek = viewModel.lectureRepeatWeek.weekDays.map { $0.name }
+                    let mappedTutorialRepeatWeek = viewModel.tutorialRepeatWeek.weekDays.map { $0.name }
+                    let mappedPracticalRepeatWeek = viewModel.practicalRepeatWeek.weekDays.map { $0.name }
                     
                     
-                    let newLecture = Course(id: ( coursesList.count + 1 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.lectureInstructorName, time: viewModel.lectureTime, weekDayRepeat: mappedLectureRepeatWeek, meetLink: viewModel.lectureMeetLink, lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), isLecture: true, isTutorial: false, isPractical: false, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
+                    let newLecture = Course(id: ( coursesList.count + 1 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.lectureInstructorName, time: viewModel.lectureTime, weekDayRepeat: mappedLectureRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.lectureMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: true, isTutorial: false, isPractical: false, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
                     
-                    let newTutorial = Course(id: ( coursesList.count + 2 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.tutorialInstructorName, time: viewModel.tutorialTime, weekDayRepeat: mappedTutorialRepeatWeek, meetLink: viewModel.tutorialMeetLink, lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), isLecture: false, isTutorial: true, isPractical: false, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
+                    let newTutorial = Course(id: ( coursesList.count + 2 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.tutorialInstructorName, time: viewModel.tutorialTime, weekDayRepeat: mappedTutorialRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.tutorialMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: false, isTutorial: true, isPractical: false, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
                     
-                    let newPractical = Course(id: ( coursesList.count + 3 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.practicalInstructorName, time: viewModel.practicalTime, weekDayRepeat: mappedPracticalRepeatWeek, meetLink: viewModel.practicalMeetLink, lectureNumber: "L" + String(viewModel.lectureNumber), tutorialNumber: "T" + String(viewModel.tutorialNumber), practicalNumber: " P" + String(viewModel.practicalNumber), isLecture: false, isTutorial: false, isPractical: true, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
+                    let newPractical = Course(id: ( coursesList.count + 3 ) ,courseTitle: viewModel.courseTitle, courseCode: viewModel.courseCode, courseID: viewModel.courseID, instructorName: viewModel.practicalInstructorName, time: viewModel.practicalTime, weekDayRepeat: mappedPracticalRepeatWeek, meetLink: viewModel.generateLink(meetCode: viewModel.practicalMeetCode), lectureNumber: viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), tutorialNumber: viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), practicalNumber: viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), isLecture: false, isTutorial: false, isPractical: true, tutorialExists: isTutorialExisting, practicalExits: isPracticalExisting, lectureExists: isLectureExisting)
                     
                     if(isLectureExisting)
                     {

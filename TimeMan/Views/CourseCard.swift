@@ -161,6 +161,6 @@ struct CourseCard: View {
 struct CourseCard_Previews: PreviewProvider {
     static var previews: some View {
         
-        CourseCard(course: Course(id: 1 , courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhaydharan", time: Date(), weekDayRepeat: ["Mon"], meetLink: "www.meet.google.com", lectureNumber: "L1", tutorialNumber: "T3", practicalNumber: "P9", isLecture: false, isTutorial: false, isPractical: true, tutorialExists: true, practicalExits: true, lectureExists: true))
+        CourseCard(course: Course(id: 1 , courseTitle: "Digital Design", courseCode: "ECE", courseID: "F215", instructorName: "Prof. Sanjay Vidhaydharan", time: Date(), weekDayRepeat: ["Mon"], meetLink: "https://meet.google.com/mgz-vjqy-gei", lectureNumber: "L1", tutorialNumber: "T3", practicalNumber: "P9", isLecture: false, isTutorial: false, isPractical: true, tutorialExists: true, practicalExits: true, lectureExists: true))
     }
 }
