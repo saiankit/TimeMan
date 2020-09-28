@@ -35,12 +35,6 @@ struct CoursesList: View {
                         
                     }
                 }
-            } else {
-                VStack(alignment: .leading){
-                    ForEach(self.courseItemsList) {
-                      CourseCard(course: $0)
-                    }
-                }
             }
         }
 }
