@@ -23,10 +23,176 @@ struct CourseInput: View {
         hour = hour > 12 ? hour - 12 : hour
         return String(hour) + ":" + String(minute) + " " + timeType
     }
-//    private func addCourse(course: Course)
-//    {
-//        coursesList.append(course)
-//    }
+    
+    
+    func addLectureToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, lectureRepeat: Set<String>)
+    {
+        
+        let lowerremapped = lectureRepeat.map { $0.lowercased()}
+        var finalArr: [EKRecurrenceDayOfWeek] = []
+        for e in lowerremapped {
+            switch e {
+            case "monday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.monday))
+            case "tuesday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.tuesday))
+            case "wednesday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.wednesday))
+            case "thursday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.thursday))
+            case "friday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.friday))
+            case "saturday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.saturday))
+            default:
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.sunday))
+            }
+        }
+
+        let event: EKEvent = EKEvent(eventStore: eventStore)
+        event.title = viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
+        event.startDate = viewModel.lectureTime
+        event.endDate = viewModel.lectureTime.addingTimeInterval(3000)
+        event.notes = viewModel.courseTitle + " :" + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+        
+        let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
+            interval: 1,
+            daysOfTheWeek: finalArr,
+            daysOfTheMonth: nil,
+            monthsOfTheYear: nil,
+            weeksOfTheYear: nil,
+            daysOfTheYear: nil,
+            setPositions: nil,
+            end: EKRecurrenceEnd.init(occurrenceCount: 10))
+
+          event.recurrenceRules = [recurrenceRule]
+        
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        do {
+            try eventStore.save(event, span: .thisEvent)
+        } catch let error as NSError{
+            print("error : \(error)")
+        }
+        print("Event Added")
+        
+    }
+    
+    
+    
+    
+    func addTutorialToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, tutorialRepeat: Set<String>)
+    {
+        
+        let lower = tutorialRepeat.map { $0.lowercased()}
+        var finalArr: [EKRecurrenceDayOfWeek] = []
+        for e in lower {
+            switch e {
+            case "monday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.monday))
+            case "tuesday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.tuesday))
+            case "wednesday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.wednesday))
+            case "thursday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.thursday))
+            case "friday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.friday))
+            case "saturday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.saturday))
+            default:
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.sunday))
+            }
+        }
+
+        let event: EKEvent = EKEvent(eventStore: eventStore)
+        event.title = viewModel.courseTitle + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+        event.startDate = viewModel.tutorialTime
+        event.endDate = viewModel.tutorialTime.addingTimeInterval(3000)
+        event.notes = viewModel.courseTitle + " :" + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+        
+        let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
+            interval: 1,
+            daysOfTheWeek: finalArr,
+            daysOfTheMonth: nil,
+            monthsOfTheYear: nil,
+            weeksOfTheYear: nil,
+            daysOfTheYear: nil,
+            setPositions: nil,
+            end: EKRecurrenceEnd.init(occurrenceCount: 10))
+
+          event.recurrenceRules = [recurrenceRule]
+        
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        do {
+            try eventStore.save(event, span: .thisEvent)
+        } catch let error as NSError{
+            print("error : \(error)")
+        }
+        print("Event Added")
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    func addPracticalToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, practicalRepeat: Set<String>)
+    {
+        
+        let lowerremapped = practicalRepeat.map { $0.lowercased()}
+        var finalArr: [EKRecurrenceDayOfWeek] = []
+        for e in lowerremapped {
+            switch e {
+            case "monday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.monday))
+            case "tuesday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.tuesday))
+            case "wednesday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.wednesday))
+            case "thursday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.thursday))
+            case "friday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.friday))
+            case "saturday":
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.saturday))
+            default:
+                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.sunday))
+            }
+        }
+
+        let event: EKEvent = EKEvent(eventStore: eventStore)
+        event.title = viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+        event.startDate = viewModel.practicalTime
+        event.endDate = viewModel.practicalTime.addingTimeInterval(3000)
+        event.notes = viewModel.courseTitle + " :" + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+        
+        let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
+            interval: 1,
+            daysOfTheWeek: finalArr,
+            daysOfTheMonth: nil,
+            monthsOfTheYear: nil,
+            weeksOfTheYear: nil,
+            daysOfTheYear: nil,
+            setPositions: nil,
+            end: EKRecurrenceEnd.init(occurrenceCount: 10))
+
+          event.recurrenceRules = [recurrenceRule]
+        
+        event.calendar = eventStore.defaultCalendarForNewEvents
+        do {
+            try eventStore.save(event, span: .thisEvent)
+        } catch let error as NSError{
+            print("error : \(error)")
+        }
+        print("Event Added")
+        
+    }
+    
+
+    
     var body: some View {
         NavigationView{
         Form{
@@ -147,7 +313,21 @@ struct CourseInput: View {
                         } catch{
                             print(error)
                         }
-                        
+                        let eventStore: EKEventStore = EKEventStore()
+                        eventStore.requestAccess(to: .event, completion: {
+                            (granted,error) in
+                            
+                            if (granted) && (error == nil)
+                            {
+                                print("Access Granted")
+                                addLectureToCalendar(viewModel: viewModel, eventStore: eventStore, lectureRepeat: mappedLectureRepeatWeek)
+                            
+                            }
+                            else
+                            {
+                                print("error : \(String(describing: error))")
+                            }
+                        })
 
                     }
                     if(viewModel.isTutorialExisting)
@@ -175,6 +355,21 @@ struct CourseInput: View {
                         } catch{
                             print(error)
                         }
+                        let eventStore: EKEventStore = EKEventStore()
+                        eventStore.requestAccess(to: .event, completion: {
+                            (granted,error) in
+                            
+                            if (granted) && (error == nil)
+                            {
+                                print("Access Granted")
+                                addTutorialToCalendar(viewModel: viewModel, eventStore: eventStore, tutorialRepeat: mappedTutorialRepeatWeek)
+                            
+                            }
+                            else
+                            {
+                                print("error : \(String(describing: error))")
+                            }
+                        })
                     }
                     if(viewModel.isPracticalExisting)
                     {
@@ -200,40 +395,24 @@ struct CourseInput: View {
                                               } catch{
                                                   print(error)
                                               }
+                        let eventStore: EKEventStore = EKEventStore()
+                        eventStore.requestAccess(to: .event, completion: {
+                            (granted,error) in
+                            
+                            if (granted) && (error == nil)
+                            {
+                                print("Access Granted")
+                                addPracticalToCalendar(viewModel: viewModel, eventStore: eventStore, practicalRepeat: mappedPracticalRepeatWeek)
+                            
+                            }
+                            else
+                            {
+                                print("error : \(String(describing: error))")
+                            }
+                        })
                     }
                     
-                    
-                    let eventStore: EKEventStore = EKEventStore()
-                    eventStore.requestAccess(to: .event, completion: {
-                        (granted,error) in
-                        
-                        if (granted) && (error == nil)
-                        {
-                            print("Access Granted")
-                        
-                            let event: EKEvent = EKEvent(eventStore: eventStore)
-                            event.title = viewModel.courseTitle + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
-                            event.startDate = Date()
-                            event.endDate = Date()
-                            event.calendar = eventStore.defaultCalendarForNewEvents
-                            do {
-                                try eventStore.save(event, span: .thisEvent)
-                            } catch let error as NSError{
-                                print("error : \(error)")
-                            }
-                            print("Event Added")
-                        }
-                        else
-                        {
-                            print("error : \(error)")
-                        }
-                    })
-                    
-                    
-                    
-                    
-                    
-                    
+                   
                     
                     self.isPresented.toggle()
                 }){
