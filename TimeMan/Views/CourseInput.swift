@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import EventKit
 
 
 struct CourseInput: View {
@@ -200,6 +201,40 @@ struct CourseInput: View {
                                                   print(error)
                                               }
                     }
+                    
+                    
+                    let eventStore: EKEventStore = EKEventStore()
+                    eventStore.requestAccess(to: .event, completion: {
+                        (granted,error) in
+                        
+                        if (granted) && (error == nil)
+                        {
+                            print("Access Granted")
+                        
+                            let event: EKEvent = EKEvent(eventStore: eventStore)
+                            event.title = viewModel.courseTitle + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
+                            event.startDate = Date()
+                            event.endDate = Date()
+                            event.calendar = eventStore.defaultCalendarForNewEvents
+                            do {
+                                try eventStore.save(event, span: .thisEvent)
+                            } catch let error as NSError{
+                                print("error : \(error)")
+                            }
+                            print("Event Added")
+                        }
+                        else
+                        {
+                            print("error : \(error)")
+                        }
+                    })
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     self.isPresented.toggle()
                 }){
                 Text("Add Course")
