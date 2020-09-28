@@ -139,6 +139,7 @@ struct CourseInput: View {
                         newLecture.lectureExists = viewModel.isLectureExisting
                         newLecture.tutorialExists = viewModel.isTutorialExisting
                         newLecture.practicalExists = viewModel.isPracticalExisting
+                        newLecture.time = viewModel.lectureTime
                         
                         do {
                             try self.managedObjectContext.save()
@@ -166,6 +167,7 @@ struct CourseInput: View {
                         newTutorial.lectureExists = viewModel.isLectureExisting
                         newTutorial.tutorialExists = viewModel.isTutorialExisting
                         newTutorial.practicalExists = viewModel.isPracticalExisting
+                        newTutorial.time = viewModel.tutorialTime
                         
                         do {
                             try self.managedObjectContext.save()
@@ -191,6 +193,7 @@ struct CourseInput: View {
                         newPractical.lectureExists = viewModel.isLectureExisting
                         newPractical.tutorialExists = viewModel.isTutorialExisting
                         newPractical.practicalExists = viewModel.isPracticalExisting
+                        newPractical.time = viewModel.practicalTime
                         do {
                                                   try self.managedObjectContext.save()
                                               } catch{

@@ -17,18 +17,17 @@ struct CoursesList: View {
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
-        if((converted?.contains(weekDayName)) != nil)
-        {
+        if(converted!.contains(weekDayName)){
             return true
         }
-       return false
+        return false
        }
     var body: some View{
         ScrollView(.vertical,showsIndicators: false){
             if #available(iOS 14.0, *) {
                 LazyVStack(alignment: .leading){
                     
-                    ForEach(courseItemsList, id: \.id) {
+                    ForEach(self.courseItemsList, id: \.self) {
                         if(shouldCourseBeIncluded(course: $0, index: self.calendarIndex))
                         {
                             CourseCard(course: $0)
@@ -38,7 +37,7 @@ struct CoursesList: View {
                 }
             } else {
                 VStack(alignment: .leading){
-                    ForEach(courseItemsList, id: \.id) {
+                    ForEach(self.courseItemsList) {
                       CourseCard(course: $0)
                     }
                 }
