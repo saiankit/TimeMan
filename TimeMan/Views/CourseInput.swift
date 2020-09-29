@@ -16,14 +16,7 @@ struct CourseInput: View {
     @Binding var isPresented: Bool
     let appleEvents = AppleEvents()
     let notificationManager = LocalNotificationManager()
-    private func getTime(time : Date) -> String {
-        var timeType: String = "AM"
-        var hour: Int = (Calendar.current.component(.hour, from: time))
-        let minute: Int = (Calendar.current.component(.minute, from: time))
-        timeType = hour >= 12 ? "PM" : "AM"
-        hour = hour > 12 ? hour - 12 : hour
-        return String(hour) + ":" + String(minute) + " " + timeType
-    }
+
     
     var body: some View {
         NavigationView{
@@ -60,9 +53,8 @@ struct CourseInput: View {
                         Text("Enable Lecture Notifications")
                     }
                     
+                }
             }
-            }
-            
             
             // MARK: - Tutorial
             Toggle(isOn: $viewModel.isTutorialExisting)
@@ -90,7 +82,6 @@ struct CourseInput: View {
                     
                 }
             }
-            
             
             // MARK: - Practical
             Toggle(isOn: $viewModel.isPracticalExisting)
@@ -211,10 +202,10 @@ struct CourseInput: View {
                         newPractical.practicalExists = viewModel.isPracticalExisting
                         newPractical.time = viewModel.practicalTime
                         do {
-                                                  try self.managedObjectContext.save()
-                                              } catch{
-                                                  print(error)
-                                              }
+                            try self.managedObjectContext.save()
+                                } catch{
+                                    print(error)
+                            }
                         appleEvents.addPractical(practicalRepeat: mappedPracticalRepeatWeek)
                         if(viewModel.isPracticalNotificationsEnabled){
                             let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
@@ -231,9 +222,4 @@ struct CourseInput: View {
         }
     }
     
-}
-struct CourseInput_Previews: PreviewProvider {
-    static var previews: some View {
-        Text("Hello")
-    }
 }

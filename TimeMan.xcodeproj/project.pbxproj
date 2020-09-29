@@ -147,8 +147,8 @@
 			children = (
 				6C4589B62519B7680023B4BD /* Components */,
 				6CF6341C2518B812005F022D /* ContentView.swift */,
-				6C4589B42519B7370023B4BD /* WeekScroll.swift */,
 				6C16F6E4251904A10010857F /* CourseCard.swift */,
+				6C4589B42519B7370023B4BD /* WeekScroll.swift */,
 				6C04E3BF251A17A70018BD77 /* CourseInput.swift */,
 				6CE81F922520966D00E6D390 /* CoursesList.swift */,
 			);
