@@ -24,7 +24,7 @@ class LocalNotificationManager {
         }
     }
     
-    func scheduleNotification(title: String, subtitle: String, body: String, badge: Int?, time: Date, weekRepeat: Set<String>){
+    func scheduleNotification(title: String, subtitle: String, body: String, time: Date, weekRepeat: Set<String>){
         self.registerNotifications()
         let content = UNMutableNotificationContent()
         content.title = title

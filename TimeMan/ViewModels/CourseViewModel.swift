@@ -45,7 +45,7 @@ class CourseViewModel: ObservableObject {
     @Published var lectureMeetCode: String = ""
     @Published var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @Published var isLectureExisting: Bool = true
-    
+    @Published var isLectureNotificationsEnabled: Bool = false
     func generateLectureNumber( lectureNumber: Int) -> String {
         return "L" + String(lectureNumber)
     }
@@ -57,6 +57,7 @@ class CourseViewModel: ObservableObject {
     @Published var tutorialMeetCode: String = ""
     @Published var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @Published var isTutorialExisting : Bool = false
+    @Published var isTutorialNotificationsEnabled: Bool = false
     
     func generateTutorialNumber( tutorialNumber: Int) -> String {
         return "T" + String(tutorialNumber)
@@ -69,7 +70,7 @@ class CourseViewModel: ObservableObject {
     @Published var practicalMeetCode: String = ""
     @Published var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
     @Published var isPracticalExisting : Bool = false
-
+    @Published var isPracticalNotificationsEnabled: Bool = false
     func generatePracticalNumber( practicalNumber: Int) -> String {
         return "P" + String(practicalNumber)
     }
