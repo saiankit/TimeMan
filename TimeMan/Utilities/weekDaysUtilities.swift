@@ -10,6 +10,7 @@ import Foundation
 import EventKit
 
 class WeekDayUtilities{
+    
     func mapToWeekDays(weekDaySet: Set<String>) -> [Int] {
         
         let lowerreMappedSet = weekDaySet.map { $0.lowercased() }

@@ -11,7 +11,6 @@ import SwiftUI
 
 struct CoursesList: View {
     @Binding var calendarIndex: Int
-//    @FetchRequest(fetchRequest: Course.fetchRequest()) var courseItemsList: FetchedResults<Course>
     @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var courseItemsList: FetchedResults<Course>
     
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
@@ -22,6 +21,7 @@ struct CoursesList: View {
         }
         return false
        }
+    
     var body: some View{
         ScrollView(.vertical,showsIndicators: false){
             if #available(iOS 14.0, *) {
