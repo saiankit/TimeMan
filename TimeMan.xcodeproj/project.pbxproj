@@ -13,6 +13,8 @@
 		6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B42519B7370023B4BD /* WeekScroll.swift */; };
 		6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B72519B7A70023B4BD /* CalendarItem.swift */; };
 		6C4589BC2519F75D0023B4BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589BB2519F75D0023B4BD /* Constants.swift */; };
+		6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */; };
+		6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */; };
 		6CB2C3E6251CAB4000D70E8A /* MultiSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2C3E5251CAB4000D70E8A /* MultiSelector.swift */; };
 		6CB2C3E9251CAC1400D70E8A /* MultiSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB2C3E8251CAC1400D70E8A /* MultiSelectionView.swift */; };
 		6CD5FF75251B6E7E00DBB204 /* CourseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */; };
@@ -35,6 +37,8 @@
 		6C4589B42519B7370023B4BD /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		6C4589B72519B7A70023B4BD /* CalendarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
 		6C4589BB2519F75D0023B4BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
+		6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekDaysUtilities.swift; sourceTree = "<group>"; };
 		6CB2C3E5251CAB4000D70E8A /* MultiSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelector.swift; sourceTree = "<group>"; };
 		6CB2C3E8251CAC1400D70E8A /* MultiSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiSelectionView.swift; sourceTree = "<group>"; };
 		6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseViewModel.swift; sourceTree = "<group>"; };
@@ -82,6 +86,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		6CABB8D0253EB09900024525 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		6CD5FF73251B6E6700DBB204 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,12 +121,14 @@
 		6CF634142518B812005F022D /* TimeMan */ = {
 			isa = PBXGroup;
 			children = (
+				6CABB8D0253EB09900024525 /* Utilities */,
 				6CD5FF73251B6E6700DBB204 /* ViewModels */,
 				6CF634322518B9C7005F022D /* Core */,
 				6CF634312518B9AD005F022D /* App */,
 				6CF6342F2518B97C005F022D /* Views */,
 				6CF6341E2518B815005F022D /* Assets.xcassets */,
 				6CF634202518B815005F022D /* Preview Content */,
+				6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */,
 			);
 			path = TimeMan;
 			sourceTree = "<group>";
@@ -235,12 +249,14 @@
 			files = (
 				6CE81FA92520B6A100E6D390 /* Course+CoreDataClass.swift in Sources */,
 				6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */,
+				6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */,
 				6CF634162518B812005F022D /* AppDelegate.swift in Sources */,
 				6CB2C3E6251CAB4000D70E8A /* MultiSelector.swift in Sources */,
 				6CB2C3E9251CAC1400D70E8A /* MultiSelectionView.swift in Sources */,
 				6CF6341D2518B812005F022D /* ContentView.swift in Sources */,
 				6CE81FAA2520B6A100E6D390 /* Course+CoreDataProperties.swift in Sources */,
 				6C04E3C0251A17A70018BD77 /* CourseInput.swift in Sources */,
+				6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */,
 				6CE81F932520966D00E6D390 /* CoursesList.swift in Sources */,
 				6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */,
 				6CF634182518B812005F022D /* SceneDelegate.swift in Sources */,

@@ -14,7 +14,7 @@ struct CourseInput: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @Binding var isPresented: Bool
-//    @Binding var coursesList: [Course]
+    let utils = WeekDayUtilities()
     private func getTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
@@ -28,27 +28,7 @@ struct CourseInput: View {
     func addLectureToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, lectureRepeat: Set<String>)
     {
         
-        let lowerremapped = lectureRepeat.map { $0.lowercased()}
-        var finalArr: [EKRecurrenceDayOfWeek] = []
-        for e in lowerremapped {
-            switch e {
-            case "monday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.monday))
-            case "tuesday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.tuesday))
-            case "wednesday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.wednesday))
-            case "thursday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.thursday))
-            case "friday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.friday))
-            case "saturday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.saturday))
-            default:
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.sunday))
-            }
-        }
-
+        let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: lectureRepeat)
         let event: EKEvent = EKEvent(eventStore: eventStore)
         event.title = viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
         event.startDate = viewModel.lectureTime
@@ -57,7 +37,7 @@ struct CourseInput: View {
         
         let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
             interval: 1,
-            daysOfTheWeek: finalArr,
+            daysOfTheWeek: mappedWeekDayArray,
             daysOfTheMonth: nil,
             monthsOfTheYear: nil,
             weeksOfTheYear: nil,
@@ -83,26 +63,7 @@ struct CourseInput: View {
     func addTutorialToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, tutorialRepeat: Set<String>)
     {
         
-        let lower = tutorialRepeat.map { $0.lowercased()}
-        var finalArr: [EKRecurrenceDayOfWeek] = []
-        for e in lower {
-            switch e {
-            case "monday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.monday))
-            case "tuesday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.tuesday))
-            case "wednesday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.wednesday))
-            case "thursday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.thursday))
-            case "friday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.friday))
-            case "saturday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.saturday))
-            default:
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.sunday))
-            }
-        }
+        let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: tutorialRepeat)
 
         let event: EKEvent = EKEvent(eventStore: eventStore)
         event.title = viewModel.courseTitle + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
@@ -112,7 +73,7 @@ struct CourseInput: View {
         
         let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
             interval: 1,
-            daysOfTheWeek: finalArr,
+            daysOfTheWeek: mappedWeekDayArray,
             daysOfTheMonth: nil,
             monthsOfTheYear: nil,
             weeksOfTheYear: nil,
@@ -142,26 +103,7 @@ struct CourseInput: View {
     func addPracticalToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, practicalRepeat: Set<String>)
     {
         
-        let lowerremapped = practicalRepeat.map { $0.lowercased()}
-        var finalArr: [EKRecurrenceDayOfWeek] = []
-        for e in lowerremapped {
-            switch e {
-            case "monday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.monday))
-            case "tuesday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.tuesday))
-            case "wednesday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.wednesday))
-            case "thursday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.thursday))
-            case "friday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.friday))
-            case "saturday":
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.saturday))
-            default:
-                finalArr.append(EKRecurrenceDayOfWeek.init(EKWeekday.sunday))
-            }
-        }
+        let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: practicalRepeat)
 
         let event: EKEvent = EKEvent(eventStore: eventStore)
         event.title = viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
@@ -171,7 +113,7 @@ struct CourseInput: View {
         
         let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
             interval: 1,
-            daysOfTheWeek: finalArr,
+            daysOfTheWeek: mappedWeekDayArray,
             daysOfTheMonth: nil,
             monthsOfTheYear: nil,
             weeksOfTheYear: nil,
