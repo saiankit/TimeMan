@@ -88,7 +88,7 @@ class AppleEvents {
         let event: EKEvent = EKEvent(eventStore: eventStore)
         event.title = viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
         event.startDate = viewModel.practicalTime
-        event.endDate = viewModel.practicalTime.addingTimeInterval(3000)
+        event.endDate = viewModel.practicalTime.addingTimeInterval(6600)
         event.notes = viewModel.courseTitle + " :" + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName
         
         let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
