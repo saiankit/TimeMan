@@ -8,6 +8,9 @@
 
 import Foundation
 import EventKit
+var weekDaySymbols: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+
+var longWeekDaySymbols : [String] = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
 
 class WeekDayUtilities{
     

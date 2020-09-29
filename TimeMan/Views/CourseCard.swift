@@ -127,9 +127,9 @@ struct CourseCard: View {
         VStack{
             HStack(alignment: .top){
                 VStack(alignment: .leading){
-                    Text(course.courseTitle ?? "Course Title")
+                    Text(course.courseTitle ?? "Default Title")
                         .font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
-                    Text(course.courseCode ?? "CCC" + "  " + course.courseID!)
+                    Text(course.courseCode ?? "DDD" + "  " + course.courseID!)
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 10)
                     HStack {
@@ -170,10 +170,3 @@ struct CourseCard: View {
             .cornerRadius(20).padding(.bottom)
     }
 }
-
-//struct CourseCard_Previews: PreviewProvider {
-//    static var previews: some View {
-//
-////        CourseCard(course: Course)
-//    }
-//}

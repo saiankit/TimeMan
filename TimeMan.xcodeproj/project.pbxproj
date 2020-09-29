@@ -12,7 +12,6 @@
 		6C16F6E5251904A10010857F /* CourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C16F6E4251904A10010857F /* CourseCard.swift */; };
 		6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B42519B7370023B4BD /* WeekScroll.swift */; };
 		6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B72519B7A70023B4BD /* CalendarItem.swift */; };
-		6C4589BC2519F75D0023B4BD /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589BB2519F75D0023B4BD /* Constants.swift */; };
 		6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */; };
 		6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */; };
 		6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D4253EB09900024525 /* AppleEvents.swift */; };
@@ -37,7 +36,6 @@
 		6C16F6E4251904A10010857F /* CourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCard.swift; sourceTree = "<group>"; };
 		6C4589B42519B7370023B4BD /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		6C4589B72519B7A70023B4BD /* CalendarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
-		6C4589BB2519F75D0023B4BD /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekDaysUtilities.swift; sourceTree = "<group>"; };
 		6CABB8D4253EB09900024525 /* AppleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleEvents.swift; sourceTree = "<group>"; };
@@ -151,7 +149,6 @@
 				6CF6341C2518B812005F022D /* ContentView.swift */,
 				6C4589B42519B7370023B4BD /* WeekScroll.swift */,
 				6C16F6E4251904A10010857F /* CourseCard.swift */,
-				6C4589BB2519F75D0023B4BD /* Constants.swift */,
 				6C04E3BF251A17A70018BD77 /* CourseInput.swift */,
 				6CE81F922520966D00E6D390 /* CoursesList.swift */,
 			);
@@ -268,7 +265,6 @@
 				6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */,
 				6CD5FF75251B6E7E00DBB204 /* CourseViewModel.swift in Sources */,
 				6C16F6E5251904A10010857F /* CourseCard.swift in Sources */,
-				6C4589BC2519F75D0023B4BD /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
