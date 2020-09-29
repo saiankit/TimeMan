@@ -30,10 +30,10 @@ class LocalNotificationManager {
         content.title = title
         content.subtitle = subtitle
         content.body = body
-        
+        let newTime = calendar.date(byAdding: .minute, value: -10, to: time) // 10 minutes earlier
         var dateComponents = DateComponents()
-        let hour = calendar.component(.hour, from: time)
-        let minute = calendar.component(.minute, from: time)
+        let hour = calendar.component(.hour, from: newTime!)
+        let minute = calendar.component(.minute, from: newTime!)
         
         let mappedWeekDayArray: [Int] = utils.mapToWeekDays(weekDaySet: weekRepeat)
         
