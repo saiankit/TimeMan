@@ -14,16 +14,15 @@ class AppleEvents {
     let eventStore: EKEventStore = EKEventStore()
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     
-    private func addLectureToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, lectureRepeat: Set<String>)
+    private func addLectureToCalendar(title: String, startDate: Date , notes: String ,eventStore: EKEventStore, lectureRepeat: Set<String>)
     {
         
         let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: lectureRepeat)
         let event: EKEvent = EKEvent(eventStore: eventStore)
-        event.title = viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
-        event.startDate = viewModel.lectureTime
-        event.endDate = viewModel.lectureTime.addingTimeInterval(3000)
-        event.notes = viewModel.courseTitle + " :" + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName
-        
+        event.title = title
+        event.startDate = startDate
+        event.endDate = startDate.addingTimeInterval(3000)
+        event.notes = notes
         let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
             interval: 1,
             daysOfTheWeek: mappedWeekDayArray,
@@ -47,16 +46,16 @@ class AppleEvents {
     }
     
     
-    private func addTutorialToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, tutorialRepeat: Set<String>)
+    private func addTutorialToCalendar(title: String, startDate: Date , notes: String, eventStore: EKEventStore, tutorialRepeat: Set<String>)
     {
         
         let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: tutorialRepeat)
 
         let event: EKEvent = EKEvent(eventStore: eventStore)
-        event.title = viewModel.courseTitle + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
-        event.startDate = viewModel.tutorialTime
-        event.endDate = viewModel.tutorialTime.addingTimeInterval(3000)
-        event.notes = viewModel.courseTitle + " :" + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+        event.title = title
+        event.startDate = startDate
+        event.endDate = startDate.addingTimeInterval(3000)
+        event.notes = notes
         
         let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
             interval: 1,
@@ -80,16 +79,16 @@ class AppleEvents {
         
     }
     
-    private func addPracticalToCalendar(viewModel: CourseViewModel, eventStore: EKEventStore, practicalRepeat: Set<String>)
+    private func addPracticalToCalendar(title: String, startDate: Date , notes: String, eventStore: EKEventStore, practicalRepeat: Set<String>)
     {
         
         let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: practicalRepeat)
 
         let event: EKEvent = EKEvent(eventStore: eventStore)
-        event.title = viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
-        event.startDate = viewModel.practicalTime
-        event.endDate = viewModel.practicalTime.addingTimeInterval(6600)
-        event.notes = viewModel.courseTitle + " :" + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+        event.title = title
+        event.startDate = startDate
+        event.endDate = startDate.addingTimeInterval(6600)
+        event.notes = notes
         
         let recurrenceRule = EKRecurrenceRule.init(recurrenceWith: .daily,
             interval: 1,
@@ -114,14 +113,15 @@ class AppleEvents {
     }
     
     
-    func addLecture(lectureRepeat: Set<String>) {
+    func addLecture(lectureRepeat: Set<String>,title: String, startDate: Date , notes: String) {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
             if (granted) && (error == nil)
             {
                 print("Access Granted")
-                self.addLectureToCalendar(viewModel: self.viewModel, eventStore: self.eventStore, lectureRepeat: lectureRepeat )
+                
+                self.addLectureToCalendar(title: title, startDate:startDate, notes: notes, eventStore: self.eventStore, lectureRepeat: lectureRepeat)
             }
             else
             {
@@ -131,14 +131,14 @@ class AppleEvents {
     }
     
     
-    func addTutorial(tutorialRepeat: Set<String>) {
+    func addTutorial(tutorialRepeat: Set<String>,title: String, startDate: Date , notes: String) {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
             if (granted) && (error == nil)
             {
                 print("Access Granted")
-                self.addTutorialToCalendar(viewModel: self.viewModel, eventStore: self.eventStore, tutorialRepeat: tutorialRepeat )
+                self.addTutorialToCalendar(title: title, startDate: startDate, notes: notes , eventStore: self.eventStore, tutorialRepeat: tutorialRepeat)
             }
             else
             {
@@ -147,14 +147,14 @@ class AppleEvents {
         })
     }
     
-    func addPractical(practicalRepeat: Set<String>) {
+    func addPractical(practicalRepeat: Set<String>,title: String, startDate: Date , notes: String) {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
             if (granted) && (error == nil)
             {
                 print("Access Granted")
-                self.addPracticalToCalendar(viewModel: self.viewModel, eventStore: self.eventStore, practicalRepeat: practicalRepeat )
+                self.addPracticalToCalendar(title: title, startDate: startDate, notes: notes, eventStore: self.eventStore, practicalRepeat: practicalRepeat)
             }
             else
             {
@@ -162,11 +162,4 @@ class AppleEvents {
             }
         })
     }
-
-    
-    
-    
-    
-    
-    
 }

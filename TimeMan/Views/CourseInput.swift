@@ -9,7 +9,6 @@
 import SwiftUI
 import EventKit
 
-
 struct CourseInput: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
@@ -140,8 +139,7 @@ struct CourseInput: View {
                         } catch{
                             print(error)
                         }
-                        
-                        appleEvents.addLecture(lectureRepeat: mappedLectureRepeatWeek)
+                        appleEvents.addLecture(lectureRepeat: mappedLectureRepeatWeek, title: viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), startDate: viewModel.lectureTime, notes: viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName)
                         if(viewModel.isLectureNotificationsEnabled){
                             let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + "L" + String(viewModel.lectureNumber)
                             notificationManager.scheduleNotification(title: notifTitle, subtitle: viewModel.courseTitle, body: "Lecture in 10 min",time: viewModel.lectureTime, weekRepeat: mappedLectureRepeatWeek)
@@ -174,8 +172,7 @@ struct CourseInput: View {
                         } catch{
                             print(error)
                         }
-                        
-                        appleEvents.addTutorial(tutorialRepeat: mappedTutorialRepeatWeek)
+                        appleEvents.addTutorial(tutorialRepeat: mappedTutorialRepeatWeek, title: viewModel.courseTitle + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber), startDate: viewModel.tutorialTime, notes: viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber) + " Instructor Name: " + viewModel.lectureInstructorName)
                         if(viewModel.isTutorialNotificationsEnabled){
                             let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
                             notificationManager.scheduleNotification(title: notifTitle, subtitle: viewModel.courseTitle, body: "Tutorial in 10 min" ,time: viewModel.tutorialTime, weekRepeat: mappedTutorialRepeatWeek)
@@ -206,7 +203,9 @@ struct CourseInput: View {
                                 } catch{
                                     print(error)
                             }
-                        appleEvents.addPractical(practicalRepeat: mappedPracticalRepeatWeek)
+                        
+                        appleEvents.addPractical(practicalRepeat: mappedPracticalRepeatWeek, title: viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber), startDate: viewModel.practicalTime, notes: viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName)
+                        
                         if(viewModel.isPracticalNotificationsEnabled){
                             let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
                             notificationManager.scheduleNotification(title: notifTitle, subtitle: viewModel.courseTitle, body: "Practical in 10 min" ,time: viewModel.practicalTime, weekRepeat: mappedPracticalRepeatWeek)
