@@ -167,6 +167,13 @@ struct CourseCard: View {
         .padding(20)
         .background(Color("CourseCardPrimaryAccent"))
         .foregroundColor(Color.white)
-            .cornerRadius(20).padding(.bottom)
+        .cornerRadius(20).padding(.bottom)
+        .contextMenu {
+            Button(action: {
+                print("Delete Course")
+                }) {
+                Text("Delete").foregroundColor(Color.red)
+                }
+            }
+        }
     }
-}

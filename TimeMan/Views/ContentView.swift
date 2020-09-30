@@ -34,6 +34,7 @@ struct ContentView: View{
                                 CourseInput(isPresented: $isPresented)
                             }
                         }
+                        .frame(minHeight: 800.0,alignment: .top)
                         .padding(30)
                         .background(Color("CoursesListBackground"))
                         .cornerRadius(50)
