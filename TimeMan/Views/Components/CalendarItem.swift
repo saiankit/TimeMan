@@ -18,16 +18,16 @@ struct CalendarItem: View{
                 .fontWeight(.semibold)
                 .foregroundColor(Color.black)
         }
-        .frame(width: 40, height: 40)
-        .padding([.vertical],20)
-        .padding([.horizontal],15)
+        .frame(width: 30 , height: 30)
+        .padding([.vertical],6)
+        .padding([.horizontal],6)
         .background(isSelected ? Color(#colorLiteral(red: 0.7912799716, green: 1, blue: 0.8202505708, alpha: 1)) : Color.white)
-        .cornerRadius(25)
+        .cornerRadius(15)
     }
 }
 
 struct CalendarItem_Previews: PreviewProvider {
     static var previews: some View {
-        CalendarItem(isSelected: true, weekDay: "Wed")
+        CalendarItem(isSelected: true, weekDay: "We")
     }
 }

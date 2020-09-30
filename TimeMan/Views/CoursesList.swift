@@ -23,7 +23,6 @@ struct CoursesList: View {
        }
     
     var body: some View{
-        ScrollView(.vertical,showsIndicators: false){
             if #available(iOS 14.0, *) {
                 LazyVStack(alignment: .leading){
                     ForEach(self.courseItemsList, id: \.self) {
@@ -34,6 +33,5 @@ struct CoursesList: View {
                     }
                 }
             }
-        }
 }
 }

@@ -164,7 +164,7 @@ struct CourseCard: View {
             CourseNumbers(course: course)
             
         }
-        .padding(30)
+        .padding(20)
         .background(Color("CourseCardPrimaryAccent"))
         .foregroundColor(Color.white)
             .cornerRadius(20).padding(.bottom)
