@@ -11,7 +11,7 @@ import SwiftUI
 
 struct CoursesList: View {
     @Binding var calendarIndex: Int
-    @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var courseItemsList: FetchedResults<Course>
+    @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: false)]) var courseItemsList: FetchedResults<Course>
     
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]
