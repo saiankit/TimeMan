@@ -29,15 +29,15 @@ class CourseViewModel: ObservableObject {
     ]
     
     let colorNumbers: [Color] = [
-        Color(#colorLiteral(red: 0.4921166897, green: 0.5153192878, blue: 0.9937998652, alpha: 1)),Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)),Color(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1))
+        Color(UIColor(hexString: "#7D83FD")),Color(UIColor(hexString: "#EA5F50")),Color(UIColor(hexString: "#A5E17C")),Color(UIColor(hexString: "#E9F46C"))
     ]
     
     let colorNumbersLight: [Color] = [
-        Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+    Color(UIColor(hexString: "#A1B0F5")),Color(UIColor(hexString: "#F26859")),Color(UIColor(hexString: "#B7F48D")),Color(UIColor(hexString: "#F1FA85"))
     ]
     
     let colorNames : [String] = [
-        "Purple Punch", "Fiery Orange", "Pallid Green"
+        "Purple Punch", "Fiery Orange", "Pallid Green", "Bright Yellow"
     ]
     // MARK: - Course
     @Published var courseTitle : String = ""

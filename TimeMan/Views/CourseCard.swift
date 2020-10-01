@@ -142,10 +142,10 @@ struct CourseCard: View {
                     if #available(iOS 14.0, *) {
                         Link(destination: URL(string: course.meetLink ?? "www.google.com")!, label: {
                             HStack{
-                                CourseLink(course: course)
-                                Image(systemName: "video.fill")
+                                CourseLink(course: course).foregroundColor(.white)
+                                Image(systemName: "video.fill").foregroundColor(.white)
                             }.padding(8)
-                        .background(Color(#colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.9333333333, alpha: 1)))
+                        .background(self.viewModel.colorNumbersLight[Int(course.colorNum)])
                         .cornerRadius(15)
                         })
                     }
@@ -163,7 +163,7 @@ struct CourseCard: View {
         }
         .padding(20)
         .background(self.viewModel.colorNumbers[Int(course.colorNum)])
-        .foregroundColor(Color.white)
+        .foregroundColor(Color.black)
         .cornerRadius(20).padding(.bottom)
         .contextMenu {
             Button(action: {
