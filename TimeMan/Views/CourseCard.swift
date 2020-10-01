@@ -106,6 +106,7 @@ struct CourseCard: View {
     
     var course: Course
     var date: Int = (Calendar.current.component(.minute, from: Date()))
+    var viewModel = CourseViewModel()
     private func getTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
@@ -161,7 +162,7 @@ struct CourseCard: View {
             
         }
         .padding(20)
-        .background(Color(#colorLiteral(red: 0.4745098039, green: 0.5529411765, blue: 0.9607843137, alpha: 1)))
+        .background(self.viewModel.colorNumbers[Int(course.colorNum)])
         .foregroundColor(Color.white)
         .cornerRadius(20).padding(.bottom)
         .contextMenu {

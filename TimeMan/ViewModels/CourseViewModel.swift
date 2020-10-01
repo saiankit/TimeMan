@@ -29,10 +29,16 @@ class CourseViewModel: ObservableObject {
     ]
     
     let colorNumbers: [Color] = [
-        Color(#colorLiteral(red: 0.4921166897, green: 0.5153192878, blue: 0.9937998652, alpha: 1)),Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+        Color(#colorLiteral(red: 0.4921166897, green: 0.5153192878, blue: 0.9937998652, alpha: 1)),Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1)),Color(#colorLiteral(red: 0.5843137503, green: 0.8235294223, blue: 0.4196078479, alpha: 1))
     ]
     
-
+    let colorNumbersLight: [Color] = [
+        Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0))
+    ]
+    
+    let colorNames : [String] = [
+        "Purple Punch", "Fiery Orange", "Pallid Green"
+    ]
     // MARK: - Course
     @Published var courseTitle : String = ""
     @Published var courseCode : String = ""

@@ -16,9 +16,6 @@ struct CourseInput: View {
     let appleEvents = AppleEvents()
     let notificationManager = LocalNotificationManager()
     
-    let colorNumbers: [Color] = [
-        Color(#colorLiteral(red: 0.4921166897, green: 0.5153192878, blue: 0.9937998652, alpha: 1)),Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
-    ]
     
     var body: some View {
         NavigationView{
@@ -116,7 +113,7 @@ struct CourseInput: View {
             Section(){
                 Picker(selection: $viewModel.colorNum, label: Text("Color Code")) {
                     ForEach(0 ..< viewModel.colorNumbers.count) {
-                        Text("Purple Punch").foregroundColor(viewModel.colorNumbers[ $0 ])
+                        Text(viewModel.colorNames[ $0 ]).foregroundColor(viewModel.colorNumbers[ $0 ])
                     }
                 }
             }
@@ -149,6 +146,7 @@ struct CourseInput: View {
                         newLecture.tutorialExists = viewModel.isTutorialExisting
                         newLecture.practicalExists = viewModel.isPracticalExisting
                         newLecture.time = viewModel.lectureTime
+                        newLecture.colorNum = Int16(viewModel.colorNum)
                         
                         do {
                             try self.managedObjectContext.save()
@@ -182,7 +180,7 @@ struct CourseInput: View {
                         newTutorial.tutorialExists = viewModel.isTutorialExisting
                         newTutorial.practicalExists = viewModel.isPracticalExisting
                         newTutorial.time = viewModel.tutorialTime
-                        
+                        newTutorial.colorNum = Int16(viewModel.colorNum)
                         do {
                             try self.managedObjectContext.save()
                         } catch{
@@ -214,6 +212,7 @@ struct CourseInput: View {
                         newPractical.tutorialExists = viewModel.isTutorialExisting
                         newPractical.practicalExists = viewModel.isPracticalExisting
                         newPractical.time = viewModel.practicalTime
+                        newPractical.colorNum = Int16(viewModel.colorNum)
                         do {
                             try self.managedObjectContext.save()
                                 } catch{
