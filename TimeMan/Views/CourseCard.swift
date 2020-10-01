@@ -68,10 +68,6 @@ struct CourseLink: View {
     }
 }
 
-
-
-
-
 struct CourseNumbers: View {
     var course: Course
     var body: some View {
@@ -148,7 +144,7 @@ struct CourseCard: View {
                                 CourseLink(course: course)
                                 Image(systemName: "video.fill")
                             }.padding(8)
-                        .background(Color("CourseCardSecondaryAccent"))
+                        .background(Color(#colorLiteral(red: 0.5764705882, green: 0.6235294118, blue: 0.9333333333, alpha: 1)))
                         .cornerRadius(15)
                         })
                     }
@@ -165,7 +161,7 @@ struct CourseCard: View {
             
         }
         .padding(20)
-        .background(Color("CourseCardPrimaryAccent"))
+        .background(Color(#colorLiteral(red: 0.4745098039, green: 0.5529411765, blue: 0.9607843137, alpha: 1)))
         .foregroundColor(Color.white)
         .cornerRadius(20).padding(.bottom)
         .contextMenu {

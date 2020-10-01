@@ -8,7 +8,6 @@
 
 import SwiftUI
 
-
 struct CoursesList: View {
     @Binding var calendarIndex: Int
     @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: false)]) var courseItemsList: FetchedResults<Course>
@@ -22,6 +21,7 @@ struct CoursesList: View {
         return false
        }
     
+    
     var body: some View{
             if #available(iOS 14.0, *) {
                 LazyVStack(alignment: .leading){
@@ -33,5 +33,5 @@ struct CoursesList: View {
                     }
                 }
             }
-}
+    }
 }

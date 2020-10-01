@@ -6,7 +6,8 @@
 //  Copyright © 2020 Sai Ankit. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
+
 struct WeekDayName: Hashable, Identifiable {
     var name: String
     var id: String { name }
@@ -27,11 +28,16 @@ class CourseViewModel: ObservableObject {
         WeekDayName(name: "Saturday")
     ]
     
+    let colorNumbers: [Color] = [
+        Color(#colorLiteral(red: 0.4921166897, green: 0.5153192878, blue: 0.9937998652, alpha: 1)),Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+    ]
+    
 
     // MARK: - Course
     @Published var courseTitle : String = ""
     @Published var courseCode : String = ""
     @Published var courseID : String = ""
+    @Published var colorNum: Int = 0
     
     func generateLink(meetCode: String) -> String {
         let linkPreccedence = "https://meet.google.com/"

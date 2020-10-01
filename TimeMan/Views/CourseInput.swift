@@ -15,7 +15,10 @@ struct CourseInput: View {
     @Binding var isPresented: Bool
     let appleEvents = AppleEvents()
     let notificationManager = LocalNotificationManager()
-
+    
+    let colorNumbers: [Color] = [
+        Color(#colorLiteral(red: 0.4921166897, green: 0.5153192878, blue: 0.9937998652, alpha: 1)),Color(#colorLiteral(red: 0.9254902005, green: 0.2352941185, blue: 0.1019607857, alpha: 1))
+    ]
     
     var body: some View {
         NavigationView{
@@ -107,6 +110,19 @@ struct CourseInput: View {
                     }
                 }
             }
+            
+            
+            
+            Section(){
+                Picker(selection: $viewModel.colorNum, label: Text("Color Code")) {
+                    ForEach(0 ..< viewModel.colorNumbers.count) {
+                        Text("Purple Punch").foregroundColor(viewModel.colorNumbers[ $0 ])
+                    }
+                }
+            }
+            
+            
+            
             Section {
                 Button(action:{
                     
