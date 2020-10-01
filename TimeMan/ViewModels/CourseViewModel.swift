@@ -29,15 +29,15 @@ class CourseViewModel: ObservableObject {
     ]
     
     let colorNumbers: [Color] = [
-        Color(UIColor(hexString: "#7D83FD")),Color(UIColor(hexString: "#EA5F50")),Color(UIColor(hexString: "#A5E17C")),Color(UIColor(hexString: "#E9F46C"))
+        Color(UIColor(hexString: "#7D83FD")),Color(UIColor(hexString: "#EA5F50")),Color(UIColor(hexString: "#A5E17C")),Color(UIColor(hexString: "#E9F46C")),Color(UIColor(hexString: "#71EFBA")),Color(UIColor(hexString: "#EF7CE4"))
     ]
     
     let colorNumbersLight: [Color] = [
-    Color(UIColor(hexString: "#A1B0F5")),Color(UIColor(hexString: "#F26859")),Color(UIColor(hexString: "#B7F48D")),Color(UIColor(hexString: "#F1FA85"))
+    Color(UIColor(hexString: "#A1B0F5")),Color(UIColor(hexString: "#F26859")),Color(UIColor(hexString: "#B7F48D")),Color(UIColor(hexString: "#F1FA85")),Color(UIColor(hexString: "#84FFCB")),Color(UIColor(hexString: "#FF94F4"))
     ]
     
     let colorNames : [String] = [
-        "Purple Punch", "Fiery Orange", "Pallid Green", "Bright Yellow"
+        "Purple Punch", "Fiery Orange", "Pallid Green", "Bright Yellow", "Tangy Teal", "Gleamy Pink"
     ]
     // MARK: - Course
     @Published var courseTitle : String = ""
