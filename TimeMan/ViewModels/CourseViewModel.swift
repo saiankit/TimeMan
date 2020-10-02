@@ -29,15 +29,15 @@ class CourseViewModel: ObservableObject {
     ]
     
     let colorNumbers: [Color] = [
-        Color(UIColor(hexString: "#7D83FD")),Color(UIColor(hexString: "#EA5F50")),Color(UIColor(hexString: "#A5E17C")),Color(UIColor(hexString: "#E9F46C")),Color(UIColor(hexString: "#71EFBA")),Color(UIColor(hexString: "#EF7CE4"))
+        Color(UIColor(hexString: "#7D83FD")),Color(UIColor(hexString: "#FF8E6E")),Color(UIColor(hexString: "#A5E17C")),Color(UIColor(hexString: "#FFDE41")),Color(UIColor(hexString: "#71EFBA")),Color(UIColor(hexString: "#EF7CE4")),Color(UIColor(hexString: "#84DBEE")),Color(UIColor(hexString: "#F5E0E0"))
     ]
     
     let colorNumbersLight: [Color] = [
-    Color(UIColor(hexString: "#A1B0F5")),Color(UIColor(hexString: "#F26859")),Color(UIColor(hexString: "#B7F48D")),Color(UIColor(hexString: "#F1FA85")),Color(UIColor(hexString: "#84FFCB")),Color(UIColor(hexString: "#FF94F4"))
+    Color(UIColor(hexString: "#A1B0F5")),Color(UIColor(hexString: "#FFA68D")),Color(UIColor(hexString: "#B7F48D")),Color(UIColor(hexString: "#FFEA85")),Color(UIColor(hexString: "#84FFCB")),Color(UIColor(hexString: "#FF94F4")),Color(UIColor(hexString: "#9FEEFF")),Color(UIColor(hexString: "#FFF0F0"))
     ]
     
     let colorNames : [String] = [
-        "Purple Punch", "Fiery Orange", "Pallid Green", "Bright Yellow", "Tangy Teal", "Gleamy Pink"
+        "Purple Punch", "Tangy Orange", "Placid Green", "Bright Yellow", "Trendy Teal", "Gleamy Pink", "Beaming Blue", "Vanilla Ice"
     ]
     // MARK: - Course
     @Published var courseTitle : String = ""
