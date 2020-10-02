@@ -15,6 +15,8 @@
 		6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2191D2252638440024C8C8 /* ExtensionColor.swift */; };
 		6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B42519B7370023B4BD /* WeekScroll.swift */; };
 		6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B72519B7A70023B4BD /* CalendarItem.swift */; };
+		6C5FB76A252788B500534BC9 /* UpcomingClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5FB769252788B500534BC9 /* UpcomingClasses.swift */; };
+		6C5FB76D252788DA00534BC9 /* UpcomingClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5FB76C252788DA00534BC9 /* UpcomingClassViewModel.swift */; };
 		6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */; };
 		6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */; };
 		6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D4253EB09900024525 /* AppleEvents.swift */; };
@@ -40,6 +42,8 @@
 		6C2191D2252638440024C8C8 /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
 		6C4589B42519B7370023B4BD /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		6C4589B72519B7A70023B4BD /* CalendarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
+		6C5FB769252788B500534BC9 /* UpcomingClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingClasses.swift; sourceTree = "<group>"; };
+		6C5FB76C252788DA00534BC9 /* UpcomingClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingClassViewModel.swift; sourceTree = "<group>"; };
 		6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekDaysUtilities.swift; sourceTree = "<group>"; };
 		6CABB8D4253EB09900024525 /* AppleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleEvents.swift; sourceTree = "<group>"; };
@@ -101,6 +105,7 @@
 			children = (
 				6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */,
 				6CABB8D4253EB09900024525 /* AppleEvents.swift */,
+				6C5FB76C252788DA00534BC9 /* UpcomingClassViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 				6C4589B42519B7370023B4BD /* WeekScroll.swift */,
 				6C04E3BF251A17A70018BD77 /* CourseInput.swift */,
 				6CE81F922520966D00E6D390 /* CoursesList.swift */,
+				6C5FB769252788B500534BC9 /* UpcomingClasses.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -250,6 +256,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C5FB76A252788B500534BC9 /* UpcomingClasses.swift in Sources */,
 				6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */,
 				6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */,
 				6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */,
@@ -263,6 +270,7 @@
 				6CE81F932520966D00E6D390 /* CoursesList.swift in Sources */,
 				6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */,
 				6CF634182518B812005F022D /* SceneDelegate.swift in Sources */,
+				6C5FB76D252788DA00534BC9 /* UpcomingClassViewModel.swift in Sources */,
 				6C15DDA42525E0530068BCD8 /* Course+CoreDataClass.swift in Sources */,
 				6C1444A3251DE18500CFA2BF /* Header.swift in Sources */,
 				6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */,
