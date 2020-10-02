@@ -8,13 +8,28 @@
 
 import SwiftUI
 import UserNotifications
-
 struct ContentView: View{
     
     @Environment(\.managedObjectContext) var managedObjectContext
     @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var listForUpcoming: FetchedResults<Course>
     
-    func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
+    private func getClassType(course: Course) -> String {
+        if(course.isLecture)
+        {
+            return course.lectureNumber ?? ""
+        }
+        else if(course.isTutorial)
+        {
+            return course.tutorialNumber ?? ""
+        }
+        else if(course.isPractical)
+        {
+            return course.practicalNumber ?? ""
+        }
+        return ""
+    }
+    
+    private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
         if(converted!.contains(weekDayName)){
@@ -23,15 +38,16 @@ struct ContentView: View{
         return false
     }
     
-    private func getUpcomingClass(list: FetchedResults<Course>) -> Course{
+    private func getUpcomingClass(list: FetchedResults<Course>) -> String{
         let listWork = list
         var upcomingCourse : Course = Course()
         let currentTimeHour = Calendar.current.component(.hour, from: Date())
         let currentTimeMinute = Calendar.current.component(.minute, from: Date())
         let currentTime = currentTimeHour * 60 + currentTimeMinute
         var diff = 1440
+        var count = 0
         for courseClass in listWork {
-            if(shouldCourseBeIncluded(course: courseClass, index: (Calendar.current.component(.weekday, from: Date()) - 1)
+            if(shouldCourseBeIncluded(course: courseClass, index: (Calendar.current.component(.weekday, from: Date()))
             )){
                 let courseTime = courseClass.time
                 let courseHour = Calendar.current.component(.hour, from: courseTime!)
@@ -44,11 +60,16 @@ struct ContentView: View{
                     {
                         diff = courTime - currentTime
                         upcomingCourse = courseClass
+                        count+=1
                     }
                 }
             }
         }
-        return upcomingCourse
+        if(count==0)
+        {
+            return "No Upcoming Classes"
+        }
+        return upcomingCourse.courseTitle!
     }
 
     @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
@@ -64,12 +85,12 @@ struct ContentView: View{
                         VStack{
                             Text("Upcoming Class")
                                 .font(.system(size: 20, weight: .bold, design: .rounded)).padding(.bottom,15)
-                            Text(getUpcomingClass(list: listForUpcoming).courseTitle!)
+                            Text(getUpcomingClass(list: listForUpcoming))
                         }
                         .padding(20)
                         .background(Color("CoursesListBackground"))
                         .cornerRadius(20)
-                        
+                    
                         VStack(alignment: .leading){
                             HStack {
                                 Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")
@@ -112,11 +133,4 @@ struct ContentView: View{
         }
     }
 }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
 }
