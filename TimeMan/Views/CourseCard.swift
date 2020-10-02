@@ -103,7 +103,7 @@ struct CourseNumbers: View {
 }
 
 struct CourseCard: View {
-    
+    @Environment(\.managedObjectContext) var managedObjectContext
     var course: Course
     var date: Int = (Calendar.current.component(.minute, from: Date()))
     var viewModel = CourseViewModel()
@@ -167,7 +167,13 @@ struct CourseCard: View {
         .cornerRadius(20).padding(.bottom)
         .contextMenu {
             Button(action: {
-                print("Delete Course")
+                    let deleteItem = course
+                self.managedObjectContext.delete(deleteItem)
+                do {
+                    try self.managedObjectContext.save()
+                } catch {
+                    print(error)
+                }
                 }) {
                 Text("Delete").foregroundColor(Color.red)
                 }
