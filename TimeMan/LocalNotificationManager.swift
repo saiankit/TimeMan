@@ -34,7 +34,6 @@ class LocalNotificationManager {
         var dateComponents = DateComponents()
         let hour = calendar.component(.hour, from: newTime!)
         let minute = calendar.component(.minute, from: newTime!)
-        
         let mappedWeekDayArray: [Int] = utils.mapToWeekDays(weekDaySet: weekRepeat)
         
         for weekDay in mappedWeekDayArray {
