@@ -9,18 +9,22 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @Binding var isPresented : Bool
     var body: some View {
-        ZStack {
-            Color("Background")
-            VStack {
-                UpcomingClasses()
-            }
-        }
+        NavigationView {
+            if #available(iOS 14.0, *) {
+                ZStack {
+                    Color("Background")
+                    VStack {
+                        UpcomingClasses()
+                    }
+                    .frame(width: 300.0, height: 500.0)
+                    .background(
+                        Color("CoursesListBackground")
+                            .clipShape(CustomShape())
+                    )
+                }.navigationTitle("Upcoming Classes")
+            } 
     }
-}
-
-struct HomeScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        HomeScreen()
     }
 }

@@ -20,6 +20,7 @@
 		6C8DDFDA252850550055B7DB /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFD9252850550055B7DB /* HomeScreen.swift */; };
 		6C8DDFDD252850BF0055B7DB /* ScrollScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */; };
 		6C8DDFE0252850CE0055B7DB /* GridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDF252850CE0055B7DB /* GridScreen.swift */; };
+		6C8DDFE325286FEC0055B7DB /* CustomShapeTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */; };
 		6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */; };
 		6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */; };
 		6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D4253EB09900024525 /* AppleEvents.swift */; };
@@ -51,6 +52,7 @@
 		6C8DDFD9252850550055B7DB /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollScreen.swift; sourceTree = "<group>"; };
 		6C8DDFDF252850CE0055B7DB /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
+		6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeTriangle.swift; sourceTree = "<group>"; };
 		6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekDaysUtilities.swift; sourceTree = "<group>"; };
 		6CABB8D4253EB09900024525 /* AppleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleEvents.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */,
+				6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				6C5FB76D252788DA00534BC9 /* UpcomingClassViewModel.swift in Sources */,
 				6C15DDA42525E0530068BCD8 /* Course+CoreDataClass.swift in Sources */,
 				6C1444A3251DE18500CFA2BF /* Header.swift in Sources */,
+				6C8DDFE325286FEC0055B7DB /* CustomShapeTriangle.swift in Sources */,
 				6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */,
 				6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */,
 				6CD7247A252834F700ED0EB0 /* TabBar.swift in Sources */,

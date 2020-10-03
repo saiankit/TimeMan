@@ -20,9 +20,3 @@ struct UpcomingClasses: View {
         .cornerRadius(20)
     }
 }
-
-struct UpcomingClasses_Previews: PreviewProvider {
-    static var previews: some View {
-        UpcomingClasses()
-    }
-}

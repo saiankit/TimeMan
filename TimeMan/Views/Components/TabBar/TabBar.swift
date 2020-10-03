@@ -18,21 +18,11 @@ struct TabBar: View {
             TabButton(title: "Scroll", image: "lineweight", selectedTab: $selectedTab)
             
             Spacer(minLength: 0)
-//
-//            Button(action: {
-//                self.isPresented.toggle()
-//            }) {
-//
-//                Image(systemName: "plus")
-//                    .foregroundColor(.white)
-//                    .padding()
-//                    .background(Color.orange)
-//                    .cornerRadius(15)
-//            }
             
-      
             TabButton(title: "", image: "house" ,selectedTab: $selectedTab)
+            
             Spacer(minLength: 0)
+            
             TabButton(title: "Grid", image: "calendar" ,selectedTab: $selectedTab)
             
         }

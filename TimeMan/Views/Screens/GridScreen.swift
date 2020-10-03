@@ -9,13 +9,18 @@
 import SwiftUI
 
 struct GridScreen: View {
+    @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct GridScreen_Previews: PreviewProvider {
-    static var previews: some View {
-        GridScreen()
+        if #available(iOS 14.0, *) {
+            
+                VStack {
+                    HStack {
+                        
+                    }
+                    ScrollView {
+                        
+                    }
+                }
+        }
     }
 }

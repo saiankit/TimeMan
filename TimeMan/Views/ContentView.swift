@@ -12,13 +12,12 @@ struct ContentView: View {
     @State var isPresented = false
     @State var selectedIndex = ""
     var body: some View {
-        NavigationView {
                 VStack {
                     if(selectedIndex == "Scroll") {
                         ScrollScreen(isPresented: $isPresented)
                     }
                     else if(selectedIndex == "") {
-                        HomeScreen()
+                        HomeScreen(isPresented: $isPresented)
                     }
                     else {
                         GridScreen()
@@ -26,6 +25,6 @@ struct ContentView: View {
                 TabBar(selectedTab: $selectedIndex, isPresented: $isPresented)
             }
             .edgesIgnoringSafeArea(.bottom)
-        }
+        
     }
 }

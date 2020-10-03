@@ -85,6 +85,6 @@ class UpcomingClassViewModel {
         {
             return "No Upcoming Classes"
         }
-        return upcomingCourse.courseTitle! + " " + getClassType(course: upcomingCourse) + " " + "at" + " " + upcomingTime
+        return upcomingCourse.courseTitle! + " " + getClassType(course: upcomingCourse) + " at " + upcomingTime
     }
 }
