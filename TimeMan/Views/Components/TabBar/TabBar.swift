@@ -18,21 +18,21 @@ struct TabBar: View {
             TabButton(title: "Scroll", image: "lineweight", selectedTab: $selectedTab)
             
             Spacer(minLength: 0)
+//
+//            Button(action: {
+//                self.isPresented.toggle()
+//            }) {
+//
+//                Image(systemName: "plus")
+//                    .foregroundColor(.white)
+//                    .padding()
+//                    .background(Color.orange)
+//                    .cornerRadius(15)
+//            }
             
-            Button(action: {
-                self.isPresented.toggle()
-            }) {
-                
-                Image(systemName: "plus")
-                    .renderingMode(.original)
-                    .padding(.vertical)
-                    .padding(.horizontal,25)
-                    .background(Color.orange)
-                    .cornerRadius(15)
-            }
-            
+      
+            TabButton(title: "", image: "house" ,selectedTab: $selectedTab)
             Spacer(minLength: 0)
-            
             TabButton(title: "Grid", image: "calendar" ,selectedTab: $selectedTab)
             
         }
@@ -59,14 +59,14 @@ struct TabButton : View {
                 
                 Image(systemName :image)
                     .renderingMode(.template)
-                
-                Text(title)
-                    .fontWeight(.semibold)
+                if(title != "")
+                {Text(title)
+                    .fontWeight(.semibold)}
             }
-            .foregroundColor(selectedTab == title ? .yellow : .gray)
+            .foregroundColor(selectedTab == title ? Color(UIColor(hexString: "#FF9900")) : .gray)
             .padding(.vertical,10)
             .padding(.horizontal,15)
-            .background(Color.yellow.opacity(selectedTab == title ? 0.15 : 0))
+            .background(Color.yellow.opacity(selectedTab == title ? 0.10 : 0))
             .clipShape(Capsule())
         }
     }
