@@ -19,7 +19,7 @@ struct ScrollScreen: View {
                           ZStack {
                             Color("Background")
                               VStack {
-                                  WeekScroll(index: $calendarIndex)
+                                WeekScroll(index: $calendarIndex).padding(.top,20)
                                   VStack(alignment: .leading){
                                       HStack {
                                           Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")

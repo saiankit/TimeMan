@@ -16,7 +16,10 @@ struct HomeScreen: View {
                 ZStack {
                     Color("Background")
                     VStack {
+                        Spacer()
+                        Text("Upcoming Class").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
                         UpcomingClasses()
+                        Spacer()
                     }
                     .frame(width: 320.0, height: 500.0)
                     .background(
