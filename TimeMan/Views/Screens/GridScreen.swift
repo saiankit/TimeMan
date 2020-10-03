@@ -13,13 +13,13 @@ struct GridScreen: View {
     var body: some View {
         if #available(iOS 14.0, *) {
             
-                VStack {
+            VStack(alignment: .center) {
+                Spacer()
                     HStack {
-                        
+                        Text("Under Construction").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
                     }
-                    ScrollView {
-                        
-                    }
+                Spacer()
+                    
                 }
         }
     }

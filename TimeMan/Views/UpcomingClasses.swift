@@ -25,7 +25,6 @@ struct UpcomingClasses: View {
             }
         }
         .padding(20)
-        .background(Color("CoursesListBackground"))
-        .cornerRadius(20)
+        
     }
 }

@@ -23,6 +23,13 @@
 		6C8DDFE325286FEC0055B7DB /* CustomShapeTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */; };
 		6C8DDFE725287B9F0055B7DB /* CustomRoundedEdgesShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFE625287B9F0055B7DB /* CustomRoundedEdgesShape.swift */; };
 		6C8DDFEB252889A20055B7DB /* UpcomingCourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFEA252889A20055B7DB /* UpcomingCourseCard.swift */; };
+		6C8DDFF42528A7530055B7DB /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8DDFF32528A7530055B7DB /* WidgetKit.framework */; };
+		6C8DDFF62528A7530055B7DB /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C8DDFF52528A7530055B7DB /* SwiftUI.framework */; };
+		6C8DDFF92528A7530055B7DB /* TimeManWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFF82528A7530055B7DB /* TimeManWidget.swift */; };
+		6C8DDFFC2528A7580055B7DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C8DDFFB2528A7580055B7DB /* Assets.xcassets */; };
+		6C8DDFFE2528A7580055B7DB /* TimeManWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFFA2528A7530055B7DB /* TimeManWidget.intentdefinition */; };
+		6C8DDFFF2528A7580055B7DB /* TimeManWidget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFFA2528A7530055B7DB /* TimeManWidget.intentdefinition */; };
+		6C8DE0022528A7580055B7DB /* TimeManWidgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 6C8DDFF12528A7530055B7DB /* TimeManWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */; };
 		6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */; };
 		6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D4253EB09900024525 /* AppleEvents.swift */; };
@@ -39,6 +46,30 @@
 		6CF634222518B815005F022D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CF634212518B815005F022D /* Preview Assets.xcassets */; };
 		6CF634252518B815005F022D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CF634232518B815005F022D /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6C8DE0002528A7580055B7DB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6CF6340A2518B812005F022D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6C8DDFF02528A7530055B7DB;
+			remoteInfo = TimeManWidgetExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6C8DE0032528A7580055B7DB /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				6C8DE0022528A7580055B7DB /* TimeManWidgetExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6C04E3BF251A17A70018BD77 /* CourseInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInput.swift; sourceTree = "<group>"; };
@@ -57,6 +88,13 @@
 		6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeTriangle.swift; sourceTree = "<group>"; };
 		6C8DDFE625287B9F0055B7DB /* CustomRoundedEdgesShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedEdgesShape.swift; sourceTree = "<group>"; };
 		6C8DDFEA252889A20055B7DB /* UpcomingCourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCourseCard.swift; sourceTree = "<group>"; };
+		6C8DDFF12528A7530055B7DB /* TimeManWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TimeManWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C8DDFF32528A7530055B7DB /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		6C8DDFF52528A7530055B7DB /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		6C8DDFF82528A7530055B7DB /* TimeManWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeManWidget.swift; sourceTree = "<group>"; };
+		6C8DDFFA2528A7530055B7DB /* TimeManWidget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = TimeManWidget.intentdefinition; sourceTree = "<group>"; };
+		6C8DDFFB2528A7580055B7DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6C8DDFFD2528A7580055B7DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekDaysUtilities.swift; sourceTree = "<group>"; };
 		6CABB8D4253EB09900024525 /* AppleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleEvents.swift; sourceTree = "<group>"; };
@@ -77,6 +115,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6C8DDFEE2528A7530055B7DB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C8DDFF62528A7530055B7DB /* SwiftUI.framework in Frameworks */,
+				6C8DDFF42528A7530055B7DB /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CF6340F2518B812005F022D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -126,6 +173,26 @@
 			path = Shapes;
 			sourceTree = "<group>";
 		};
+		6C8DDFF22528A7530055B7DB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6C8DDFF32528A7530055B7DB /* WidgetKit.framework */,
+				6C8DDFF52528A7530055B7DB /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6C8DDFF72528A7530055B7DB /* TimeManWidget */ = {
+			isa = PBXGroup;
+			children = (
+				6C8DDFF82528A7530055B7DB /* TimeManWidget.swift */,
+				6C8DDFFA2528A7530055B7DB /* TimeManWidget.intentdefinition */,
+				6C8DDFFB2528A7580055B7DB /* Assets.xcassets */,
+				6C8DDFFD2528A7580055B7DB /* Info.plist */,
+			);
+			path = TimeManWidget;
+			sourceTree = "<group>";
+		};
 		6CABB8D0253EB09900024525 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +225,8 @@
 			isa = PBXGroup;
 			children = (
 				6CF634142518B812005F022D /* TimeMan */,
+				6C8DDFF72528A7530055B7DB /* TimeManWidget */,
+				6C8DDFF22528A7530055B7DB /* Frameworks */,
 				6CF634132518B812005F022D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -166,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				6CF634122518B812005F022D /* TimeMan.app */,
+				6C8DDFF12528A7530055B7DB /* TimeManWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -233,6 +303,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		6C8DDFF02528A7530055B7DB /* TimeManWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6C8DE0062528A7580055B7DB /* Build configuration list for PBXNativeTarget "TimeManWidgetExtension" */;
+			buildPhases = (
+				6C8DDFED2528A7530055B7DB /* Sources */,
+				6C8DDFEE2528A7530055B7DB /* Frameworks */,
+				6C8DDFEF2528A7530055B7DB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TimeManWidgetExtension;
+			productName = TimeManWidgetExtension;
+			productReference = 6C8DDFF12528A7530055B7DB /* TimeManWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		6CF634112518B812005F022D /* TimeMan */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CF634292518B815005F022D /* Build configuration list for PBXNativeTarget "TimeMan" */;
@@ -240,10 +327,12 @@
 				6CF6340E2518B812005F022D /* Sources */,
 				6CF6340F2518B812005F022D /* Frameworks */,
 				6CF634102518B812005F022D /* Resources */,
+				6C8DE0032528A7580055B7DB /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				6C8DE0012528A7580055B7DB /* PBXTargetDependency */,
 			);
 			name = TimeMan;
 			productName = TimeMan;
@@ -256,10 +345,13 @@
 		6CF6340A2518B812005F022D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1170;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Sai Ankit";
 				TargetAttributes = {
+					6C8DDFF02528A7530055B7DB = {
+						CreatedOnToolsVersion = 12.0.1;
+					};
 					6CF634112518B812005F022D = {
 						CreatedOnToolsVersion = 11.7;
 					};
@@ -279,11 +371,20 @@
 			projectRoot = "";
 			targets = (
 				6CF634112518B812005F022D /* TimeMan */,
+				6C8DDFF02528A7530055B7DB /* TimeManWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6C8DDFEF2528A7530055B7DB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C8DDFFC2528A7580055B7DB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CF634102518B812005F022D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -297,11 +398,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6C8DDFED2528A7530055B7DB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6C8DDFFE2528A7580055B7DB /* TimeManWidget.intentdefinition in Sources */,
+				6C8DDFF92528A7530055B7DB /* TimeManWidget.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6CF6340E2518B812005F022D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				6C5FB76A252788B500534BC9 /* UpcomingClasses.swift in Sources */,
+				6C8DDFFF2528A7580055B7DB /* TimeManWidget.intentdefinition in Sources */,
 				6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */,
 				6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */,
 				6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */,
@@ -334,6 +445,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		6C8DE0012528A7580055B7DB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6C8DDFF02528A7530055B7DB /* TimeManWidgetExtension */;
+			targetProxy = 6C8DE0002528A7580055B7DB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		6CF634232518B815005F022D /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -346,6 +465,50 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6C8DE0042528A7580055B7DB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y3T5R5M4ZL;
+				INFOPLIST_FILE = TimeManWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.saiankit.TimeMan.TimeManWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6C8DE0052528A7580055B7DB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = Y3T5R5M4ZL;
+				INFOPLIST_FILE = TimeManWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.saiankit.TimeMan.TimeManWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		6CF634272518B815005F022D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -465,6 +628,7 @@
 		6CF6342A2518B815005F022D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeMan/Preview Content\"";
@@ -485,6 +649,7 @@
 		6CF6342B2518B815005F022D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"TimeMan/Preview Content\"";
@@ -505,6 +670,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6C8DE0062528A7580055B7DB /* Build configuration list for PBXNativeTarget "TimeManWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6C8DE0042528A7580055B7DB /* Debug */,
+				6C8DE0052528A7580055B7DB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6CF6340D2518B812005F022D /* Build configuration list for PBXProject "TimeMan" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
