@@ -11,12 +11,13 @@ import UserNotifications
 struct ContentView: View{
     
     @Environment(\.managedObjectContext) var managedObjectContext
-
     @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
     @State var isPresented = false
+    @State var selectedIndex = "Scroll"
     var body: some View {
         NavigationView{
             if #available(iOS 14.0, *) {
+                VStack{
                 ScrollView(showsIndicators: false){
                 ZStack {
                     Color("Background")
@@ -28,41 +29,24 @@ struct ContentView: View{
                                 Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")
                                     .font(.system(size: 20, weight: .bold, design: .rounded)).padding(.bottom,15)
                                 Spacer()
-                              
                             }
-
                             CoursesList(calendarIndex: $calendarIndex).sheet(isPresented: $isPresented){
                                 CourseInput(isPresented: $isPresented)
                             }
                         }
                         .frame(minHeight: 800.0,alignment: .top)
+                        
                         .padding(25)
                         .background(Color("CoursesListBackground"))
-                        .cornerRadius(50)
+                        .clipShape(CustomCorner(corners: [.topLeft,.topRight], size: 55))
+                        
                     }
                 }.navigationTitle("TimeMan")
-                .navigationBarItems(trailing: HStack{
-                    Button(action: {
-                        self.isPresented.toggle()
-                    }) {
-                        Image(systemName: "plus.circle")
-                            .font(.system(size: 24, design: .rounded))
-                            .foregroundColor(Color("Primary"))
-                            .padding(.bottom,15)
-                    }
-                    Button(action: {
-                        self.isPresented.toggle()
-                    }) {
-                        Image(systemName: "calendar")
-                            .font(.system(size: 24, design: .rounded))
-                            .foregroundColor(Color("Primary"))
-                            .padding(.bottom,15)
-                    }
-                })
-                    
+                }
+                    TabBar(selectedTab: $selectedIndex, isPresented: $isPresented)
+                }
+                .edgesIgnoringSafeArea(.bottom)
             }
-            
         }
     }
-}
 }
