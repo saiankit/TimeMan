@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CustomShape : Shape {
+struct CustomShapeHome : Shape {
     
     func path(in rect: CGRect) -> Path {
         

@@ -21,6 +21,8 @@
 		6C8DDFDD252850BF0055B7DB /* ScrollScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */; };
 		6C8DDFE0252850CE0055B7DB /* GridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDF252850CE0055B7DB /* GridScreen.swift */; };
 		6C8DDFE325286FEC0055B7DB /* CustomShapeTriangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */; };
+		6C8DDFE725287B9F0055B7DB /* CustomRoundedEdgesShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFE625287B9F0055B7DB /* CustomRoundedEdgesShape.swift */; };
+		6C8DDFEB252889A20055B7DB /* UpcomingCourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFEA252889A20055B7DB /* UpcomingCourseCard.swift */; };
 		6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */; };
 		6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */; };
 		6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CABB8D4253EB09900024525 /* AppleEvents.swift */; };
@@ -53,6 +55,8 @@
 		6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollScreen.swift; sourceTree = "<group>"; };
 		6C8DDFDF252850CE0055B7DB /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
 		6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShapeTriangle.swift; sourceTree = "<group>"; };
+		6C8DDFE625287B9F0055B7DB /* CustomRoundedEdgesShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomRoundedEdgesShape.swift; sourceTree = "<group>"; };
+		6C8DDFEA252889A20055B7DB /* UpcomingCourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCourseCard.swift; sourceTree = "<group>"; };
 		6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotificationManager.swift; sourceTree = "<group>"; };
 		6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = weekDaysUtilities.swift; sourceTree = "<group>"; };
 		6CABB8D4253EB09900024525 /* AppleEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleEvents.swift; sourceTree = "<group>"; };
@@ -113,11 +117,22 @@
 			path = Screens;
 			sourceTree = "<group>";
 		};
+		6C8DDFE525287B650055B7DB /* Shapes */ = {
+			isa = PBXGroup;
+			children = (
+				6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */,
+				6C8DDFE625287B9F0055B7DB /* CustomRoundedEdgesShape.swift */,
+			);
+			path = Shapes;
+			sourceTree = "<group>";
+		};
 		6CABB8D0253EB09900024525 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */,
+				6CABB8D4253EB09900024525 /* AppleEvents.swift */,
+				6C8DDFE525287B650055B7DB /* Shapes */,
 				6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */,
-				6C8DDFE225286FEC0055B7DB /* CustomShapeTriangle.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -126,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				6CD5FF74251B6E7E00DBB204 /* CourseViewModel.swift */,
-				6CABB8D4253EB09900024525 /* AppleEvents.swift */,
 				6C5FB76C252788DA00534BC9 /* UpcomingClassViewModel.swift */,
 			);
 			path = ViewModels;
@@ -166,7 +180,6 @@
 				6CF6342F2518B97C005F022D /* Views */,
 				6CF6341E2518B815005F022D /* Assets.xcassets */,
 				6CF634202518B815005F022D /* Preview Content */,
-				6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */,
 			);
 			path = TimeMan;
 			sourceTree = "<group>";
@@ -190,6 +203,7 @@
 				6C04E3BF251A17A70018BD77 /* CourseInput.swift */,
 				6CE81F922520966D00E6D390 /* CoursesList.swift */,
 				6C5FB769252788B500534BC9 /* UpcomingClasses.swift */,
+				6C8DDFEA252889A20055B7DB /* UpcomingCourseCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +309,7 @@
 				6C15DDA52525E0530068BCD8 /* Course+CoreDataProperties.swift in Sources */,
 				6CB2C3E6251CAB4000D70E8A /* MultiSelector.swift in Sources */,
 				6CB2C3E9251CAC1400D70E8A /* MultiSelectionView.swift in Sources */,
+				6C8DDFEB252889A20055B7DB /* UpcomingCourseCard.swift in Sources */,
 				6CF6341D2518B812005F022D /* ContentView.swift in Sources */,
 				6C04E3C0251A17A70018BD77 /* CourseInput.swift in Sources */,
 				6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */,
@@ -307,6 +322,7 @@
 				6C1444A3251DE18500CFA2BF /* Header.swift in Sources */,
 				6C8DDFE325286FEC0055B7DB /* CustomShapeTriangle.swift in Sources */,
 				6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */,
+				6C8DDFE725287B9F0055B7DB /* CustomRoundedEdgesShape.swift in Sources */,
 				6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */,
 				6CD7247A252834F700ED0EB0 /* TabBar.swift in Sources */,
 				6C8DDFDD252850BF0055B7DB /* ScrollScreen.swift in Sources */,

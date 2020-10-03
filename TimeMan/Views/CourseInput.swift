@@ -153,7 +153,8 @@ struct CourseInput: View {
                         } catch{
                             print(error)
                         }
-                        appleEvents.addLecture(lectureRepeat: mappedLectureRepeatWeek, title: viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), startDate: viewModel.lectureTime, notes: viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName)
+                        let note = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+                        appleEvents.addLecture(lectureRepeat: mappedLectureRepeatWeek, title: viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber), startDate: viewModel.lectureTime, notes: note)
                         if(viewModel.isLectureNotificationsEnabled){
                             let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + "L" + String(viewModel.lectureNumber)
                             notificationManager.scheduleNotification(title: notifTitle, subtitle: viewModel.courseTitle, body: "Lecture in 10 min",time: viewModel.lectureTime, weekRepeat: mappedLectureRepeatWeek)

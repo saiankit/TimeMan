@@ -18,12 +18,12 @@ struct HomeScreen: View {
                     VStack {
                         UpcomingClasses()
                     }
-                    .frame(width: 300.0, height: 500.0)
+                    .frame(width: 320.0, height: 500.0)
                     .background(
                         Color("CoursesListBackground")
-                            .clipShape(CustomShape())
+                            .clipShape(CustomShapeHome())
                     )
-                }.navigationTitle("Upcoming Classes")
+                }.navigationTitle("TimeMan")
             } 
     }
     }

@@ -9,6 +9,8 @@
 import SwiftUI
 
 class UpcomingClassViewModel {
+    @Environment(\.managedObjectContext) var managedObjectContext
+    
     
     private func getClassType(course: Course) -> String {
         if(course.isLecture)
@@ -50,10 +52,31 @@ class UpcomingClassViewModel {
     }
     
     
-    func getUpcomingClass(list: FetchedResults<Course>) -> String{
+    func getUpcomingClass(list: FetchedResults<Course>) -> Course{
         let calendar = Calendar.current
         let listWork = list
         var upcomingCourse : Course = Course()
+        
+        let errorCourse = Course(context: self.managedObjectContext)
+        errorCourse.courseTitle = "No upcoming Classes"
+        errorCourse.courseID = "E"
+        errorCourse.courseCode = "E"
+        errorCourse.instructorName = "E"
+        errorCourse.weekDayRepeat = ["Monday"]
+        errorCourse.meetLink = "E"
+        errorCourse.lectureNumber = "E"
+        errorCourse.tutorialNumber = "E"
+        errorCourse.practicalNumber = "E"
+        errorCourse.isLecture = true
+        errorCourse.isTutorial = false
+        errorCourse.isPractical = false
+        errorCourse.lectureExists = true
+        errorCourse.tutorialExists = true
+        errorCourse.practicalExists = true
+        errorCourse.time = Date()
+        errorCourse.colorNum = 0
+        
+
         let currentTimeHour = calendar.component(.hour, from: Date())
         let currentTimeMinute = calendar.component(.minute, from: Date())
         let currentTime = currentTimeHour * 60 + currentTimeMinute
@@ -83,8 +106,9 @@ class UpcomingClassViewModel {
         }
         if(count==0)
         {
-            return "No Upcoming Classes"
+            
+            return errorCourse
         }
-        return upcomingCourse.courseTitle! + " " + getClassType(course: upcomingCourse) + " at " + upcomingTime
+        return upcomingCourse
     }
 }
