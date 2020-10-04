@@ -82,7 +82,6 @@ class UpcomingClassViewModel {
         let currentTime = currentTimeHour * 60 + currentTimeMinute
         var diff = 1440
         var count = 0
-        var upcomingTime = ""
         for courseClass in listWork {
             if(shouldCourseBeIncluded(course: courseClass, index: (Calendar.current.component(.weekday, from: Date())-1)
             )){
@@ -99,7 +98,7 @@ class UpcomingClassViewModel {
                         diff = courTime - currentTime
                         upcomingCourse = courseClass
                         count = count + 1
-                        upcomingTime = self.getUpcomingTime(time: courseTime!)
+//                        upcomingTime = self.getUpcomingTime(time: courseTime!)
                     }
                 }
             }
