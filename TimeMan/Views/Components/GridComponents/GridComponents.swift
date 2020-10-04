@@ -17,7 +17,7 @@ struct GridWeekItem : View{
             Text(title).font(.system(size: 18, weight: .bold, design: .rounded))
         }
         .frame(width: width, height: height)
-        .padding(2)
+        .padding(4)
     }
 }
 
@@ -70,7 +70,12 @@ struct RowForGrid : View{
         VStack {
             Line()
             HStack(spacing: spacing){
-                Text(String(time) + ":00").font(.system(size: 10)).frame(width: width, height: height)
+                VStack(alignment: .center){
+                    Text(String(time) + ":00").font(.system(size: 13))
+                }
+                .frame(width: width, height: height)
+                .padding(4)
+               
                 GridItem(time: time, weekDay: 1)
                 GridItem(time: time, weekDay: 2)
                 GridItem(time: time, weekDay: 3)
@@ -79,5 +84,7 @@ struct RowForGrid : View{
                 GridItem(time: time, weekDay: 6)
             }
         }
+        .padding(.leading,5)
+        .padding(.trailing,5)
     }
 }

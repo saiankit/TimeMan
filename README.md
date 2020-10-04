@@ -11,9 +11,12 @@ TimeMan is a native iOS app to enable the people of BPHC to keep track of their 
 3. The app should offer local notifications 10 minutes before each event.
 
 ------
-|  ![1](Screenshots/LightMode-Home.png)     |  ![1](Screenshots/LightMode-Add.png)     |
-| ---- | ---- |
-| ![1](Screenshots/DarkMode-Home.png) | ![1](Screenshots/DarkMode-Add.png)|
+
+| ![1](Screenshots/ScrollView-Dark.png)   |  ![1](Screenshots/HomeScreen-Dark.png)  |  ![1](Screenshots/GridView-Dark.png)  |
+|---|---|---|
+|  ![1](Screenshots/Notifications-Light.png)  |  ![1](Screenshots/ColorCode-Dark.png)   |  ![1](Screenshots/Notifications-Dark.png) |
+|  ![1](Screenshots/AddCourse-Dark.png)  |  ![1](Screenshots/AppleCalendar-Dark.png)   |  ![1](Screenshots/AddCourse-Light.png) |
+|  ![1](Screenshots/ScrollView-Light.png)  |  ![1](Screenshots/HomeScreen-Light.png)   |  ![1](Screenshots/GridView-Light.png) |
 
 
 
