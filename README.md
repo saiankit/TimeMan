@@ -1,6 +1,6 @@
 ## TimeMan ⏰
 
-####TimeMan is a native iOS app to enable the people of BPHC to keep track of their timetables.
+#### TimeMan is a native iOS app to enable the people of BPHC to keep track of their timetables.
 
 ------
 
@@ -26,7 +26,7 @@
 
 #### How to use the app locally on your machine ?
 
-###<u>Requirements</u>
+### <u>Requirements</u>
 
 ###### 1. macOS 10.15.7 +
 ###### 2. Xcode 12
