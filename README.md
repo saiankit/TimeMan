@@ -1,10 +1,20 @@
-## TimeMan ⏰
-
-#### TimeMan is a native iOS app to enable the people of BPHC to keep track of their timetables.
+<p align="center">
+<img src="Screenshots/Icon.png" width = 100 align = "center">
+<h1 align="center">
+    TimeMan ⏰
+</h1>
+</p>
 
 ------
 
-#### Salient Features of TimeMan
+<h4 align="center">
+  Native iOS App
+  to enable the people of BPHC to track of their Timetables
+</h4>
+
+
+
+## Salient Features of TimeMan
 
 ###### 1. The feature set includes viewing the timetable, adding a course ( along with it's Google Meet Link ) to the Timetable, and to view a course in the Timetable.
 ###### 2. The Timetable can be seen in two types of views : Scroll View and Grid View
@@ -25,7 +35,7 @@
 
 #### How to use the app locally on your machine ?
 
-### <u>Requirements</u>
+### <u>Requirements</u> 📋
 
 ###### 1. macOS 10.15.7 +
 ###### 2. Xcode 12
