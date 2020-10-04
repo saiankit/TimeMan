@@ -8,106 +8,11 @@
 
 import SwiftUI
 
-struct Single: View {
-    var input: String
-    var body: some View {
-        HStack{
-            Text(input)
-        }
-    }
-}
-
-struct Double: View {
-    var ip1: String
-    var ip2: String
-    var body: some View {
-        HStack{
-            Text(ip1)
-            Spacer()
-            Text(ip2)
-        }
-    }
-}
-
-struct Triple: View {
-    var ip1: String
-    var ip2: String
-    var ip3: String
-    var body: some View {
-        HStack{
-            Text(ip1)
-            Spacer()
-            Text(ip2)
-            Spacer()
-            Text(ip3)
-        }
-    }
-}
-
-struct CourseLink: View {
-    var course: Course
-    var body: some View {
-        if(course.isLecture)
-                          {
-            Text(course.lectureNumber ?? "L1")
-                              .font(.largeTitle)
-                              .fontWeight(.heavy)
-                          }
-                          else if(course.isTutorial)
-                          {
-                            Text(course.tutorialNumber ?? "T1")
-                              .font(.largeTitle)
-                              .fontWeight(.heavy)
-                          }
-                          else if(course.isPractical)
-                          {
-                            Text(course.practicalNumber ?? "P1")
-                              .font(.largeTitle)
-                              .fontWeight(.heavy)
-                          }
-    }
-}
-
-struct CourseNumbers: View {
-    var course: Course
-    var body: some View {
-        if(course.lectureExists && (course.tutorialExists && course.practicalExists) )
-        {
-            Triple(ip1: course.lectureNumber ?? "L1", ip2: course.tutorialNumber ?? "T1", ip3: course.practicalNumber ?? "P1")
-        }
-        else if(course.lectureExists && course.tutorialExists)
-        {
-            Double(ip1: course.lectureNumber ?? "L1", ip2: course.tutorialNumber ?? "T1")
-        }
-        else if(course.lectureExists && course.practicalExists)
-        {
-            Double(ip1: course.lectureNumber ?? "L1", ip2: course.practicalNumber ?? "P1")
-        }
-        else if(course.tutorialExists && course.practicalExists)
-        {
-            Double(ip1: course.tutorialNumber ?? "T1", ip2: course.practicalNumber ?? "P1")
-        }
-        else if(course.lectureExists)
-        {
-            Single(input: course.lectureNumber ?? "L1")
-        }
-        else if(course.tutorialExists)
-        {
-            Single(input: course.tutorialNumber ?? "T1")
-        }
-        else if(course.practicalExists)
-        {
-            Single(input: course.practicalNumber ?? "P1")
-        }
-    }
-}
-
 struct CourseCard: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     var course: Course
-    var date: Int = (Calendar.current.component(.minute, from: Date()))
     var viewModel = CourseViewModel()
-    private func getTime(time : Date) -> String {
+    private func getClassTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
         let minute: Int = (Calendar.current.component(.minute, from: time))
@@ -123,6 +28,7 @@ struct CourseCard: View {
     var body: some View {
         VStack{
             HStack(alignment: .top){
+                //Course Information
                 VStack(alignment: .leading){
                     Text(course.courseTitle ?? "Default Title")
                         .font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
@@ -135,24 +41,24 @@ struct CourseCard: View {
                     }
                 }
                 Spacer()
+                // Class Time and Meet Link
                 VStack {
-                    Text(getTime(time: course.time ?? Date()))
+                    Text(getClassTime(time: course.time ?? Date()))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {
                         Link(destination: URL(string: course.meetLink ?? "www.google.com")!, label: {
                             HStack{
-                                CourseLink(course: course).foregroundColor(.white)
+                                ClassType(course: course).foregroundColor(.white)
                                 Image(systemName: "video.fill").foregroundColor(.white)
                             }.padding(8)
-                        .background(self.viewModel.colorNumbersLight[Int(course.colorNum)])
-                        .cornerRadius(15)
+                            .background(self.viewModel.colorNumbersLight[Int(course.colorNum)])
+                            .cornerRadius(15)
                         })
                     }
-                    
-                           
                 }
             }
+            
             Rectangle()
                 .fill(Color.white)
                 .frame(height: 2)
@@ -167,16 +73,16 @@ struct CourseCard: View {
         .cornerRadius(20).padding(.bottom)
         .contextMenu {
             Button(action: {
-                    let deleteItem = course
+                let deleteItem = course
                 self.managedObjectContext.delete(deleteItem)
                 do {
                     try self.managedObjectContext.save()
                 } catch {
                     print(error)
                 }
-                }) {
-                Text("Delete").foregroundColor(Color.red)
-                }
+            }) {
+                Text("Delete")
             }
         }
     }
+}
