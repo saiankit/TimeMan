@@ -14,6 +14,7 @@
 		6C16F6E5251904A10010857F /* CourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C16F6E4251904A10010857F /* CourseCard.swift */; };
 		6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2191D2252638440024C8C8 /* ExtensionColor.swift */; };
 		6C3EA3DB2529BEAD00D84CA1 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EA3DA2529BEAD00D84CA1 /* GridViewModel.swift */; };
+		6C3EA3E02529C32E00D84CA1 /* GridComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EA3DF2529C32E00D84CA1 /* GridComponents.swift */; };
 		6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B42519B7370023B4BD /* WeekScroll.swift */; };
 		6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B72519B7A70023B4BD /* CalendarItem.swift */; };
 		6C5FB76A252788B500534BC9 /* UpcomingClasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C5FB769252788B500534BC9 /* UpcomingClasses.swift */; };
@@ -62,6 +63,7 @@
 		6C16F6E4251904A10010857F /* CourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCard.swift; sourceTree = "<group>"; };
 		6C2191D2252638440024C8C8 /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
 		6C3EA3DA2529BEAD00D84CA1 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		6C3EA3DF2529C32E00D84CA1 /* GridComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridComponents.swift; sourceTree = "<group>"; };
 		6C4589B42519B7370023B4BD /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
 		6C4589B72519B7A70023B4BD /* CalendarItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarItem.swift; sourceTree = "<group>"; };
 		6C5FB769252788B500534BC9 /* UpcomingClasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingClasses.swift; sourceTree = "<group>"; };
@@ -113,9 +115,18 @@
 			path = MultiSelector;
 			sourceTree = "<group>";
 		};
+		6C3EA3DD2529C2BF00D84CA1 /* GridComponents */ = {
+			isa = PBXGroup;
+			children = (
+				6C3EA3DF2529C32E00D84CA1 /* GridComponents.swift */,
+			);
+			path = GridComponents;
+			sourceTree = "<group>";
+		};
 		6C4589B62519B7680023B4BD /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				6C3EA3DD2529C2BF00D84CA1 /* GridComponents */,
 				6CD72478252834E800ED0EB0 /* TabBar */,
 				6C4589B72519B7A70023B4BD /* CalendarItem.swift */,
 				6C1444A1251DE16D00CFA2BF /* MultiSelector */,
@@ -333,6 +344,7 @@
 				6C5FB76A252788B500534BC9 /* UpcomingClasses.swift in Sources */,
 				6CF6341B2518B812005F022D /* TimeMan.xcdatamodeld in Sources */,
 				6CABB8D5253EB09900024525 /* AppleEvents.swift in Sources */,
+				6C3EA3E02529C32E00D84CA1 /* GridComponents.swift in Sources */,
 				6CABB8CE253EB09800024525 /* LocalNotificationManager.swift in Sources */,
 				6CF634162518B812005F022D /* AppDelegate.swift in Sources */,
 				6C15DDA52525E0530068BCD8 /* Course+CoreDataProperties.swift in Sources */,
