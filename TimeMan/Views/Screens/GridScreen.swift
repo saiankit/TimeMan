@@ -23,15 +23,15 @@ struct GridScreen: View {
                 Text("F").frame(width: 30, height: 30)
                 Text("S").frame(width: 30, height: 30)
             }
-                RowForGrid(time: 7)
-                RowForGrid(time: 8)
-                RowForGrid(time: 9)
-                RowForGrid(time: 10)
+                TimeGrid()
+                RowForGrid(time: 17)
+                RowForGrid(time: 18)
+                RowForGrid(time: 19)
                 
             }
     }
 }
-
+}
 struct GridItem : View {
     var time : Int
     var weekDay : Int
@@ -84,17 +84,16 @@ struct GridItem : View {
             }
             .frame(width: 30, height: 30)
             .padding(2)
-            .background(Color.gray)
+            .background(Color("CoursesListBackground"))
         }
         else{
         VStack{
-            Text(getCourseForGrid(list: listForUpcoming, time: time, weekDay: weekDay)[0]).font(.system(size: 10))
-            Text(getCourseForGrid(list: listForUpcoming, time: time, weekDay: weekDay)[1]).font(.system(size: 10))
+            Text(getCourseForGrid(list: listForUpcoming, time: time, weekDay: weekDay)[0]).font(.system(size: 10)).foregroundColor(.black)
+            Text(getCourseForGrid(list: listForUpcoming, time: time, weekDay: weekDay)[1]).font(.system(size: 10)).foregroundColor(.black)
         }
         .frame(width: 30, height: 30)
         .padding(2)
         .background(viewModel.colorNumbers[Int(getCourseForGrid(list: listForUpcoming, time: time, weekDay: weekDay)[2])!])
-        .background(Color.orange)
         }
     }
 }
@@ -127,4 +126,24 @@ struct RowForGrid : View{
         }
     }
 }
-}
+    
+    
+    
+    
+    struct TimeGrid : View{
+        var body: some View {
+            VStack {
+              RowForGrid(time: 7)
+                RowForGrid(time: 8)
+                RowForGrid(time: 9)
+                RowForGrid(time: 10)
+                RowForGrid(time: 11)
+                RowForGrid(time: 12)
+                RowForGrid(time: 13)
+                RowForGrid(time: 14)
+                RowForGrid(time: 15)
+                RowForGrid(time: 16)
+            }
+        }
+    }
+
