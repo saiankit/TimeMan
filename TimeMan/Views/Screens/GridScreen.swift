@@ -18,7 +18,9 @@ struct GridScreen: View {
         if #available(iOS 14.0, *) {
             ZStack{
             VStack{
-                GridWeekRow()
+                GridWeekRow().sheet(isPresented: $isPresented){
+                    CourseInput(isPresented: $isPresented)
+                }
                 ScrollView{
                     TimeGrid()
                     RowForGrid(time: 17)
