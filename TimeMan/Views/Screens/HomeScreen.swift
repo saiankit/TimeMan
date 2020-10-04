@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @Binding var isPresented : Bool
     var body: some View {
         NavigationView {
             if #available(iOS 14.0, *) {

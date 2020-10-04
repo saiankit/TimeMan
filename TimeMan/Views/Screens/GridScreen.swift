@@ -13,8 +13,10 @@ var width : CGFloat = 40
 var spacing : CGFloat = 8
 
 struct GridScreen: View {
+    @Binding var isPresented : Bool
     var body: some View {
         if #available(iOS 14.0, *) {
+            ZStack{
             VStack{
                 GridWeekRow()
                 ScrollView{
@@ -24,6 +26,8 @@ struct GridScreen: View {
                     RowForGrid(time: 19)
                     
                 }
+            }
+                FloatingActionButton(isPresented: $isPresented)
             }
         }
     }

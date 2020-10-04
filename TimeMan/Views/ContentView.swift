@@ -16,10 +16,10 @@ struct ContentView: View {
                 ScrollScreen(isPresented: $isPresented)
             }
             else if(selectedIndex == "") {
-                HomeScreen(isPresented: $isPresented)
+                HomeScreen()
             }
             else {
-                GridScreen()
+                GridScreen(isPresented: $isPresented)
             }
             TabBar(selectedTab: $selectedIndex, isPresented: $isPresented)
         }

@@ -16,7 +16,6 @@ struct CourseInput: View {
     let appleEvents = AppleEvents()
     let notificationManager = LocalNotificationManager()
     
-    
     var body: some View {
         NavigationView{
             Form{
@@ -108,8 +107,7 @@ struct CourseInput: View {
                     }
                 }
                 
-                
-                
+                // MARK: - Color Coding
                 Section(){
                     Picker(selection: $viewModel.colorNum, label: Text("Color Code")) {
                         ForEach(0 ..< viewModel.colorNumbers.count) {
@@ -118,8 +116,7 @@ struct CourseInput: View {
                     }
                 }
                 
-                
-                
+                // MARK: - Add course
                 Section {
                     Button(action:{
                         
@@ -236,5 +233,4 @@ struct CourseInput: View {
             }.navigationBarTitle(Text("Add Course"),displayMode: .inline)
         }
     }
-    
 }
