@@ -1,14 +1,16 @@
-## TimeMan
+## TimeMan ⏰
 
-TimeMan is a native iOS app to enable the people of BPHC to keep track of their timetables.
+####TimeMan is a native iOS app to enable the people of BPHC to keep track of their timetables.
 
 ------
 
-#### Salient Features of CGPA Calculator
+#### Salient Features of TimeMan
 
-1. The feature set includes viewing the timetable, adding a course ( along with it's Google Meet Link ) to the Timetable, and to view a course in the Timetable.
-2. The user should be able to add these course events to the Apple Calendar.
-3. The app should offer local notifications 10 minutes before each event.
+###### 1. The feature set includes viewing the timetable, adding a course ( along with it's Google Meet Link ) to the Timetable, and to view a course in the Timetable.
+###### 2. The Timetable can be seen in two types of views : Scroll View and Grid View
+###### 3. The user can add these course events to the Apple Calendar.
+###### 4. The app offers local notifications 10 minutes before each event.
+###### 5. The home screen shows the Upcoming class - Glanceable Screen  
 
 ------
 
@@ -24,10 +26,10 @@ TimeMan is a native iOS app to enable the people of BPHC to keep track of their 
 
 #### How to use the app locally on your machine ?
 
-<u>Requirements</u>
+###<u>Requirements</u>
 
-1. macOS 15
-2. Xcode 11.7 +
+###### 1. macOS 10.15.7 +
+###### 2. Xcode 12
 
 **Step #1** : Clone this repository using 
 
@@ -37,10 +39,10 @@ TimeMan is a native iOS app to enable the people of BPHC to keep track of their 
 
 ``` open TimeMan.xcworkspace```
 
-**Step #3**: Open a simulator / emulator and run the application
+**Step #3**: Open a simulator and run the application
 
 
 - - - -
 ### Created and Maintained by 
 #### Sai Ankit 
-This application is being built as a part of CRUx Round II Inductions.
+###### This application is being built as a part of CRUx Round II Inductions.
