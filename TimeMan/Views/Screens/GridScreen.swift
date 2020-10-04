@@ -12,7 +12,6 @@ var height : CGFloat = 40
 var width : CGFloat = 40
 var spacing : CGFloat = 8
 
-
 struct GridScreen: View {
     var body: some View {
         if #available(iOS 14.0, *) {

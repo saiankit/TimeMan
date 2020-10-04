@@ -19,8 +19,7 @@
 |  ![1](Screenshots/Notifications-Light.png)  |  ![1](Screenshots/ColorCode-Dark.png)   |  ![1](Screenshots/Notifications-Dark.png) |
 |  ![1](Screenshots/AddCourse-Dark.png)  |  ![1](Screenshots/AppleCalendar-Dark.png)   |  ![1](Screenshots/AddCourse-Light.png) |
 |  ![1](Screenshots/ScrollView-Light.png)  |  ![1](Screenshots/HomeScreen-Light.png)   |  ![1](Screenshots/GridView-Light.png) |
-
-
+|  ![1](Screenshots/AppleCalendar-Light.png) |   |  ![1](Screenshots/Delete-Dark.png) |
 
 ------
 
