@@ -29,6 +29,7 @@ class UpcomingClassViewModel {
     }
     
     
+    
     private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
@@ -98,7 +99,6 @@ class UpcomingClassViewModel {
                         diff = courTime - currentTime
                         upcomingCourse = courseClass
                         count = count + 1
-//                        upcomingTime = self.getUpcomingTime(time: courseTime!)
                     }
                 }
             }
