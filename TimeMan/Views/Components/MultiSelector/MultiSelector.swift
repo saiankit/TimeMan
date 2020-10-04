@@ -12,13 +12,13 @@ struct MultiSelector<LabelView: View, Selectable: Identifiable & Hashable>: View
     let label: LabelView
     let options: [Selectable]
     let optionToString: (Selectable) -> String
-
+    
     var selected: Binding<Set<Selectable>>
-
+    
     private var formattedSelectedListString: String {
         ListFormatter.localizedString(byJoining: selected.wrappedValue.map { optionToString($0) })
     }
-
+    
     var body: some View {
         NavigationLink(destination: multiSelectionView()) {
             HStack {
@@ -30,7 +30,7 @@ struct MultiSelector<LabelView: View, Selectable: Identifiable & Hashable>: View
             }
         }
     }
-
+    
     private func multiSelectionView() -> some View {
         MultiSelectionView(
             options: options,
@@ -46,9 +46,9 @@ struct MultiSelector_Previews: PreviewProvider {
         let string: String
         var id: String { string }
     }
-
+    
     @State static var selected: Set<IdentifiableString> = Set(["A", "C"].map { IdentifiableString(string: $0) })
-
+    
     static var previews: some View {
         NavigationView {
             Form {

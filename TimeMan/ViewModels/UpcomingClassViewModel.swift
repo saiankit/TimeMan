@@ -77,7 +77,7 @@ class UpcomingClassViewModel {
         errorCourse.time = Date()
         errorCourse.colorNum = 0
         
-
+        
         let currentTimeHour = calendar.component(.hour, from: Date())
         let currentTimeMinute = calendar.component(.minute, from: Date())
         let currentTime = currentTimeHour * 60 + currentTimeMinute

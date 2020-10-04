@@ -20,7 +20,7 @@ class GridViewModel {
         }
         return ""
     }
-
+    
     
     private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]

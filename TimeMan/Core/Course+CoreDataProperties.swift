@@ -12,11 +12,11 @@ import CoreData
 
 
 extension Course {
-
+    
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Course> {
         return NSFetchRequest<Course>(entityName: "Course")
     }
-
+    
     @NSManaged public var courseCode: String?
     @NSManaged public var courseID: String?
     @NSManaged public var courseTitle: String?
@@ -35,9 +35,9 @@ extension Course {
     @NSManaged public var tutorialNumber: String?
     @NSManaged public var weekDayRepeat: Set<String>?
     @NSManaged public var colorNum: Int16
-
+    
 }
 
 extension Course : Identifiable {
-
+    
 }

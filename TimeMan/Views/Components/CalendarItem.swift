@@ -25,9 +25,3 @@ struct CalendarItem: View{
         .cornerRadius(15)
     }
 }
-
-struct CalendarItem_Previews: PreviewProvider {
-    static var previews: some View {
-        CalendarItem(isSelected: true, weekDay: "We")
-    }
-}

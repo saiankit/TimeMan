@@ -51,7 +51,7 @@ struct GridItem : View {
                 Text(self.gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[0]).font(.system(size: 12)).foregroundColor(.black)
                 Text(self.gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[1]).font(.system(size: 12)).foregroundColor(.black)
                 Text(self.gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[3]).font(.system(size: 12)).foregroundColor(.black)
-
+                
             }
             .frame(width: width, height: height)
             .padding(4)

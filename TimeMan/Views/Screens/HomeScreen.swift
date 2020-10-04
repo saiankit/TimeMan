@@ -32,6 +32,6 @@ struct HomeScreen: View {
                     )
                 }.navigationTitle("TimeMan")
             } 
-    }
+        }
     }
 }

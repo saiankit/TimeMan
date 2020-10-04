@@ -157,9 +157,22 @@
 			path = CourseCardComponents;
 			sourceTree = "<group>";
 		};
+		6C8621E82529EFA500F6A9E4 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				6C4589B42519B7370023B4BD /* WeekScroll.swift */,
+				6C5FB769252788B500534BC9 /* UpcomingClasses.swift */,
+				6C8DDFEA252889A20055B7DB /* UpcomingCourseCard.swift */,
+				6CE81F922520966D00E6D390 /* CoursesList.swift */,
+				6C16F6E4251904A10010857F /* CourseCard.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
 		6C8DDFD8252850440055B7DB /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6C04E3BF251A17A70018BD77 /* CourseInput.swift */,
 				6C8DDFD9252850550055B7DB /* HomeScreen.swift */,
 				6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */,
 				6C8DDFDF252850CE0055B7DB /* GridScreen.swift */,
@@ -256,15 +269,10 @@
 		6CF6342F2518B97C005F022D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6C8621E82529EFA500F6A9E4 /* Widgets */,
 				6C8DDFD8252850440055B7DB /* Screens */,
 				6C4589B62519B7680023B4BD /* Components */,
 				6CF6341C2518B812005F022D /* ContentView.swift */,
-				6C16F6E4251904A10010857F /* CourseCard.swift */,
-				6C4589B42519B7370023B4BD /* WeekScroll.swift */,
-				6C04E3BF251A17A70018BD77 /* CourseInput.swift */,
-				6CE81F922520966D00E6D390 /* CoursesList.swift */,
-				6C5FB769252788B500534BC9 /* UpcomingClasses.swift */,
-				6C8DDFEA252889A20055B7DB /* UpcomingCourseCard.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";

@@ -33,7 +33,7 @@ class CourseViewModel: ObservableObject {
     ]
     
     let colorNumbersLight: [Color] = [
-    Color(UIColor(hexString: "#A1B0F5")),Color(UIColor(hexString: "#FFA68D")),Color(UIColor(hexString: "#B7F48D")),Color(UIColor(hexString: "#FFEA85")),Color(UIColor(hexString: "#84FFCB")),Color(UIColor(hexString: "#FF94F4")),Color(UIColor(hexString: "#9FEEFF")),Color(UIColor(hexString: "#F8EBEB"))
+        Color(UIColor(hexString: "#A1B0F5")),Color(UIColor(hexString: "#FFA68D")),Color(UIColor(hexString: "#B7F48D")),Color(UIColor(hexString: "#FFEA85")),Color(UIColor(hexString: "#84FFCB")),Color(UIColor(hexString: "#FF94F4")),Color(UIColor(hexString: "#9FEEFF")),Color(UIColor(hexString: "#F8EBEB"))
     ]
     
     let colorNames : [String] = [
@@ -61,7 +61,7 @@ class CourseViewModel: ObservableObject {
     func generateLectureNumber( lectureNumber: Int) -> String {
         return "L" + String(lectureNumber)
     }
-
+    
     // MARK: - Tutorial
     @Published var tutorialInstructorName : String = ""
     @Published var tutorialNumber : Int = 1
@@ -74,7 +74,7 @@ class CourseViewModel: ObservableObject {
     func generateTutorialNumber( tutorialNumber: Int) -> String {
         return "T" + String(tutorialNumber)
     }
-
+    
     // MARK: - Practical
     @Published var practicalInstructorName : String = ""
     @Published var practicalNumber : Int = 1

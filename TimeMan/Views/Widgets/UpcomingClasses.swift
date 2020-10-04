@@ -16,12 +16,12 @@ struct UpcomingClasses: View {
             if(self.viewModel.getUpcomingClass(list: listForUpcoming).courseID == "E") {
                 VStack{
                     Image(systemName: "snow").resizable().frame(width: 50, height: 50)
-                Text("No Upcoming Classes").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
+                    Text("No Upcoming Classes").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
                     
                 }
             }
             else{
-            UpcomingCourseCard(course: self.viewModel.getUpcomingClass(list: listForUpcoming))
+                UpcomingCourseCard(course: self.viewModel.getUpcomingClass(list: listForUpcoming))
             }
         }
         .padding(20)
