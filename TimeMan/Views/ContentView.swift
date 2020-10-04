@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import UserNotifications
 struct ContentView: View {
     @State var isPresented = false
     @State var selectedIndex = ""
@@ -25,6 +24,5 @@ struct ContentView: View {
             TabBar(selectedTab: $selectedIndex, isPresented: $isPresented)
         }
         .edgesIgnoringSafeArea(.bottom)
-        
     }
 }

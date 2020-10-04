@@ -12,7 +12,7 @@ struct UpcomingCourseCard: View {
     var course: Course
     var date: Int = (Calendar.current.component(.minute, from: Date()))
     var viewModel = CourseViewModel()
-    private func getTime(time : Date) -> String {
+    private func getClassTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
         let minute: Int = (Calendar.current.component(.minute, from: time))
@@ -40,7 +40,7 @@ struct UpcomingCourseCard: View {
                 }
                 Spacer()
                 VStack {
-                    Text(getTime(time: course.time ?? Date()))
+                    Text(getClassTime(time: course.time ?? Date()))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {
