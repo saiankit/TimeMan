@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+
 class CourseListViewModel {
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]

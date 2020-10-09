@@ -15,7 +15,7 @@ class LocalNotificationManager {
     let utils = WeekDayUtilities()
     
     private func registerNotifications() {
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        center.requestAuthorization(options: options) { (granted, error) in
             if granted {
                 print("Notifications are registered")
             } else {
@@ -24,7 +24,13 @@ class LocalNotificationManager {
         }
     }
     
-    func scheduleNotification(title: String, subtitle: String, body: String, time: Date, weekRepeat: Set<String>){
+    func scheduleNotification(
+        title: String,
+        subtitle: String,
+        body: String,
+        time: Date,
+        weekRepeat: Set<String>
+    ) {
         self.registerNotifications()
         let content = UNMutableNotificationContent()
         content.title = title
@@ -42,7 +48,12 @@ class LocalNotificationManager {
             dateComponents.weekday = weekDay
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             
-            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            let request = UNNotificationRequest(
+                identifier: UUID().uuidString,
+                content: content,
+                trigger: trigger
+            )
+            
             center.add(request)
         }
     }

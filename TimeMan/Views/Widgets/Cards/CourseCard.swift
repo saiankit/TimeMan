@@ -16,9 +16,7 @@ struct CourseCard: View {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
         let minute: Int = (Calendar.current.component(.minute, from: time))
-        
         var aminute = (minute == 0) ? "00" : String(minute)
-        
         aminute = ((minute < 10) && (minute >= 1)) ? "0" + String(minute) : String(aminute)
         timeType = hour >= 12 ? "PM" : "AM"
         hour = hour > 12 ? hour - 12 : hour

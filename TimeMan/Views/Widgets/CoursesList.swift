@@ -16,14 +16,12 @@ struct CoursesList: View {
         if #available(iOS 14.0, *) {
             LazyVStack(alignment: .leading){
                 ForEach(self.courseItemsList, id: \.self) {
-                    if(self.viewModel.shouldCourseBeIncluded(course: $0, index: self.calendarIndex))
-                    {
+                    if self.viewModel.shouldCourseBeIncluded(course: $0, index: self.calendarIndex) {
                         CourseCard(course: $0)
-                        
                     }
                 }
             }
-            if(self.viewModel.areClassesAvailableToday(coursesList: self.courseItemsList, index: self.calendarIndex) == false) {
+            if self.viewModel.areClassesAvailableToday(coursesList: self.courseItemsList, index: self.calendarIndex) == false {
                     Text("No Classes Today").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5).padding(.leading,20)
             }
         }

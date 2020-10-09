@@ -6,8 +6,9 @@
 //  Copyright © 2020 Sai Ankit. All rights reserved.
 //
 
-import SwiftUI
 import EventKit
+import SwiftUI
+
 class AppleEvents {
     
     let utils = WeekDayUtilities()
@@ -20,8 +21,7 @@ class AppleEvents {
         notes: String,
         eventStore: EKEventStore,
         lectureRepeat: Set<String>
-    )
-    {
+    ) {
         let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: lectureRepeat)
         let event: EKEvent = EKEvent(eventStore: eventStore)
         event.title = title
@@ -49,8 +49,13 @@ class AppleEvents {
     }
     
     
-    private func addTutorialToCalendar(title: String, startDate: Date , notes: String, eventStore: EKEventStore, tutorialRepeat: Set<String>)
-    {
+    private func addTutorialToCalendar(
+        title: String,
+        startDate: Date,
+        notes: String,
+        eventStore: EKEventStore,
+        tutorialRepeat: Set<String>
+    ) {
         
         let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: tutorialRepeat)
 
@@ -80,9 +85,13 @@ class AppleEvents {
         }
     }
     
-    private func addPracticalToCalendar(title: String, startDate: Date , notes: String, eventStore: EKEventStore, practicalRepeat: Set<String>)
-    {
-        
+    private func addPracticalToCalendar(
+        title: String,
+        startDate: Date,
+        notes: String,
+        eventStore: EKEventStore,
+        practicalRepeat: Set<String>
+    ) {
         let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: practicalRepeat)
 
         let event: EKEvent = EKEvent(eventStore: eventStore)

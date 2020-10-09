@@ -6,8 +6,8 @@
 //  Copyright © 2020 Sai Ankit. All rights reserved.
 //
 
-import Foundation
 import EventKit
+import Foundation
 
 var weekDaySymbols: [String] = ["Sun",
                                 "Mon",

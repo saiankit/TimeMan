@@ -43,19 +43,18 @@ struct GridItem : View {
     @Environment(\.managedObjectContext) var managedObjectContext
     var gridViewModel = GridViewModel()
     var body: some View {
-        if(self.gridViewModel.getCourseForGrid(
+        if self.gridViewModel.getCourseForGrid(
             list: listForUpcoming,
             gridTime: time,
             weekDay: weekDay
-        )[0] == "Error") {
+        )[0] == "Error" {
             VStack{
                 Text("")
             }
             .frame(width: width, height: height)
             .padding(4)
             .background(Color("CoursesListBackground"))
-        }
-        else {
+        } else {
             VStack{
                 Text(self.gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[0]).font(.system(size: 12)).foregroundColor(.black)
                 Text(self.gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[1]).font(.system(size: 12)).foregroundColor(.black)
