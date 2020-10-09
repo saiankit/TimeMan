@@ -14,11 +14,9 @@ struct ContentView: View {
         VStack {
             if(selectedIndex == "Scroll") {
                 ScrollScreen(isPresented: $isPresented)
-            }
-            else if(selectedIndex == "") {
+            } else if(selectedIndex == "") {
                 HomeScreen()
-            }
-            else {
+            } else {
                 GridScreen(isPresented: $isPresented)
             }
             TabBar(selectedTab: $selectedIndex, isPresented: $isPresented)

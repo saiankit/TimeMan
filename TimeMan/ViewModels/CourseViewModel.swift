@@ -59,7 +59,7 @@ class CourseViewModel: ObservableObject {
     @Published var isLectureExisting: Bool = true
     @Published var isLectureNotificationsEnabled: Bool = false
     func generateLectureNumber( lectureNumber: Int) -> String {
-        return "L" + String(lectureNumber)
+        return "L\(lectureNumber)"
     }
     
     // MARK: - Tutorial

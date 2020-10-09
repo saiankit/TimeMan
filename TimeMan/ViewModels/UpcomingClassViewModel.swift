@@ -11,29 +11,23 @@ import SwiftUI
 class UpcomingClassViewModel {
     @Environment(\.managedObjectContext) var managedObjectContext
     
-    
     private func getClassType(course: Course) -> String {
-        if(course.isLecture)
-        {
+        if course.isLecture {
             return course.lectureNumber ?? ""
         }
-        else if(course.isTutorial)
-        {
+        else if course.isTutorial {
             return course.tutorialNumber ?? ""
         }
-        else if(course.isPractical)
-        {
+        else if course.isPractical {
             return course.practicalNumber ?? ""
         }
         return ""
     }
     
-    
-    
     private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
-        if(converted!.contains(weekDayName)){
+        if converted!.contains(weekDayName) {
             return true
         }
         return false
@@ -91,11 +85,8 @@ class UpcomingClassViewModel {
                 let courseMinute = Calendar.current.component(.minute, from: courseTime!)
                 let courTime = courseHour * 60 + courseMinute
                 let difference = courTime - currentTime
-                print(difference)
-                if(difference > 0)
-                {
-                    if(difference < diff)
-                    {
+                if(difference > 0) {
+                    if difference < diff {
                         diff = courTime - currentTime
                         upcomingCourse = courseClass
                         count = count + 1
@@ -103,9 +94,7 @@ class UpcomingClassViewModel {
                 }
             }
         }
-        if(count==0)
-        {
-            
+        if count == 0 {
             return errorCourse
         }
         return upcomingCourse
