@@ -8,20 +8,33 @@
 
 import Foundation
 import EventKit
-var weekDaySymbols: [String] = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
 
-var longWeekDaySymbols : [String] = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+var weekDaySymbols: [String] = ["Sun",
+                                "Mon",
+                                "Tue",
+                                "Wed",
+                                "Thu",
+                                "Fri",
+                                "Sat"]
+
+var longWeekDaySymbols : [String] = ["Sunday",
+                                     "Monday",
+                                     "Tuesday",
+                                     "Wednesday",
+                                     "Thursday",
+                                     "Friday",
+                                     "Saturday"]
 
 class WeekDayUtilities{
     
     func mapToWeekDays(weekDaySet: Set<String>) -> [Int] {
         
-        let lowerreMappedSet = weekDaySet.map { $0.lowercased() }
+        let lowerCasedSet = weekDaySet.map { $0.lowercased() }
         
         var mappedWeekDayArray: [Int] = []
 
-        for weekName in lowerreMappedSet {
-            switch weekName {
+        for weekDayName in lowerCasedSet {
+            switch weekDayName {
             case "monday":
                 mappedWeekDayArray.append(2)
             case "tuesday":
@@ -44,10 +57,10 @@ class WeekDayUtilities{
     
     func mapToEvents(weekDaySet: Set<String>) -> [EKRecurrenceDayOfWeek] {
         
-        let lowerreMappedSet = weekDaySet.map { $0.lowercased()}
+        let lowerCasedSet = weekDaySet.map { $0.lowercased()}
         var mappedWeekEventArray: [EKRecurrenceDayOfWeek] = []
-        for weekName in lowerreMappedSet {
-            switch weekName {
+        for weekDayName in lowerCasedSet {
+            switch weekDayName {
             case "monday":
                 mappedWeekEventArray.append(EKRecurrenceDayOfWeek.init(EKWeekday.monday))
             case "tuesday":

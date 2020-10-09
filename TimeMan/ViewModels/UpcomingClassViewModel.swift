@@ -14,11 +14,9 @@ class UpcomingClassViewModel {
     private func getClassType(course: Course) -> String {
         if course.isLecture {
             return course.lectureNumber ?? ""
-        }
-        else if course.isTutorial {
+        } else if course.isTutorial {
             return course.tutorialNumber ?? ""
-        }
-        else if course.isPractical {
+        } else if course.isPractical {
             return course.practicalNumber ?? ""
         }
         return ""

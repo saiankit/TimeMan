@@ -29,7 +29,7 @@ class CourseViewModel: ObservableObject {
     ]
     
     let colorNumbers: [Color] = [
-        Color(UIColor(hexString: "#7D83FD")),Color(UIColor(hexString: "#FF8E6E")),Color(UIColor(hexString: "#A5E17C")),Color(UIColor(hexString: "#FFDE41")),Color(UIColor(hexString: "#71EFBA")),Color(UIColor(hexString: "#EF7CE4")),Color(UIColor(hexString: "#84DBEE")),Color(UIColor(hexString: "#F5E0E0"))
+        Color(UIColor(hexString: "#7D83FD")), Color(UIColor(hexString: "#FF8E6E")), Color(UIColor(hexString: "#A5E17C")), Color(UIColor(hexString: "#FFDE41")), Color(UIColor(hexString: "#71EFBA")), Color(UIColor(hexString: "#EF7CE4")), Color(UIColor(hexString: "#84DBEE")), Color(UIColor(hexString: "#F5E0E0"))
     ]
     
     let colorNumbersLight: [Color] = [

@@ -8,8 +8,6 @@
 
 import SwiftUI
 
-
-
 struct GridWeekItem : View{
     var title : String
     var body: some View {
@@ -20,7 +18,6 @@ struct GridWeekItem : View{
         .padding(4)
     }
 }
-
 
 struct GridWeekRow : View{
     var body: some View {
@@ -35,7 +32,6 @@ struct GridWeekRow : View{
         }
     }
 }
-
 
 struct Line : View{
     var body: some View {
