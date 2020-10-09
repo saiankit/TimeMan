@@ -14,9 +14,14 @@ class AppleEvents {
     let eventStore: EKEventStore = EKEventStore()
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     
-    private func addLectureToCalendar(title: String, startDate: Date , notes: String ,eventStore: EKEventStore, lectureRepeat: Set<String>)
+    private func addLectureToCalendar(
+        title: String,
+        startDate: Date,
+        notes: String,
+        eventStore: EKEventStore,
+        lectureRepeat: Set<String>
+    )
     {
-        
         let mappedWeekDayArray: [EKRecurrenceDayOfWeek] = utils.mapToEvents(weekDaySet: lectureRepeat)
         let event: EKEvent = EKEvent(eventStore: eventStore)
         event.title = title
@@ -41,8 +46,6 @@ class AppleEvents {
         } catch let error as NSError{
             print("error : \(error)")
         }
-        print("Lecture Event Added")
-        
     }
     
     
@@ -75,8 +78,6 @@ class AppleEvents {
         } catch let error as NSError{
             print("error : \(error)")
         }
-        print("Event Added")
-        
     }
     
     private func addPracticalToCalendar(title: String, startDate: Date , notes: String, eventStore: EKEventStore, practicalRepeat: Set<String>)
@@ -108,8 +109,6 @@ class AppleEvents {
         } catch let error as NSError{
             print("error : \(error)")
         }
-        print("Event Added")
-        
     }
     
     
@@ -117,14 +116,12 @@ class AppleEvents {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
-            if (granted) && (error == nil)
-            {
+            if (granted) && (error == nil) {
                 print("Access Granted")
                 
                 self.addLectureToCalendar(title: title, startDate:startDate, notes: notes, eventStore: self.eventStore, lectureRepeat: lectureRepeat)
             }
-            else
-            {
+            else {
                 print("error : \(String(describing: error))")
             }
         })
@@ -135,13 +132,11 @@ class AppleEvents {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
-            if (granted) && (error == nil)
-            {
+            if (granted) && (error == nil) {
                 print("Access Granted")
                 self.addTutorialToCalendar(title: title, startDate: startDate, notes: notes , eventStore: self.eventStore, tutorialRepeat: tutorialRepeat)
             }
-            else
-            {
+            else {
                 print("error : \(String(describing: error))")
             }
         })
@@ -151,13 +146,11 @@ class AppleEvents {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
-            if (granted) && (error == nil)
-            {
+            if (granted) && (error == nil) {
                 print("Access Granted")
                 self.addPracticalToCalendar(title: title, startDate: startDate, notes: notes, eventStore: self.eventStore, practicalRepeat: practicalRepeat)
             }
-            else
-            {
+            else {
                 print("error : \(String(describing: error))")
             }
         })

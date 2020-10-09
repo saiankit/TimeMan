@@ -20,7 +20,7 @@ struct UpcomingClasses: View {
                     
                 }
             }
-            else{
+            else {
                 UpcomingCourseCard(course: self.viewModel.getUpcomingClass(list: listForUpcoming))
             }
         }

@@ -42,8 +42,6 @@ class WeekDayUtilities{
         return mappedWeekDayArray
     }
     
-    
-    
     func mapToEvents(weekDaySet: Set<String>) -> [EKRecurrenceDayOfWeek] {
         
         let lowerreMappedSet = weekDaySet.map { $0.lowercased()}

@@ -47,20 +47,17 @@ struct Triple: View {
 struct ClassType: View {
     var course: Course
     var body: some View {
-        if(course.isLecture)
-        {
+        if course.isLecture {
             Text(course.lectureNumber ?? "L1")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
         }
-        else if(course.isTutorial)
-        {
+        else if course.isTutorial {
             Text(course.tutorialNumber ?? "T1")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
         }
-        else if(course.isPractical)
-        {
+        else if course.isPractical {
             Text(course.practicalNumber ?? "P1")
                 .font(.largeTitle)
                 .fontWeight(.heavy)
@@ -72,32 +69,38 @@ struct ClassType: View {
 struct CourseNumbers: View {
     var course: Course
     var body: some View {
-        if(course.lectureExists && (course.tutorialExists && course.practicalExists) )
-        {
-            Triple(ip1: course.lectureNumber ?? "L1", ip2: course.tutorialNumber ?? "T1", ip3: course.practicalNumber ?? "P1")
+        if(course.lectureExists && (course.tutorialExists && course.practicalExists) ) {
+            Triple(
+                ip1: course.lectureNumber ?? "L1",
+                ip2: course.tutorialNumber ?? "T1",
+                ip3: course.practicalNumber ?? "P1"
+            )
         }
-        else if(course.lectureExists && course.tutorialExists)
-        {
-            Double(ip1: course.lectureNumber ?? "L1", ip2: course.tutorialNumber ?? "T1")
+        else if(course.lectureExists && course.tutorialExists) {
+            Double(
+                ip1: course.lectureNumber ?? "L1",
+                ip2: course.tutorialNumber ?? "T1"
+            )
         }
-        else if(course.lectureExists && course.practicalExists)
-        {
-            Double(ip1: course.lectureNumber ?? "L1", ip2: course.practicalNumber ?? "P1")
+        else if(course.lectureExists && course.practicalExists) {
+            Double(
+                ip1: course.lectureNumber ?? "L1",
+                ip2: course.practicalNumber ?? "P1"
+            )
         }
-        else if(course.tutorialExists && course.practicalExists)
-        {
-            Double(ip1: course.tutorialNumber ?? "T1", ip2: course.practicalNumber ?? "P1")
+        else if(course.tutorialExists && course.practicalExists) {
+            Double(
+                ip1: course.tutorialNumber ?? "T1",
+                ip2: course.practicalNumber ?? "P1"
+            )
         }
-        else if(course.lectureExists)
-        {
+        else if course.lectureExists {
             Single(input: course.lectureNumber ?? "L1")
         }
-        else if(course.tutorialExists)
-        {
+        else if course.tutorialExists {
             Single(input: course.tutorialNumber ?? "T1")
         }
-        else if(course.practicalExists)
-        {
+        else if course.practicalExists {
             Single(input: course.practicalNumber ?? "P1")
         }
     }
