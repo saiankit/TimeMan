@@ -63,7 +63,6 @@ struct ClassType: View {
     }
 }
 
-
 struct CourseNumbers: View {
     var course: Course
     var body: some View {

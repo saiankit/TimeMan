@@ -14,20 +14,20 @@ struct HomeScreen: View {
             if #available(iOS 14.0, *) {
                 ZStack {
                     Color("PrimaryBackground")
-                    VStack (alignment: .leading) {
+                    VStack(alignment: .leading) {
                         Spacer()
                         Image("Logo")
                             .renderingMode(.original)
                             .resizable()
                             .frame(width: 100, height: 100)
-                            .padding(.leading,10)
+                            .padding(.leading)
                         Spacer()
                         Text("Upcoming Class")
                             .font(
                                 .system(size: 22, weight: .bold, design: .rounded)
                             )
                             .padding(.bottom, 5)
-                            .padding(.leading,30)
+                            .padding(.leading, 30)
                         UpcomingClasses()
                         Spacer()
                     }

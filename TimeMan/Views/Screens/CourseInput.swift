@@ -38,7 +38,10 @@ struct CourseInput: View {
                         Stepper(value: $viewModel.lectureNumber, in: 1...10) {
                             Text("L" + String(viewModel.lectureNumber))
                         }
-                        DatePicker("Lecture Time", selection: $viewModel.lectureTime, displayedComponents: .hourAndMinute)
+                        DatePicker(
+                            "Lecture Time",
+                            selection: $viewModel.lectureTime,
+                            displayedComponents: .hourAndMinute)
                         TextField("Lecture Meet Code", text: $viewModel.lectureMeetCode)
                         MultiSelector(
                             label: Text("WeekDay Repeat"),
@@ -63,7 +66,9 @@ struct CourseInput: View {
                         Stepper(value: $viewModel.tutorialNumber, in: 1...10) {
                             Text("T" + String(viewModel.tutorialNumber))
                         }
-                        DatePicker("Tutorial Time", selection: $viewModel.tutorialTime, displayedComponents: .hourAndMinute)
+                        DatePicker("Tutorial Time",
+                                   selection: $viewModel.tutorialTime,
+                                   displayedComponents: .hourAndMinute)
                         TextField("Tutorial Meet Code", text: $viewModel.tutorialMeetCode)
                         MultiSelector(
                             label: Text("WeekDay Repeat"),
@@ -87,7 +92,9 @@ struct CourseInput: View {
                         Stepper(value: $viewModel.practicalNumber, in: 1...10) {
                             Text("P" + String(viewModel.practicalNumber))
                         }
-                        DatePicker("Practical Time", selection: $viewModel.practicalTime, displayedComponents: .hourAndMinute)
+                        DatePicker("Practical Time",
+                                   selection: $viewModel.practicalTime,
+                                   displayedComponents: .hourAndMinute)
                         TextField("Practical Meet Code", text: $viewModel.practicalMeetCode)
                         MultiSelector(
                             label: Text("WeekDay Repeat"),
@@ -112,8 +119,7 @@ struct CourseInput: View {
                 
                 // MARK: - Add course
                 Section {
-                    Button(action:{
-                        
+                    Button(action: {
                         if viewModel.isLectureExisting {
                             let mappedLectureRepeatWeek = Set(viewModel.lectureRepeatWeek.weekDays.map { $0.name })
                             let newLecture = Course(context: self.managedObjectContext)
@@ -123,9 +129,12 @@ struct CourseInput: View {
                             newLecture.instructorName = viewModel.lectureInstructorName
                             newLecture.weekDayRepeat = mappedLectureRepeatWeek
                             newLecture.meetLink = viewModel.generateLink(meetCode: viewModel.lectureMeetCode)
-                            newLecture.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
-                            newLecture.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
-                            newLecture.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                            newLecture.lectureNumber = viewModel.generateLectureNumber(
+                                lectureNumber: viewModel.lectureNumber)
+                            newLecture.tutorialNumber = viewModel.generateTutorialNumber(
+                                tutorialNumber: viewModel.tutorialNumber)
+                            newLecture.practicalNumber = viewModel.generatePracticalNumber(
+                                practicalNumber: viewModel.practicalNumber)
                             newLecture.isLecture = true
                             newLecture.isTutorial = false
                             newLecture.isPractical = false
@@ -143,16 +152,21 @@ struct CourseInput: View {
                             }
                             
                             // Adding Lecture to Apple Calendar
-                            let metaData = viewModel.courseTitle + " " + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+                            let metaData = viewModel.courseTitle + " " + viewModel.courseCode + " "
+                                + viewModel.courseID + " " + viewModel.generateLectureNumber(
+                                    lectureNumber: viewModel.lectureNumber)
+                                + " Instructor Name: " + viewModel.lectureInstructorName
                             appleEvents.addLecture(
                                 lectureRepeat: mappedLectureRepeatWeek,
-                                title: viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber),
+                                title: viewModel.courseTitle + " " + viewModel.generateLectureNumber(
+                                    lectureNumber: viewModel.lectureNumber),
                                 startDate: viewModel.lectureTime,
                                 notes: metaData)
                             
                             if viewModel.isLectureNotificationsEnabled {
                                 // Scheduling Notifications for Lecture
-                                let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " " + "L" + String(viewModel.lectureNumber)
+                                let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " "
+                                    + "L" + String(viewModel.lectureNumber)
                                 notificationManager.scheduleNotification(
                                     title: notificationTitle,
                                     subtitle: viewModel.courseTitle,
@@ -170,9 +184,12 @@ struct CourseInput: View {
                             newTutorial.instructorName = viewModel.tutorialInstructorName
                             newTutorial.weekDayRepeat = mappedTutorialRepeatWeek
                             newTutorial.meetLink = viewModel.generateLink(meetCode: viewModel.tutorialMeetCode)
-                            newTutorial.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
-                            newTutorial.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
-                            newTutorial.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                            newTutorial.lectureNumber = viewModel.generateLectureNumber(
+                                lectureNumber: viewModel.lectureNumber)
+                            newTutorial.tutorialNumber = viewModel.generateTutorialNumber(
+                                tutorialNumber: viewModel.tutorialNumber)
+                            newTutorial.practicalNumber = viewModel.generatePracticalNumber(
+                                practicalNumber: viewModel.practicalNumber)
                             newTutorial.isLecture = false
                             newTutorial.isTutorial = true
                             newTutorial.isPractical = false
@@ -190,16 +207,21 @@ struct CourseInput: View {
                             }
                             
                             // Adding Tutorial to Apple Calendar
-                            let metaData = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+                            let metaData = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " "
+                                + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+                                + " Instructor Name: " + viewModel.lectureInstructorName
                             appleEvents.addTutorial(
                                 tutorialRepeat: mappedTutorialRepeatWeek,
-                                title: viewModel.courseTitle + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber),
+                                title: viewModel.courseTitle + " "
+                                    + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber),
                                 startDate: viewModel.tutorialTime,
                                 notes: metaData)
                             
                             if viewModel.isTutorialNotificationsEnabled {
                                 // Scheduling Notifications for Tutorial
-                                let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+                                let notificationTitle = viewModel.courseCode + " "
+                                    + viewModel.courseID + " "
+                                    + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
                                 notificationManager.scheduleNotification(
                                     title: notificationTitle,
                                     subtitle: viewModel.courseTitle,
@@ -218,9 +240,12 @@ struct CourseInput: View {
                             newPractical.instructorName = viewModel.practicalInstructorName
                             newPractical.weekDayRepeat = mappedPracticalRepeatWeek
                             newPractical.meetLink = viewModel.generateLink(meetCode: viewModel.practicalMeetCode)
-                            newPractical.lectureNumber = viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber)
-                            newPractical.tutorialNumber = viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
-                            newPractical.practicalNumber = viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                            newPractical.lectureNumber = viewModel.generateLectureNumber(
+                                lectureNumber: viewModel.lectureNumber)
+                            newPractical.tutorialNumber = viewModel.generateTutorialNumber(
+                                tutorialNumber: viewModel.tutorialNumber)
+                            newPractical.practicalNumber = viewModel.generatePracticalNumber(
+                                practicalNumber: viewModel.practicalNumber)
                             newPractical.isLecture = false
                             newPractical.isTutorial = false
                             newPractical.isPractical = true
@@ -238,16 +263,20 @@ struct CourseInput: View {
                             }
                             
                             // Adding Practical to Apple Calendar
-                            let metaData = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+                            let metaData = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " "
+                                + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                                + " Instructor Name: " + viewModel.lectureInstructorName
                             appleEvents.addPractical(
                                 practicalRepeat: mappedPracticalRepeatWeek,
-                                title: viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber),
+                                title: viewModel.courseTitle + " "
+                                    + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber),
                                 startDate: viewModel.practicalTime,
                                 notes: metaData)
                             
                             if viewModel.isPracticalNotificationsEnabled {
                                 // Scheduling Notifications for Practical
-                                let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                                let notificationTitle = viewModel.courseCode + " "
+                                    + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
                                 notificationManager.scheduleNotification(
                                     title: notificationTitle,
                                     subtitle: viewModel.courseTitle,
@@ -264,7 +293,7 @@ struct CourseInput: View {
                 }
                 
             }
-            .navigationBarTitle(Text("Add Course"),displayMode: .inline)
+            .navigationBarTitle(Text("Add Course"), displayMode: .inline)
         }
     }
 }

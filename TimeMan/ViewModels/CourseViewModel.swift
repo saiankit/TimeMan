@@ -19,7 +19,7 @@ struct ClassTypeRepeat {
 }
 
 class CourseViewModel: ObservableObject {
-    let weekDays : [WeekDayName] = [
+    let weekDays: [WeekDayName] = [
         WeekDayName(name: "Monday"),
         WeekDayName(name: "Tuesday"),
         WeekDayName(name: "Wednesday"),
@@ -29,9 +29,9 @@ class CourseViewModel: ObservableObject {
     ]
     
     // MARK: - Course
-    @Published var courseTitle : String = ""
-    @Published var courseCode : String = ""
-    @Published var courseID : String = ""
+    @Published var courseTitle: String = ""
+    @Published var courseCode: String = ""
+    @Published var courseID: String = ""
     @Published var colorNum: Int = 0
     
     func generateLink(meetCode: String) -> String {
@@ -40,8 +40,8 @@ class CourseViewModel: ObservableObject {
     }
     
     // MARK: - Lecture
-    @Published var lectureInstructorName : String = ""
-    @Published var lectureNumber : Int = 1
+    @Published var lectureInstructorName: String = ""
+    @Published var lectureNumber: Int = 1
     @Published var lectureTime = Date()
     @Published var lectureMeetCode: String = ""
     @Published var lectureRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
@@ -52,12 +52,12 @@ class CourseViewModel: ObservableObject {
     }
     
     // MARK: - Tutorial
-    @Published var tutorialInstructorName : String = ""
-    @Published var tutorialNumber : Int = 1
+    @Published var tutorialInstructorName: String = ""
+    @Published var tutorialNumber: Int = 1
     @Published var tutorialTime = Date()
     @Published var tutorialMeetCode: String = ""
     @Published var tutorialRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
-    @Published var isTutorialExisting : Bool = false
+    @Published var isTutorialExisting: Bool = false
     @Published var isTutorialNotificationsEnabled: Bool = false
     
     func generateTutorialNumber( tutorialNumber: Int) -> String {
@@ -65,12 +65,12 @@ class CourseViewModel: ObservableObject {
     }
     
     // MARK: - Practical
-    @Published var practicalInstructorName : String = ""
-    @Published var practicalNumber : Int = 1
+    @Published var practicalInstructorName: String = ""
+    @Published var practicalNumber: Int = 1
     @Published var practicalTime = Date()
     @Published var practicalMeetCode: String = ""
     @Published var practicalRepeatWeek = ClassTypeRepeat(name: "", weekDays: [])
-    @Published var isPracticalExisting : Bool = false
+    @Published var isPracticalExisting: Bool = false
     @Published var isPracticalNotificationsEnabled: Bool = false
     func generatePracticalNumber( practicalNumber: Int) -> String {
         return "P" + String(practicalNumber)

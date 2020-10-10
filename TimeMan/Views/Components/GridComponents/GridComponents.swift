@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct GridWeekItem : View{
-    var title : String
+struct GridWeekItem: View {
+    var title: String
     var body: some View {
         VStack {
             Text(title)
@@ -26,7 +26,7 @@ struct GridWeekItem : View{
     }
 }
 
-struct GridWeekRow : View{
+struct GridWeekRow: View {
     var body: some View {
         HStack(spacing: spacing) {
             GridWeekItem(title: "")
@@ -40,7 +40,7 @@ struct GridWeekRow : View{
     }
 }
 
-struct Line : View{
+struct Line: View {
     var body: some View {
         Rectangle()
             .fill(Color.gray)
@@ -49,7 +49,7 @@ struct Line : View{
     }
 }
 
-struct TimeGrid : View{
+struct TimeGrid: View {
     var body: some View {
         VStack {
             RowForGrid(time: 7)
@@ -66,14 +66,14 @@ struct TimeGrid : View{
     }
 }
 
-struct RowForGrid : View{
-    var time : Int
+struct RowForGrid: View {
+    var time: Int
     
     var body: some View {
         VStack {
             Line()
-            HStack(spacing: spacing){
-                VStack(alignment: .center){
+            HStack(spacing: spacing) {
+                VStack(alignment: .center) {
                     Text(String(time) + ":00")
                         .font(.system(size: 13))
                 }
@@ -87,7 +87,7 @@ struct RowForGrid : View{
                 GridItem(time: time, weekDay: 6)
             }
         }
-        .padding(.leading,5)
-        .padding(.trailing,5)
+        .padding(.leading, 5)
+        .padding(.trailing, 5)
     }
 }

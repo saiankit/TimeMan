@@ -10,9 +10,12 @@ import SwiftUI
 
 struct UpcomingClasses: View {
     var upcomingClassViewModel = UpcomingClassViewModel()
-    @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var listForUpcoming: FetchedResults<Course>
+    @FetchRequest(
+        entity: Course.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]
+    ) var listForUpcoming: FetchedResults<Course>
     var body: some View {
-        VStack{
+        VStack {
             if upcomingClassViewModel.getUpcomingClass(list: listForUpcoming).courseID == "E" {
                 VStack {
                     Text("No Upcoming Classes")
@@ -25,8 +28,7 @@ struct UpcomingClasses: View {
                         )
                         .padding(.bottom, 5)
                 }
-            }
-            else {
+            } else {
                 UpcomingCourseCard(course: upcomingClassViewModel.getUpcomingClass(list: listForUpcoming))
             }
         }

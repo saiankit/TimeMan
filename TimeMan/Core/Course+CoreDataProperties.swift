@@ -37,6 +37,6 @@ extension Course {
     
 }
 
-extension Course : Identifiable {
+extension Course: Identifiable {
     
 }

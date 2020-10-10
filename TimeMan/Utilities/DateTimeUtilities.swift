@@ -9,7 +9,7 @@
 import Foundation
 
 class DateTimeUtilities {
-    func getClassTime(time : Date) -> String {
+    func getClassTime(time: Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
         let minute: Int = (Calendar.current.component(.minute, from: time))

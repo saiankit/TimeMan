@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ScrollScreen: View {
-    @Binding var isPresented : Bool
+    @Binding var isPresented: Bool
     @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
     var body: some View {
         if #available(iOS 14.0, *) {
@@ -18,24 +18,26 @@ struct ScrollScreen: View {
                     ZStack {
                         Color("PrimaryBackground")
                         VStack {
-                            WeekScroll(index: $calendarIndex).padding(.top,20)
-                            VStack(alignment: .leading){
+                            WeekScroll(index: $calendarIndex).padding(.top, 20)
+                            VStack(alignment: .leading) {
                                 HStack {
-                                    Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1) ? "Today's Classes" : longWeekDaySymbols[calendarIndex] + "'s Classes")
+                                    Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1)
+                                            ? "Today's Classes" : longWeekDaySymbols[calendarIndex]
+                                            + "'s Classes")
                                         .font(
                                             .system(size: 20, weight: .bold, design: .rounded)
                                         )
-                                        .padding(.bottom,15)
+                                        .padding(.bottom, 15)
                                     Spacer()
                                 }
-                                CoursesList(calendarIndex: $calendarIndex).sheet(isPresented: $isPresented){
+                                CoursesList(calendarIndex: $calendarIndex).sheet(isPresented: $isPresented) {
                                     CourseInput(isPresented: $isPresented)
                                 }
                             }
-                            .frame(minHeight: 800.0,alignment: .top)
+                            .frame(minHeight: 800.0, alignment: .top)
                             .padding(25)
                             .background(Color("SecondaryBackground"))
-                            .clipShape(CustomCorner(corners: [.topLeft,.topRight], size: 55))
+                            .clipShape(CustomCorner(corners: [.topLeft, .topRight], size: 55))
                         }
                     }
                 }

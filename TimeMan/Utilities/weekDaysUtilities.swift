@@ -17,7 +17,7 @@ var weekDaySymbols: [String] = ["Sun",
                                 "Fri",
                                 "Sat"]
 
-var longWeekDaySymbols : [String] = ["Sunday",
+var longWeekDaySymbols: [String] = ["Sunday",
                                      "Monday",
                                      "Tuesday",
                                      "Wednesday",
@@ -25,7 +25,7 @@ var longWeekDaySymbols : [String] = ["Sunday",
                                      "Friday",
                                      "Saturday"]
 
-class WeekDayUtilities{
+class WeekDayUtilities {
     
     func mapToWeekDays(weekDaySet: Set<String>) -> [Int] {
         let lowerCasedSet = weekDaySet.map { $0.lowercased() }

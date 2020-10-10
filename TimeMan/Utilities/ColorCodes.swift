@@ -32,7 +32,7 @@ class ColorCodes {
         Color(UIColor(hexString: "#F8EBEB"))
     ]
     
-    let colorNames : [String] = [
+    let colorNames: [String] = [
         "Purple Punch",
         "Tangy Orange",
         "Placid Green",

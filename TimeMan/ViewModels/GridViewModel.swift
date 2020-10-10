@@ -20,7 +20,7 @@ class GridViewModel {
         return ""
     }
     
-    private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
+    private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool {
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
         if converted!.contains(weekDayName) {
@@ -31,14 +31,14 @@ class GridViewModel {
     
     func getCourseForGrid(
         list: FetchedResults<Course>,
-        gridTime : Int,
-        weekDay : Int
-    ) ->  [String] {
+        gridTime: Int,
+        weekDay: Int
+    ) -> [String] {
         let calendar = Calendar.current
-        var gridCourse : Course = Course()
+        var gridCourse: Course = Course()
         let gridLowerLimit =  gridTime * 60
         let gridUpperLimit = gridLowerLimit + 60
-        var count = 0
+        var isIncluded = false
         for courseItem in list {
             if self.shouldCourseBeIncluded(course: courseItem, index: weekDay) {
                 let courseTime = courseItem.time
@@ -48,12 +48,12 @@ class GridViewModel {
                 if classTime >= gridLowerLimit {
                     if classTime < gridUpperLimit {
                         gridCourse = courseItem
-                        count = count + 1
+                        isIncluded = true
                     }
                 }
             }
         }
-        if count == 0 {
+        if !isIncluded {
             return ["Error"]
         }
         return [

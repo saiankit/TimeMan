@@ -8,12 +8,12 @@
 
 import SwiftUI
 
-var height : CGFloat = 40
-var width : CGFloat = 40
-var spacing : CGFloat = 8
+var height: CGFloat = 40
+var width: CGFloat = 40
+var spacing: CGFloat = 8
 
 struct GridScreen: View {
-    @Binding var isPresented : Bool
+    @Binding var isPresented: Bool
     var body: some View {
         if #available(iOS 14.0, *) {
             ZStack {
@@ -35,12 +35,15 @@ struct GridScreen: View {
     }
 }
 
-struct GridItem : View {
-    var time : Int
-    var weekDay : Int
+struct GridItem: View {
+    var time: Int
+    var weekDay: Int
     var viewModel = CourseViewModel()
     var colorCodes = ColorCodes()
-    @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var listForUpcoming: FetchedResults<Course>
+    @FetchRequest(
+        entity: Course.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]
+    ) var listForUpcoming: FetchedResults<Course>
     @Environment(\.managedObjectContext) var managedObjectContext
     var gridViewModel = GridViewModel()
     var body: some View {
@@ -49,7 +52,7 @@ struct GridItem : View {
             gridTime: time,
             weekDay: weekDay
         )[0] == "Error" {
-            VStack{
+            VStack {
                 Text("")
             }
             .frame(width: width, height: height)
@@ -71,7 +74,10 @@ struct GridItem : View {
             .frame(width: width, height: height)
             .padding(4)
             .background(
-                colorCodes.colorNumbers[Int(gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[2])!])
+                colorCodes.colorNumbers[Int(gridViewModel.getCourseForGrid(
+                                                list: listForUpcoming,
+                                                gridTime: time,
+                                                weekDay: weekDay)[2])!])
             .cornerRadius(5)
         }
     }

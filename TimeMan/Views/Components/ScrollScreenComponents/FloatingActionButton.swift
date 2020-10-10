@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct FloatingActionButton : View {
-    @Binding var isPresented : Bool
+struct FloatingActionButton: View {
+    @Binding var isPresented: Bool
     var body: some View {
         VStack {
             Spacer()

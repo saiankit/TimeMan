@@ -10,7 +10,10 @@ import SwiftUI
 
 struct CoursesList: View {
     @Binding var calendarIndex: Int
-    @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var courseItemsList: FetchedResults<Course>
+    @FetchRequest(
+        entity: Course.entity(),
+        sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]
+    ) var courseItemsList: FetchedResults<Course>
     var courseListViewModel = CourseListViewModel()
     
     var body: some View {
@@ -32,14 +35,14 @@ struct CoursesList: View {
 
 struct NoClassesToday: View {
     var body: some View {
-        VStack{
+        VStack {
             Spacer()
-            HStack{
+            HStack {
                 Spacer()
                 Text("No Classes Today")
                     .font(.system(size: 22, weight: .bold, design: .rounded ))
                     .padding(.bottom, 5)
-                    .padding(.leading,20)
+                    .padding(.leading, 20)
                 Spacer()
             }
             Spacer()

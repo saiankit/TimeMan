@@ -43,11 +43,10 @@ class AppleEvents {
         event.calendar = eventStore.defaultCalendarForNewEvents
         do {
             try eventStore.save(event, span: .thisEvent)
-        } catch let error as NSError{
+        } catch let error as NSError {
             print("error : \(error)")
         }
     }
-    
     
     private func addTutorialToCalendar(
         title: String,
@@ -80,7 +79,7 @@ class AppleEvents {
         event.calendar = eventStore.defaultCalendarForNewEvents
         do {
             try eventStore.save(event, span: .thisEvent)
-        } catch let error as NSError{
+        } catch let error as NSError {
             print("error : \(error)")
         }
     }
@@ -115,11 +114,10 @@ class AppleEvents {
         event.calendar = eventStore.defaultCalendarForNewEvents
         do {
             try eventStore.save(event, span: .thisEvent)
-        } catch let error as NSError{
+        } catch let error as NSError {
             print("error : \(error)")
         }
     }
-    
     
     func addLecture(
         lectureRepeat: Set<String>,
@@ -127,20 +125,21 @@ class AppleEvents {
         startDate: Date,
         notes: String
     ) {
-        eventStore.requestAccess(to: .event, completion: {
-            (granted,error) in
-            
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
             if (granted) && (error == nil) {
                 print("Access Granted")
                 
-                self.addLectureToCalendar(title: title, startDate:startDate, notes: notes, eventStore: self.eventStore, lectureRepeat: lectureRepeat)
-            }
-            else {
+                self.addLectureToCalendar(
+                    title: title,
+                    startDate: startDate,
+                    notes: notes,
+                    eventStore: self.eventStore,
+                    lectureRepeat: lectureRepeat)
+            } else {
                 print("error : \(String(describing: error))")
             }
         })
     }
-    
     
     func addTutorial(
         tutorialRepeat: Set<String>,
@@ -148,14 +147,17 @@ class AppleEvents {
         startDate: Date,
         notes: String
     ) {
-        eventStore.requestAccess(to: .event, completion: {
-            (granted,error) in
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
             
             if (granted) && (error == nil) {
                 print("Access Granted")
-                self.addTutorialToCalendar(title: title, startDate: startDate, notes: notes , eventStore: self.eventStore, tutorialRepeat: tutorialRepeat)
-            }
-            else {
+                self.addTutorialToCalendar(
+                    title: title,
+                    startDate: startDate,
+                    notes: notes,
+                    eventStore: self.eventStore,
+                    tutorialRepeat: tutorialRepeat)
+            } else {
                 print("error : \(String(describing: error))")
             }
         })
@@ -167,14 +169,17 @@ class AppleEvents {
         startDate: Date,
         notes: String
     ) {
-        eventStore.requestAccess(to: .event, completion: {
-            (granted,error) in
+        eventStore.requestAccess(to: .event, completion: { (granted, error) in
             
             if (granted) && (error == nil) {
                 print("Access Granted")
-                self.addPracticalToCalendar(title: title, startDate: startDate, notes: notes, eventStore: self.eventStore, practicalRepeat: practicalRepeat)
-            }
-            else {
+                self.addPracticalToCalendar(
+                    title: title,
+                    startDate: startDate,
+                    notes: notes,
+                    eventStore: self.eventStore,
+                    practicalRepeat: practicalRepeat)
+            } else {
                 print("error : \(String(describing: error))")
             }
         })

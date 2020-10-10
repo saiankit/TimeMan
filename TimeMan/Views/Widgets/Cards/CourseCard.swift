@@ -23,10 +23,10 @@ struct CourseCard: View {
     }
     //CardView
     var body: some View {
-        VStack{
-            HStack(alignment: .top){
+        VStack {
+            HStack(alignment: .top) {
                 //Course Information
-                VStack(alignment: .leading){
+                VStack(alignment: .leading) {
                     Text(course.courseTitle!)
                         .font(.system(size: 22, weight: .bold, design: .rounded))
                         .padding(.bottom, 5)
@@ -45,9 +45,8 @@ struct CourseCard: View {
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {
-                        Link(destination: URL(string: course.meetLink!)!)
-                        {
-                            HStack{
+                        Link(destination: URL(string: course.meetLink!)!) {
+                            HStack {
                                 ClassType(course: course)
                                     .foregroundColor(.white)
                                 Image(systemName: "video.fill")
@@ -74,7 +73,10 @@ struct CourseCard: View {
         .cornerRadius(20)
         .padding(.bottom)
         .contextMenu {
-            Button(action: {deleteItem(course: course)}) {
+            Button(action: {
+                    deleteItem(course: course)
+                }
+            ) {
                 Text("Delete")
             }
         }

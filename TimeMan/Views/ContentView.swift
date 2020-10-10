@@ -15,7 +15,7 @@ struct ContentView: View {
         VStack {
             if selectedIndex == "Scroll" {
                 ScrollScreen(isPresented: $isPresented)
-            } else if selectedIndex == "" {
+            } else if selectedIndex.isEmpty {
                 HomeScreen()
             } else {
                 GridScreen(isPresented: $isPresented)

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Header: View {
-    var body: some View{
+    var body: some View {
         HStack {
             VStack {
                 HStack {

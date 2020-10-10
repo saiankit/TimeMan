@@ -8,11 +8,11 @@
 
 import SwiftUI
 
-struct CustomShapeHome : Shape {
+struct CustomShapeHome: Shape {
     
     func path(in rect: CGRect) -> Path {
         
-        return Path{path in
+        return Path {path in
             
             let pt1 = CGPoint(x: 0, y: 0)
             let pt2 = CGPoint(x: 0, y: rect.height)

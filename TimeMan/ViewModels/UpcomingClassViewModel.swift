@@ -23,7 +23,7 @@ class UpcomingClassViewModel {
         return ""
     }
     
-    private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
+    private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool {
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
         if converted!.contains(weekDayName) {
@@ -32,7 +32,7 @@ class UpcomingClassViewModel {
         return false
     }
     
-    private var errorCourse: Course{
+    private var errorCourse: Course {
         
         let errorCourse = Course(context: self.managedObjectContext)
         errorCourse.courseTitle = "No upcoming Classes"
@@ -56,10 +56,10 @@ class UpcomingClassViewModel {
         return errorCourse
     }
     
-    func getUpcomingClass(list: FetchedResults<Course>) -> Course{
+    func getUpcomingClass(list: FetchedResults<Course>) -> Course {
         
         let listWork = list
-        var upcomingCourse : Course = Course()
+        var upcomingCourse: Course = Course()
         
         // Procedure followed to find the upcoming classes
         
@@ -75,7 +75,7 @@ class UpcomingClassViewModel {
         let currentTimeMinute = calendar.component(.minute, from: Date())
         let currentTime = currentTimeHour * 60 + currentTimeMinute
         var minimumDifference = 1440
-        var count = 0
+        var areUpcomingClassesAvailable = false
         let currentDayIndex = (Calendar.current.component(.weekday, from: Date())) - 1
         
         for courseClass in listWork {
@@ -89,13 +89,13 @@ class UpcomingClassViewModel {
                     if difference < minimumDifference {
                         minimumDifference = courseTime - currentTime
                         upcomingCourse = courseClass
-                        count = count + 1
+                        areUpcomingClassesAvailable = true
                     }
                 }
             }
         }
         
-        if count == 0 {
+        if !areUpcomingClassesAvailable {
             return errorCourse
         }
         return upcomingCourse
