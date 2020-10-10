@@ -16,12 +16,12 @@ struct GridScreen: View {
     @Binding var isPresented : Bool
     var body: some View {
         if #available(iOS 14.0, *) {
-            ZStack{
-            VStack{
-                GridWeekRow().sheet(isPresented: $isPresented){
+            ZStack {
+            VStack {
+                GridWeekRow().sheet(isPresented: $isPresented) {
                     CourseInput(isPresented: $isPresented)
                 }
-                ScrollView{
+                ScrollView {
                     TimeGrid()
                     RowForGrid(time: 17)
                     RowForGrid(time: 18)
@@ -29,7 +29,7 @@ struct GridScreen: View {
                     
                 }
             }
-                FloatingActionButton(isPresented: $isPresented)
+            FloatingActionButton(isPresented: $isPresented)
             }
         }
     }
@@ -56,7 +56,7 @@ struct GridItem : View {
             .padding(4)
             .background(Color("CoursesListBackground"))
         } else {
-            VStack{
+            VStack {
                 Text(gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[0])
                     .font(.system(size: 12))
                     .foregroundColor(.black)

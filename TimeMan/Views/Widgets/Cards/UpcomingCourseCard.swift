@@ -14,9 +14,9 @@ struct UpcomingCourseCard: View {
     var colorCodes = ColorCodes()
     var dateTimeUtilities = DateTimeUtilities()
     var body: some View {
-        VStack{
-            HStack(alignment: .top){
-                VStack(alignment: .leading){
+        VStack {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading) {
                     Text(course.courseTitle!)
                         .font(.system(size: 22, weight: .bold, design: .rounded))
                         .padding(.bottom, 5)
@@ -34,9 +34,8 @@ struct UpcomingCourseCard: View {
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {
-                        Link(destination: URL(string: course.meetLink!)!)
-                        {
-                            HStack{
+                        Link(destination: URL(string: course.meetLink!)!) {
+                            HStack {
                                 ClassType(course: course)
                                     .foregroundColor(.white)
                                 Image(systemName: "video.fill")

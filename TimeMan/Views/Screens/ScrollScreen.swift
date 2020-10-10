@@ -13,8 +13,8 @@ struct ScrollScreen: View {
     @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
     var body: some View {
         if #available(iOS 14.0, *) {
-            ZStack{
-                ScrollView(showsIndicators: false){
+            ZStack {
+                ScrollView(showsIndicators: false) {
                     ZStack {
                         Color("Background")
                         VStack {
@@ -41,7 +41,6 @@ struct ScrollScreen: View {
                 }
                 FloatingActionButton(isPresented: $isPresented)
             }
-            
         }
     }
 }

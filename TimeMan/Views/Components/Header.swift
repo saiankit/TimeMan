@@ -22,8 +22,8 @@ struct Header: View {
                         .font(.callout)
                         .fontWeight(.thin)
                 }
-                
-            }.padding(.leading)
+            }
+            .padding(.leading)
             Spacer()
         }
     }

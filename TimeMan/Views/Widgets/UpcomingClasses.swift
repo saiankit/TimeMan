@@ -14,7 +14,7 @@ struct UpcomingClasses: View {
     var body: some View {
         VStack{
             if upcomingClassViewModel.getUpcomingClass(list: listForUpcoming).courseID == "E" {
-                VStack{
+                VStack {
                     Text("No Upcoming Classes")
                         .font(
                             .system(

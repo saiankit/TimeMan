@@ -12,9 +12,9 @@ struct CoursesList: View {
     @Binding var calendarIndex: Int
     @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var courseItemsList: FetchedResults<Course>
     var courseViewModel = CourseListViewModel()
-    var body: some View{
+    var body: some View {
         if #available(iOS 14.0, *) {
-            LazyVStack(alignment: .leading){
+            LazyVStack(alignment: .leading) {
                 ForEach(self.courseItemsList, id: \.self) {
                     if courseViewModel.shouldCourseBeIncluded(course: $0, index: self.calendarIndex) {
                         CourseCard(course: $0)

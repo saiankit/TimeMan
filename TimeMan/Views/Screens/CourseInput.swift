@@ -18,9 +18,9 @@ struct CourseInput: View {
     let notificationManager = LocalNotificationManager()
     
     var body: some View {
-        NavigationView{
-            Form{
-                Section(header: Text("Course Information")){
+        NavigationView {
+            Form {
+                Section(header: Text("Course Information")) {
                     TextField("Course Title ( Digital Design )", text: $viewModel.courseTitle)
                     
                     TextField("Course Code ( ECE )", text: $viewModel.courseCode)
@@ -28,15 +28,14 @@ struct CourseInput: View {
                     TextField("Course ID ( F215 )", text: $viewModel.courseID)
                 }
                 // MARK: - Lecture
-                Toggle(isOn: $viewModel.isLectureExisting)
-                {
+                Toggle(isOn: $viewModel.isLectureExisting) {
                     Text("Lecture")
                 }
                 if viewModel.isLectureExisting {
-                    Section(header: Text("Lecture Information")){
+                    Section(header: Text("Lecture Information")) {
                         
                         TextField("Lecture Instructor", text: $viewModel.lectureInstructorName)
-                        Stepper(value: $viewModel.lectureNumber, in: 1...10){
+                        Stepper(value: $viewModel.lectureNumber, in: 1...10) {
                             Text("L" + String(viewModel.lectureNumber))
                         }
                         DatePicker("Lecture Time", selection: $viewModel.lectureTime, displayedComponents: .hourAndMinute)
@@ -47,7 +46,7 @@ struct CourseInput: View {
                             optionToString: { $0.name },
                             selected: $viewModel.lectureRepeatWeek.weekDays
                         )
-                        Toggle(isOn: $viewModel.isLectureNotificationsEnabled){
+                        Toggle(isOn: $viewModel.isLectureNotificationsEnabled) {
                             Text("Enable Lecture Notifications")
                         }
                         
@@ -55,14 +54,13 @@ struct CourseInput: View {
                 }
                 
                 // MARK: - Tutorial
-                Toggle(isOn: $viewModel.isTutorialExisting)
-                {
+                Toggle(isOn: $viewModel.isTutorialExisting) {
                     Text("Tutorial")
                 }
                 if viewModel.isTutorialExisting {
-                    Section(header: Text("Tutorial Information")){
+                    Section(header: Text("Tutorial Information")) {
                         TextField("Tutorial Instructor", text: $viewModel.tutorialInstructorName)
-                        Stepper(value: $viewModel.tutorialNumber, in: 1...10){
+                        Stepper(value: $viewModel.tutorialNumber, in: 1...10) {
                             Text("T" + String(viewModel.tutorialNumber))
                         }
                         DatePicker("Tutorial Time", selection: $viewModel.tutorialTime, displayedComponents: .hourAndMinute)
@@ -73,22 +71,20 @@ struct CourseInput: View {
                             optionToString: { $0.name },
                             selected: $viewModel.tutorialRepeatWeek.weekDays
                         )
-                        Toggle(isOn: $viewModel.isTutorialNotificationsEnabled){
+                        Toggle(isOn: $viewModel.isTutorialNotificationsEnabled) {
                             Text("Enable Tutorial Notifications")
                         }
-                        
                     }
                 }
                 
                 // MARK: - Practical
-                Toggle(isOn: $viewModel.isPracticalExisting)
-                {
+                Toggle(isOn: $viewModel.isPracticalExisting) {
                     Text("Practical")
                 }
                 if viewModel.isPracticalExisting {
-                    Section(header: Text("Practical Information")){
+                    Section(header: Text("Practical Information")) {
                         TextField("Practical Instructor", text: $viewModel.practicalInstructorName)
-                        Stepper(value: $viewModel.practicalNumber, in: 1...10){
+                        Stepper(value: $viewModel.practicalNumber, in: 1...10) {
                             Text("P" + String(viewModel.practicalNumber))
                         }
                         DatePicker("Practical Time", selection: $viewModel.practicalTime, displayedComponents: .hourAndMinute)
@@ -99,14 +95,14 @@ struct CourseInput: View {
                             optionToString: { $0.name },
                             selected: $viewModel.practicalRepeatWeek.weekDays
                         )
-                        Toggle(isOn: $viewModel.isPracticalNotificationsEnabled){
+                        Toggle(isOn: $viewModel.isPracticalNotificationsEnabled) {
                             Text("Enable Practical Notifications")
                         }
                     }
                 }
                 
                 // MARK: - Color Coding
-                Section(){
+                Section() {
                     Picker(selection: $viewModel.colorNum, label: Text("Color Code")) {
                         ForEach(0 ..< colorCodes.colorNumbers.count) {
                             Text(colorCodes.colorNames[ $0 ]).foregroundColor(colorCodes.colorNumbers[ $0 ])
@@ -118,11 +114,8 @@ struct CourseInput: View {
                 Section {
                     Button(action:{
                         
-                        let mappedLectureRepeatWeek = Set(viewModel.lectureRepeatWeek.weekDays.map { $0.name })
-                        let mappedTutorialRepeatWeek = Set(viewModel.tutorialRepeatWeek.weekDays.map { $0.name })
-                        let mappedPracticalRepeatWeek = Set(viewModel.practicalRepeatWeek.weekDays.map { $0.name })
-                        
                         if viewModel.isLectureExisting {
+                            let mappedLectureRepeatWeek = Set(viewModel.lectureRepeatWeek.weekDays.map { $0.name })
                             let newLecture = Course(context: self.managedObjectContext)
                             newLecture.courseTitle = viewModel.courseTitle
                             newLecture.courseID = viewModel.courseID
@@ -147,24 +140,29 @@ struct CourseInput: View {
                             } catch {
                                 print(error)
                             }
-                            let note = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+                            
+                            // Adding Lecture to Apple Calendar
+                            let metaData = viewModel.courseTitle + " " + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber) + " Instructor Name: " + viewModel.lectureInstructorName
                             appleEvents.addLecture(
                                 lectureRepeat: mappedLectureRepeatWeek,
                                 title: viewModel.courseTitle + " " + viewModel.generateLectureNumber(lectureNumber: viewModel.lectureNumber),
                                 startDate: viewModel.lectureTime,
-                                notes: note)
+                                notes: metaData)
+                            
                             if viewModel.isLectureNotificationsEnabled {
-                                let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + "L" + String(viewModel.lectureNumber)
+                                // Scheduling Notifications
+                                let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " " + "L" + String(viewModel.lectureNumber)
                                 notificationManager.scheduleNotification(
-                                    title: notifTitle,
+                                    title: notificationTitle,
                                     subtitle: viewModel.courseTitle,
                                     body: "Lecture in 10 min",
                                     time: viewModel.lectureTime,
                                     weekRepeat: mappedLectureRepeatWeek)
                             }
-                            
                         }
                         if viewModel.isTutorialExisting {
+                            let mappedTutorialRepeatWeek = Set(viewModel.tutorialRepeatWeek.weekDays.map { $0.name })
+
                             let newTutorial = Course(context: self.managedObjectContext)
                             newTutorial.courseTitle = viewModel.courseTitle
                             newTutorial.courseID = viewModel.courseID
@@ -199,7 +197,9 @@ struct CourseInput: View {
                             }
                             
                         }
+                        
                         if viewModel.isPracticalExisting {
+                            let mappedPracticalRepeatWeek = Set(viewModel.practicalRepeatWeek.weekDays.map { $0.name })
                             let newPractical = Course(context: self.managedObjectContext)
                             newPractical.courseTitle = viewModel.courseTitle
                             newPractical.courseID = viewModel.courseID
@@ -240,13 +240,15 @@ struct CourseInput: View {
                                     weekRepeat: mappedPracticalRepeatWeek)
                             }
                         }
+                        
                         self.isPresented.toggle()
-                    }){
+                    }) {
                         Text("Add Course")
                     }
                 }
                 
-            }.navigationBarTitle(Text("Add Course"),displayMode: .inline)
+            }
+            .navigationBarTitle(Text("Add Course"),displayMode: .inline)
         }
     }
 }

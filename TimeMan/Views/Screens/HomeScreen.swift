@@ -27,7 +27,7 @@ struct HomeScreen: View {
                                 .system(size: 22, weight: .bold, design: .rounded)
                             )
                             .padding(.bottom, 5)
-                            .padding(.leading,20)
+                            .padding(.leading,30)
                         UpcomingClasses()
                         Spacer()
                     }
@@ -36,7 +36,8 @@ struct HomeScreen: View {
                         Color("CoursesListBackground")
                             .clipShape(CustomShapeHome())
                     )
-                }.navigationTitle("TimeMan")
+                }
+                .navigationTitle("TimeMan")
             } 
         }
     }

@@ -11,7 +11,7 @@ import SwiftUI
 struct WeekScroll: View {
     @Binding var index: Int
     var body: some View {
-        HStack{
+        HStack {
             CalendarItem(isSelected: self.index == 1  ?true  :false,weekDay: "Mo").onTapGesture {
                 self.index = 1
             }
@@ -33,7 +33,8 @@ struct WeekScroll: View {
             CalendarItem(isSelected: self.index == 0  ?true  :false,weekDay: "Su").onTapGesture {
                 self.index = 0
             }
-        }.padding(.bottom,20)
+        }
+        .padding(.bottom,20)
         .padding([.leading,.trailing])
     }
 }

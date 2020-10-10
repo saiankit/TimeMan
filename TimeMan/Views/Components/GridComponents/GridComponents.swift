@@ -11,7 +11,7 @@ import SwiftUI
 struct GridWeekItem : View{
     var title : String
     var body: some View {
-        VStack{
+        VStack {
             Text(title)
                 .font(
                     .system(
@@ -28,7 +28,7 @@ struct GridWeekItem : View{
 
 struct GridWeekRow : View{
     var body: some View {
-        HStack(spacing: spacing){
+        HStack(spacing: spacing) {
             GridWeekItem(title: "")
             GridWeekItem(title: "M")
             GridWeekItem(title: "T")

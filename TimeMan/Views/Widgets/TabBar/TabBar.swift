@@ -12,7 +12,7 @@ struct TabBar: View {
     @Binding var selectedTab : String
     @Binding var isPresented: Bool
     var body: some View {
-        HStack{
+        HStack {
             
             TabButton(title: "Scroll", image: "lineweight", selectedTab: $selectedTab)
             
@@ -40,9 +40,9 @@ struct TabButton : View {
     var image : String
     @Binding var selectedTab : String
     
-    var body: some View{
+    var body: some View {
         Button(action: {selectedTab = title}) {
-            HStack(spacing: 10){
+            HStack(spacing: 10) {
                 Image(systemName :image)
                     .renderingMode(.template)
                 if title != "" {

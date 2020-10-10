@@ -11,7 +11,7 @@ import SwiftUI
 struct Single: View {
     var input: String
     var body: some View {
-        HStack{
+        HStack {
             Text(input)
         }
     }
@@ -21,7 +21,7 @@ struct Double: View {
     var ip1: String
     var ip2: String
     var body: some View {
-        HStack{
+        HStack {
             Text(ip1)
             Spacer()
             Text(ip2)
@@ -34,7 +34,7 @@ struct Triple: View {
     var ip2: String
     var ip3: String
     var body: some View {
-        HStack{
+        HStack {
             Text(ip1)
             Spacer()
             Text(ip2)
