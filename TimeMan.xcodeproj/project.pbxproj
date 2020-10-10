@@ -12,7 +12,6 @@
 		6C15DDA42525E0530068BCD8 /* Course+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15DDA22525E0530068BCD8 /* Course+CoreDataClass.swift */; };
 		6C15DDA52525E0530068BCD8 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15DDA32525E0530068BCD8 /* Course+CoreDataProperties.swift */; };
 		6C16F6E5251904A10010857F /* CourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C16F6E4251904A10010857F /* CourseCard.swift */; };
-		6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C2191D2252638440024C8C8 /* ExtensionColor.swift */; };
 		6C3EA3DB2529BEAD00D84CA1 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EA3DA2529BEAD00D84CA1 /* GridViewModel.swift */; };
 		6C3EA3E02529C32E00D84CA1 /* GridComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EA3DF2529C32E00D84CA1 /* GridComponents.swift */; };
 		6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C4589B42519B7370023B4BD /* WeekScroll.swift */; };
@@ -67,7 +66,6 @@
 		6C15DDA22525E0530068BCD8 /* Course+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C15DDA32525E0530068BCD8 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6C16F6E4251904A10010857F /* CourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCard.swift; sourceTree = "<group>"; };
-		6C2191D2252638440024C8C8 /* ExtensionColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionColor.swift; sourceTree = "<group>"; };
 		6C3EA3DA2529BEAD00D84CA1 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		6C3EA3DF2529C32E00D84CA1 /* GridComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridComponents.swift; sourceTree = "<group>"; };
 		6C4589B42519B7370023B4BD /* WeekScroll.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekScroll.swift; sourceTree = "<group>"; };
@@ -304,7 +302,6 @@
 				6CF634152518B812005F022D /* AppDelegate.swift */,
 				6CF634232518B815005F022D /* LaunchScreen.storyboard */,
 				6CF634172518B812005F022D /* SceneDelegate.swift */,
-				6C2191D2252638440024C8C8 /* ExtensionColor.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -440,7 +437,6 @@
 				6C8C34CC2531824400E9A164 /* DateTimeUtilities.swift in Sources */,
 				6C1444A3251DE18500CFA2BF /* Header.swift in Sources */,
 				6C8DDFE325286FEC0055B7DB /* CustomShapeTriangle.swift in Sources */,
-				6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */,
 				6C8DDFE725287B9F0055B7DB /* CustomRoundedEdgesShape.swift in Sources */,
 				6C4589B52519B7370023B4BD /* WeekScroll.swift in Sources */,
 				6CD7247A252834F700ED0EB0 /* TabBar.swift in Sources */,

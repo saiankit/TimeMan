@@ -1,7 +1,16 @@
 # SwiftLint Configuration File
+excluded:
+  - Carthage
+  - Pods
+  - SwiftLint/Common/3rdPartyLib
 disabled_rules:
   - trailing_whitespace
   - force_cast
+  - discarded_notification_center_observer
+  - notification_center_detachment
+  - orphaned_doc_comment
+  - todo
+  - unused_capture_list
 opt_in_rules:
   - array_init
   - attributes
@@ -35,10 +44,11 @@ opt_in_rules:
   - vertical_whitespace_closing_braces
   - vertical_whitespace_opening_braces
   - yoda_condition
-excluded:
-  - Carthage
-  - Pods
-  - SwiftLint/Common/3rdPartyLib
+
+force_cast: warning
+force_try: warning
+
+legacy_hashing: error
 
 identifier_name:
   excluded:

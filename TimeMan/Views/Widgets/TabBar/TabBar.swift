@@ -46,7 +46,7 @@ struct TabButton: View {
                     .fontWeight(.semibold)
                 }
             }
-            .foregroundColor(selectedTab == title ? Color(UIColor(hexString: "#FF9900")) : .gray)
+            .foregroundColor(selectedTab == title ? Color("TabButton") : .gray)
             .padding(.vertical)
             .padding(.horizontal, 15)
             .background(Color.yellow.opacity(selectedTab == title ? 0.10 : 0))

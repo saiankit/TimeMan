@@ -10,25 +10,25 @@ import SwiftUI
 
 class ColorCodes {
     let colorNumbers: [Color] = [
-        Color(UIColor(hexString: "#7D83FD")),
-        Color(UIColor(hexString: "#FF8E6E")),
-        Color(UIColor(hexString: "#A5E17C")),
-        Color(UIColor(hexString: "#FFDE41")),
-        Color(UIColor(hexString: "#71EFBA")),
-        Color(UIColor(hexString: "#EF7CE4")),
-        Color(UIColor(hexString: "#84DBEE")),
-        Color(UIColor(hexString: "#F5E0E0"))
+        Color("PurplePunchPrimary"),
+        Color("TangyOrangePrimary"),
+        Color("PlacidGreenPrimary"),
+        Color("BrightYellowPrimary"),
+        Color("TrendyTealPrimary"),
+        Color("GleamyPinkPrimary"),
+        Color("BeamingBluePrimary"),
+        Color("VanillaIcePrimary")
     ]
     
     let colorNumbersLight: [Color] = [
-        Color(UIColor(hexString: "#A1B0F5")),
-        Color(UIColor(hexString: "#FFA68D")),
-        Color(UIColor(hexString: "#B7F48D")),
-        Color(UIColor(hexString: "#FFEA85")),
-        Color(UIColor(hexString: "#84FFCB")),
-        Color(UIColor(hexString: "#FF94F4")),
-        Color(UIColor(hexString: "#9FEEFF")),
-        Color(UIColor(hexString: "#F8EBEB"))
+        Color("PurplePunchSecondary"),
+        Color("TangyOrangeSecondary"),
+        Color("PlacidGreenSecondary"),
+        Color("BrightYellowSecondary"),
+        Color("TrendyTealSecondary"),
+        Color("GleamyPinkSecondary"),
+        Color("BeamingBlueSecondary"),
+        Color("VanillaIceSecondary")
     ]
     
     let colorNames: [String] = [
