@@ -12,7 +12,14 @@ struct GridWeekItem : View{
     var title : String
     var body: some View {
         VStack{
-            Text(title).font(.system(size: 18, weight: .bold, design: .rounded))
+            Text(title)
+                .font(
+                    .system(
+                        size: 18,
+                        weight: .bold,
+                        design: .rounded
+                    )
+                )
         }
         .frame(width: width, height: height)
         .padding(4)
@@ -67,7 +74,8 @@ struct RowForGrid : View{
             Line()
             HStack(spacing: spacing){
                 VStack(alignment: .center){
-                    Text(String(time) + ":00").font(.system(size: 13))
+                    Text(String(time) + ":00")
+                        .font(.system(size: 13))
                 }
                 .frame(width: width, height: height)
                 .padding(4)

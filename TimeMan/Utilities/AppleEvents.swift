@@ -121,7 +121,12 @@ class AppleEvents {
     }
     
     
-    func addLecture(lectureRepeat: Set<String>,title: String, startDate: Date , notes: String) {
+    func addLecture(
+        lectureRepeat: Set<String>,
+        title: String,
+        startDate: Date,
+        notes: String
+    ) {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
@@ -137,7 +142,12 @@ class AppleEvents {
     }
     
     
-    func addTutorial(tutorialRepeat: Set<String>,title: String, startDate: Date , notes: String) {
+    func addTutorial(
+        tutorialRepeat: Set<String>,
+        title: String,
+        startDate: Date,
+        notes: String
+    ) {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             
@@ -151,7 +161,12 @@ class AppleEvents {
         })
     }
     
-    func addPractical(practicalRepeat: Set<String>,title: String, startDate: Date , notes: String) {
+    func addPractical(
+        practicalRepeat: Set<String>,
+        title: String,
+        startDate: Date,
+        notes: String
+    ) {
         eventStore.requestAccess(to: .event, completion: {
             (granted,error) in
             

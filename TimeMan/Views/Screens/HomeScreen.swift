@@ -18,9 +18,16 @@ struct HomeScreen: View {
                         Spacer()
                         Image("Logo")
                             .renderingMode(.original)
-                            .resizable().frame(width: 100, height: 100).padding(.leading,10)
+                            .resizable()
+                            .frame(width: 100, height: 100)
+                            .padding(.leading,10)
                         Spacer()
-                        Text("Upcoming Class").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5).padding(.leading,20)
+                        Text("Upcoming Class")
+                            .font(
+                                .system(size: 22, weight: .bold, design: .rounded)
+                            )
+                            .padding(.bottom, 5)
+                            .padding(.leading,20)
                         UpcomingClasses()
                         Spacer()
                     }

@@ -15,8 +15,19 @@ struct UpcomingClasses: View {
         VStack{
             if self.viewModel.getUpcomingClass(list: listForUpcoming).courseID == "E" {
                 VStack{
-                    Image(systemName: "snow").resizable().frame(width: 50, height: 50)
-                    Text("No Upcoming Classes").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
+                    Image(systemName: "snow")
+                        .resizable()
+                        .frame(width: 50, height: 50)
+                    
+                    Text("No Upcoming Classes")
+                        .font(
+                            .system(
+                                size: 22,
+                                weight: .bold,
+                                design: .rounded
+                            )
+                        )
+                        .padding(.bottom, 5)
                     
                 }
             }

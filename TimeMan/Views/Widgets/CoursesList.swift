@@ -22,7 +22,16 @@ struct CoursesList: View {
                 }
             }
             if self.viewModel.areClassesAvailableToday(coursesList: self.courseItemsList, index: self.calendarIndex) == false {
-                    Text("No Classes Today").font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5).padding(.leading,20)
+                    Text("No Classes Today")
+                        .font(
+                            .system(
+                                size: 22,
+                                weight: .bold,
+                                design: .rounded
+                            )
+                        )
+                        .padding(.bottom, 5)
+                        .padding(.leading,20)
             }
         }
     }

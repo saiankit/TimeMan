@@ -29,7 +29,11 @@ class GridViewModel {
         return false
     }
     
-    func getCourseForGrid(list: FetchedResults<Course>, gridTime : Int, weekDay : Int) ->  [String] {
+    func getCourseForGrid(
+        list: FetchedResults<Course>,
+        gridTime : Int,
+        weekDay : Int
+    ) ->  [String] {
         let calendar = Calendar.current
         var gridCourse : Course = Course()
         let gridLowerLimit =  gridTime * 60
@@ -52,6 +56,11 @@ class GridViewModel {
         if count == 0 {
             return ["Error"]
         }
-        return [ gridCourse.courseCode! , gridCourse.courseID! , String(gridCourse.colorNum), self.getClassType(course: gridCourse) ]
+        return [
+            gridCourse.courseCode!,
+            gridCourse.courseID!,
+            String(gridCourse.colorNum),
+            self.getClassType(course: gridCourse)
+        ]
     }
 }

@@ -51,9 +51,7 @@ class LocalNotificationManager {
             let request = UNNotificationRequest(
                 identifier: UUID().uuidString,
                 content: content,
-                trigger: trigger
-            )
-            
+                trigger: trigger)
             center.add(request)
         }
     }
