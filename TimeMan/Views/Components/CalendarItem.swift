@@ -20,7 +20,7 @@ struct CalendarItem: View{
         }
         .frame(width: 30 , height: 30)
         .padding(6)
-        .background(isSelected ? Color(#colorLiteral(red: 0.7912799716, green: 1, blue: 0.8202505708, alpha: 1)) : Color("CalendarItem"))
+        .background(isSelected ? Color(#colorLiteral(red: 0.7912799716, green: 1, blue: 0.8202505708, alpha: 1)) : Color("CalendarItemBackground"))
         .cornerRadius(15)
     }
 }

@@ -25,9 +25,8 @@ struct TabBar: View {
             TabButton(title: "Grid", image: "calendar" ,selectedTab: $selectedTab)
             
         }
-        .padding(.top)
-        .padding(.horizontal,22)
-        .padding(.bottom)
+        .padding(.vertical)
+        .padding(.horizontal,20)
         .background(Color("SecondaryBackground"))
         .shadow(color: Color.black.opacity(0.05), radius: 5, x: 0, y: -5)
     }
@@ -39,7 +38,6 @@ struct TabButton : View {
     var title : String
     var image : String
     @Binding var selectedTab : String
-    
     var body: some View {
         Button(action: {selectedTab = title}) {
             HStack(spacing: 10) {
@@ -51,7 +49,7 @@ struct TabButton : View {
                 }
             }
             .foregroundColor(selectedTab == title ? Color(UIColor(hexString: "#FF9900")) : .gray)
-            .padding(.vertical,10)
+            .padding(.vertical)
             .padding(.horizontal,15)
             .background(Color.yellow.opacity(selectedTab == title ? 0.10 : 0))
             .clipShape(Capsule())

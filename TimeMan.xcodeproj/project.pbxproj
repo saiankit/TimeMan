@@ -323,6 +323,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6CF634292518B815005F022D /* Build configuration list for PBXNativeTarget "TimeMan" */;
 			buildPhases = (
+				6C8C34CE2531E4D900E9A164 /* Swiftlint */,
 				6CF6340E2518B812005F022D /* Sources */,
 				6CF6340F2518B812005F022D /* Frameworks */,
 				6CF634102518B812005F022D /* Resources */,
@@ -382,6 +383,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6C8C34CE2531E4D900E9A164 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nif [ -f ~/com.raywenderlich.swiftlint.yml ]; then\n  if which swiftlint >/dev/null; then\n    swiftlint --no-cache --config ~/com.raywenderlich.swiftlint.yml\n  fi\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		6CF6340E2518B812005F022D /* Sources */ = {
