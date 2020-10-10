@@ -12,16 +12,7 @@ struct UpcomingCourseCard: View {
     var course: Course
     var date: Int = (Calendar.current.component(.minute, from: Date()))
     var colorCodes = ColorCodes()
-    private func getClassTime(time : Date) -> String {
-        var timeType: String = "AM"
-        var hour: Int = (Calendar.current.component(.hour, from: time))
-        let minute: Int = (Calendar.current.component(.minute, from: time))
-        var aminute = (minute == 0) ? "00" : String(minute)
-        aminute = ((minute < 10) && (minute >= 1)) ? "0" + String(minute) : String(aminute)
-        timeType = hour >= 12 ? "PM" : "AM"
-        hour = hour > 12 ? hour - 12 : hour
-        return String(hour) + ":" + String(aminute) + " " + timeType
-    }
+    var dateTimeUtilities = DateTimeUtilities()
     var body: some View {
         VStack{
             HStack(alignment: .top){
@@ -38,7 +29,7 @@ struct UpcomingCourseCard: View {
                 }
                 Spacer()
                 VStack {
-                    Text(getClassTime(time: course.time ?? Date()))
+                    Text(dateTimeUtilities.getClassTime(time: course.time ?? Date()))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {

@@ -13,11 +13,11 @@ class UpcomingClassViewModel {
     
     private func getClassType(course: Course) -> String {
         if course.isLecture {
-            return course.lectureNumber ?? ""
+            return course.lectureNumber!
         } else if course.isTutorial {
-            return course.tutorialNumber ?? ""
+            return course.tutorialNumber!
         } else if course.isPractical {
-            return course.practicalNumber ?? ""
+            return course.practicalNumber!
         }
         return ""
     }
@@ -30,18 +30,6 @@ class UpcomingClassViewModel {
         }
         return false
     }
-    
-    private func getUpcomingTime(time : Date) -> String {
-        var timeType: String = "AM"
-        var hour: Int = (Calendar.current.component(.hour, from: time))
-        let minute: Int = (Calendar.current.component(.minute, from: time))
-        var aminute = (minute == 0) ? "00" : String(minute)
-        aminute = ((minute < 10) && (minute >= 1)) ? "0" + String(minute) : String(aminute)
-        timeType = hour >= 12 ? "PM" : "AM"
-        hour = hour > 12 ? hour - 12 : hour
-        return String(hour) + ":" + String(aminute) + " " + timeType
-    }
-    
     
     func getUpcomingClass(list: FetchedResults<Course>) -> Course{
         let calendar = Calendar.current

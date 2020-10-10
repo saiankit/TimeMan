@@ -23,6 +23,7 @@
 		6C8621E62529EE7100F6A9E4 /* CourseCardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8621E52529EE7100F6A9E4 /* CourseCardComponents.swift */; };
 		6C8621EE2529F39F00F6A9E4 /* CourseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8621ED2529F39F00F6A9E4 /* CourseListViewModel.swift */; };
 		6C8C34C8253171E300E9A164 /* ColorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C34C7253171E300E9A164 /* ColorCodes.swift */; };
+		6C8C34CC2531824400E9A164 /* DateTimeUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C34CB2531824400E9A164 /* DateTimeUtilities.swift */; };
 		6C8DDFDA252850550055B7DB /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFD9252850550055B7DB /* HomeScreen.swift */; };
 		6C8DDFDD252850BF0055B7DB /* ScrollScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */; };
 		6C8DDFE0252850CE0055B7DB /* GridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDF252850CE0055B7DB /* GridScreen.swift */; };
@@ -76,6 +77,7 @@
 		6C8621E52529EE7100F6A9E4 /* CourseCardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCardComponents.swift; sourceTree = "<group>"; };
 		6C8621ED2529F39F00F6A9E4 /* CourseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListViewModel.swift; sourceTree = "<group>"; };
 		6C8C34C7253171E300E9A164 /* ColorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCodes.swift; sourceTree = "<group>"; };
+		6C8C34CB2531824400E9A164 /* DateTimeUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateTimeUtilities.swift; sourceTree = "<group>"; };
 		6C8DDFD9252850550055B7DB /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollScreen.swift; sourceTree = "<group>"; };
 		6C8DDFDF252850CE0055B7DB /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				6C8DDFE525287B650055B7DB /* Shapes */,
 				6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */,
 				6C8C34C7253171E300E9A164 /* ColorCodes.swift */,
+				6C8C34CB2531824400E9A164 /* DateTimeUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				6C8DDFE0252850CE0055B7DB /* GridScreen.swift in Sources */,
 				6C5FB76D252788DA00534BC9 /* UpcomingClassViewModel.swift in Sources */,
 				6C15DDA42525E0530068BCD8 /* Course+CoreDataClass.swift in Sources */,
+				6C8C34CC2531824400E9A164 /* DateTimeUtilities.swift in Sources */,
 				6C1444A3251DE18500CFA2BF /* Header.swift in Sources */,
 				6C8DDFE325286FEC0055B7DB /* CustomShapeTriangle.swift in Sources */,
 				6C2191D3252638440024C8C8 /* ExtensionColor.swift in Sources */,
