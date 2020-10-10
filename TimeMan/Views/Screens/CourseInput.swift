@@ -33,7 +33,6 @@ struct CourseInput: View {
                 }
                 if viewModel.isLectureExisting {
                     Section(header: Text("Lecture Information")) {
-                        
                         TextField("Lecture Instructor", text: $viewModel.lectureInstructorName)
                         Stepper(value: $viewModel.lectureNumber, in: 1...10) {
                             Text("L" + String(viewModel.lectureNumber))
@@ -108,7 +107,7 @@ struct CourseInput: View {
                 }
                 
                 // MARK: - Color Coding
-                Section() {
+                Section {
                     Picker(selection: $viewModel.colorNum, label: Text("Color Code")) {
                         ForEach(0 ..< colorCodes.colorNumbers.count) {
                             Text(colorCodes.colorNames[ $0 ]).foregroundColor(colorCodes.colorNumbers[ $0 ])
@@ -118,7 +117,7 @@ struct CourseInput: View {
                 
                 // MARK: - Add course
                 Section {
-                    Button(action: {
+                    Button {
                         if viewModel.isLectureExisting {
                             let mappedLectureRepeatWeek = Set(viewModel.lectureRepeatWeek.weekDays.map { $0.name })
                             let newLecture = Course(context: self.managedObjectContext)
@@ -287,7 +286,7 @@ struct CourseInput: View {
                         }
                         
                         self.isPresented.toggle()
-                    }) {
+                    } label: {
                         Text("Add Course")
                     }
                 }

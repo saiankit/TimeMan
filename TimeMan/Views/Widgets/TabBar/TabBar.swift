@@ -35,10 +35,9 @@ struct TabButton: View {
     var image: String
     @Binding var selectedTab: String
     var body: some View {
-        Button(action: {
+        Button {
             selectedTab = title
-                }
-            ) {
+        } label: {
             HStack(spacing: 10) {
                 Image(systemName: image)
                     .renderingMode(.template)

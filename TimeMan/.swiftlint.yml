@@ -20,6 +20,7 @@ opt_in_rules:
   - implicitly_unwrapped_optional
   - last_where
   - legacy_random
+  - trailing_closure
   - literal_expression_end_indentation
   - operator_usage_whitespace
   - overridden_super_call
@@ -29,7 +30,6 @@ opt_in_rules:
   - redundant_type_annotation
   - strict_fileprivate
   - toggle_bool
-  - trailing_closure
   - unneeded_parentheses_in_closure_argument
   - unused_import
   - vertical_whitespace_closing_braces

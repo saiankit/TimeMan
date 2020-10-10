@@ -15,9 +15,9 @@ struct FloatingActionButton: View {
             Spacer()
             HStack {
                 Spacer()
-                Button(action: {
+                Button {
                     self.isPresented.toggle()
-                }) {
+                } label: {
                     Text("+")
                         .font(.system(.largeTitle))
                         .frame(width: 50, height: 45)

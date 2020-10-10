@@ -65,7 +65,6 @@ struct CourseCard: View {
                 .padding(.vertical)
             
             CourseNumbers(course: course)
-            
         }
         .padding(20)
         .background(colorCodes.colorNumbers[Int(course.colorNum)])
@@ -73,10 +72,9 @@ struct CourseCard: View {
         .cornerRadius(20)
         .padding(.bottom)
         .contextMenu {
-            Button(action: {
-                    deleteItem(course: course)
-                }
-            ) {
+            Button {
+                deleteItem(course: course)
+            } label: {
                 Text("Delete")
             }
         }
