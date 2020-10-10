@@ -16,7 +16,7 @@ struct ScrollScreen: View {
             ZStack {
                 ScrollView(showsIndicators: false) {
                     ZStack {
-                        Color("Background")
+                        Color("PrimaryBackground")
                         VStack {
                             WeekScroll(index: $calendarIndex).padding(.top,20)
                             VStack(alignment: .leading){
@@ -34,7 +34,7 @@ struct ScrollScreen: View {
                             }
                             .frame(minHeight: 800.0,alignment: .top)
                             .padding(25)
-                            .background(Color("CoursesListBackground"))
+                            .background(Color("SecondaryBackground"))
                             .clipShape(CustomCorner(corners: [.topLeft,.topRight], size: 55))
                         }
                     }

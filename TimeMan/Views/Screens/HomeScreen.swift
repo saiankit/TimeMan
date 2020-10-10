@@ -13,7 +13,7 @@ struct HomeScreen: View {
         NavigationView {
             if #available(iOS 14.0, *) {
                 ZStack {
-                    Color("Background")
+                    Color("PrimaryBackground")
                     VStack (alignment: .leading) {
                         Spacer()
                         Image("Logo")
@@ -33,7 +33,7 @@ struct HomeScreen: View {
                     }
                     .frame(width: 320.0, height: 500.0)
                     .background(
-                        Color("CoursesListBackground")
+                        Color("SecondaryBackground")
                             .clipShape(CustomShapeHome())
                     )
                 }

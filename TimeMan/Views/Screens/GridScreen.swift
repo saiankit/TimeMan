@@ -54,7 +54,7 @@ struct GridItem : View {
             }
             .frame(width: width, height: height)
             .padding(4)
-            .background(Color("CoursesListBackground"))
+            .background(Color("SecondaryBackground"))
         } else {
             VStack {
                 Text(gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[0])

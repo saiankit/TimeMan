@@ -48,15 +48,15 @@ struct ClassType: View {
     var course: Course
     var body: some View {
         if course.isLecture {
-            Text(course.lectureNumber ?? "L1")
+            Text(course.lectureNumber!)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
         } else if course.isTutorial {
-            Text(course.tutorialNumber ?? "T1")
+            Text(course.tutorialNumber!)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
         } else if course.isPractical {
-            Text(course.practicalNumber ?? "P1")
+            Text(course.practicalNumber!)
                 .font(.largeTitle)
                 .fontWeight(.heavy)
         }
