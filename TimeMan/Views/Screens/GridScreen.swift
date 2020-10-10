@@ -8,9 +8,11 @@
 
 import SwiftUI
 
-var height: CGFloat = 40
-var width: CGFloat = 40
-var spacing: CGFloat = 8
+enum GridValues {
+    static let height: CGFloat = 40
+    static let width: CGFloat = 40
+    static let spacing: CGFloat = 8
+}
 
 struct GridScreen: View {
     @Binding var isPresented: Bool
@@ -54,7 +56,7 @@ struct GridItem: View {
             VStack {
                 Text("")
             }
-            .frame(width: width, height: height)
+            .frame(width: GridValues.width, height: GridValues.height)
             .padding(4)
             .background(Color("SecondaryBackground"))
         } else {
@@ -69,7 +71,7 @@ struct GridItem: View {
                     .font(.system(size: 12))
                     .foregroundColor(.black)
             }
-            .frame(width: width, height: height)
+            .frame(width: GridValues.width, height: GridValues.height)
             .padding(4)
             .background(
                 colorCodes.colorNumbers[Int(gridViewModel.getCourseForGrid(

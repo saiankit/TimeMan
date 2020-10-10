@@ -10,12 +10,12 @@ import SwiftUI
 
 struct ContentView: View {
     @State var isPresented = false
-    @State var selectedIndex = ""
+    @State var selectedIndex = "Home"
     var body: some View {
         VStack {
             if selectedIndex == "Scroll" {
                 ScrollScreen(isPresented: $isPresented)
-            } else if selectedIndex.isEmpty {
+            } else if selectedIndex == "Home" {
                 HomeScreen()
             } else {
                 GridScreen(isPresented: $isPresented)

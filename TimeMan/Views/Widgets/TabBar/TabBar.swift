@@ -17,7 +17,7 @@ struct TabBar: View {
             
             Spacer(minLength: 0)
             
-            TabButton(title: "", image: "house", selectedTab: $selectedTab)
+            TabButton(title: "Home", image: "house", selectedTab: $selectedTab)
             
             Spacer(minLength: 0)
             
@@ -41,7 +41,7 @@ struct TabButton: View {
             HStack(spacing: 10) {
                 Image(systemName: image)
                     .renderingMode(.template)
-                if title.isEmpty {
+                if title != "Home" {
                     Text(title)
                     .fontWeight(.semibold)
                 }

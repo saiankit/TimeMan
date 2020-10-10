@@ -21,14 +21,14 @@ struct GridWeekItem: View {
                     )
                 )
         }
-        .frame(width: width, height: height)
+        .frame(width: GridValues.width, height: GridValues.height)
         .padding(4)
     }
 }
 
 struct GridWeekRow: View {
     var body: some View {
-        HStack(spacing: spacing) {
+        HStack(spacing: GridValues.spacing) {
             GridWeekItem(title: "")
             GridWeekItem(title: "M")
             GridWeekItem(title: "T")
@@ -71,12 +71,12 @@ struct RowForGrid: View {
     var body: some View {
         VStack {
             Line()
-            HStack(spacing: spacing) {
+            HStack(spacing: GridValues.spacing) {
                 VStack(alignment: .center) {
                     Text(String(time) + ":00")
                         .font(.system(size: 13))
                 }
-                .frame(width: width, height: height)
+                .frame(width: GridValues.width, height: GridValues.height)
                 .padding(4)
                 GridItem(time: time, weekDay: 1)
                 GridItem(time: time, weekDay: 2)
