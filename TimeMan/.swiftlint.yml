@@ -11,6 +11,11 @@ disabled_rules:
   - orphaned_doc_comment
   - todo
   - unused_capture_list
+
+  - identifier_name
+  - attributes
+  - unused_closure_parameter
+  - type_body_length
 opt_in_rules:
   - array_init
   - attributes
