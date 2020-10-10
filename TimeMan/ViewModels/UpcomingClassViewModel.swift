@@ -22,7 +22,7 @@ class UpcomingClassViewModel {
         }
         return ""
     }
-    
+
     private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool {
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
@@ -31,7 +31,8 @@ class UpcomingClassViewModel {
         }
         return false
     }
-    
+
+    // MARK: - Error Course
     private var errorCourse: Course {
         let errorCourse = Course(context: self.managedObjectContext)
         errorCourse.courseTitle = "No upcoming Classes"
@@ -58,7 +59,6 @@ class UpcomingClassViewModel {
     func getUpcomingClass(list: FetchedResults<Course>) -> Course {
         let listWork = list
         var upcomingCourse = Course()
-        
         // Procedure followed to find the upcoming classes
         
         // We calculate the Current Time and Course Time in minutes
@@ -66,8 +66,7 @@ class UpcomingClassViewModel {
         // Difference > 0 => Course Time is ahead of the Current Time
         // We loop across all the courses that are happening on the Current Day using the shouldCourseBeIncluded method
         // We find the minimum difference to find out which course is the upcoming course
-        // We also make a note of the count variable which calculates if there are any upcoming classes or not
-        // If the count == 0 then an error course is returned which indicates the nullity of upcoming classes
+        // areUpcomingClassesAvailable is set to true when there is atleast one course upcoming
         
         let currentTimeHour = calendar.component(.hour, from: Date())
         let currentTimeMinute = calendar.component(.minute, from: Date())

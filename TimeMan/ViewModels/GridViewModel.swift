@@ -9,6 +9,8 @@
 import SwiftUI
 
 class GridViewModel {
+    private let calendar = Calendar.current
+
     private func getClassType(course: Course) -> String {
         if course.isLecture {
             return course.lectureNumber ?? ""
@@ -34,11 +36,16 @@ class GridViewModel {
         gridTime: Int,
         weekDay: Int
     ) -> [String] {
-        let calendar = Calendar.current
         var gridCourse = Course()
         let gridLowerLimit = gridTime * 60
         let gridUpperLimit = gridLowerLimit + 60
         var isIncluded = false
+
+        // To find if a course is at the Grid Position
+        // If the courseTime which is in minutes is in the Grid Limits
+        // gridCourse is assigned
+        // isIncluded is the variable utilised to check if any course is present in that position or not
+
         for courseItem in list {
             if self.shouldCourseBeIncluded(course: courseItem, index: weekDay) {
                 let courseTime = courseItem.time

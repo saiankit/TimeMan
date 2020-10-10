@@ -19,13 +19,7 @@ struct UpcomingClasses: View {
             if upcomingClassViewModel.getUpcomingClass(list: listForUpcoming).courseID == "E" {
                 VStack {
                     Text("No Upcoming Classes")
-                        .font(
-                            .system(
-                                size: 22,
-                                weight: .bold,
-                                design: .rounded
-                            )
-                        )
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
                         .padding(.bottom, 5)
                 }
             } else {
