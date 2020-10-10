@@ -135,6 +135,7 @@ struct CourseInput: View {
                             newLecture.time = viewModel.lectureTime
                             newLecture.colorNum = Int16(viewModel.colorNum)
                             
+                            // Saving Lecture to CoreData
                             do {
                                 try self.managedObjectContext.save()
                             } catch {
@@ -150,7 +151,7 @@ struct CourseInput: View {
                                 notes: metaData)
                             
                             if viewModel.isLectureNotificationsEnabled {
-                                // Scheduling Notifications
+                                // Scheduling Notifications for Lecture
                                 let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " " + "L" + String(viewModel.lectureNumber)
                                 notificationManager.scheduleNotification(
                                     title: notificationTitle,
@@ -162,7 +163,6 @@ struct CourseInput: View {
                         }
                         if viewModel.isTutorialExisting {
                             let mappedTutorialRepeatWeek = Set(viewModel.tutorialRepeatWeek.weekDays.map { $0.name })
-
                             let newTutorial = Course(context: self.managedObjectContext)
                             newTutorial.courseTitle = viewModel.courseTitle
                             newTutorial.courseID = viewModel.courseID
@@ -181,21 +181,32 @@ struct CourseInput: View {
                             newTutorial.practicalExists = viewModel.isPracticalExisting
                             newTutorial.time = viewModel.tutorialTime
                             newTutorial.colorNum = Int16(viewModel.colorNum)
+                            
+                            // Saving Tutorial to CoreData
                             do {
                                 try self.managedObjectContext.save()
                             } catch {
                                 print(error)
                             }
+                            
+                            // Adding Tutorial to Apple Calendar
+                            let metaData = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber) + " Instructor Name: " + viewModel.lectureInstructorName
                             appleEvents.addTutorial(
                                 tutorialRepeat: mappedTutorialRepeatWeek,
                                 title: viewModel.courseTitle + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber),
                                 startDate: viewModel.tutorialTime,
-                                notes: viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber) + " Instructor Name: " + viewModel.lectureInstructorName)
-                            if viewModel.isTutorialNotificationsEnabled {
-                                let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
-                                notificationManager.scheduleNotification(title: notifTitle, subtitle: viewModel.courseTitle, body: "Tutorial in 10 min" ,time: viewModel.tutorialTime, weekRepeat: mappedTutorialRepeatWeek)
-                            }
+                                notes: metaData)
                             
+                            if viewModel.isTutorialNotificationsEnabled {
+                                // Scheduling Notifications for Tutorial
+                                let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generateTutorialNumber(tutorialNumber: viewModel.tutorialNumber)
+                                notificationManager.scheduleNotification(
+                                    title: notificationTitle,
+                                    subtitle: viewModel.courseTitle,
+                                    body: "Tutorial in 10 min",
+                                    time: viewModel.tutorialTime,
+                                    weekRepeat: mappedTutorialRepeatWeek)
+                            }
                         }
                         
                         if viewModel.isPracticalExisting {
@@ -218,22 +229,27 @@ struct CourseInput: View {
                             newPractical.practicalExists = viewModel.isPracticalExisting
                             newPractical.time = viewModel.practicalTime
                             newPractical.colorNum = Int16(viewModel.colorNum)
+                            
+                            // Saving Practical to CoreData
                             do {
                                 try self.managedObjectContext.save()
                             } catch {
                                 print(error)
                             }
-                            let practicalNote = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName
+                            
+                            // Adding Practical to Apple Calendar
+                            let metaData = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName
                             appleEvents.addPractical(
                                 practicalRepeat: mappedPracticalRepeatWeek,
                                 title: viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber),
                                 startDate: viewModel.practicalTime,
-                                notes: practicalNote)
+                                notes: metaData)
                             
                             if viewModel.isPracticalNotificationsEnabled {
-                                let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                                // Scheduling Notifications for Practical
+                                let notificationTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
                                 notificationManager.scheduleNotification(
-                                    title: notifTitle,
+                                    title: notificationTitle,
                                     subtitle: viewModel.courseTitle,
                                     body: "Practical in 10 min",
                                     time: viewModel.practicalTime,

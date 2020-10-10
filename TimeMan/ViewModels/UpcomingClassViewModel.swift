@@ -60,7 +60,9 @@ class UpcomingClassViewModel {
         
         let listWork = list
         var upcomingCourse : Course = Course()
+        
         // Procedure followed to find the upcoming classes
+        
         // We calculate the Current Time and Course Time in minutes
         // We find the difference between the Course Time and Current Time
         // Difference > 0 => Course Time is ahead of the Current Time
@@ -68,12 +70,14 @@ class UpcomingClassViewModel {
         // We find the minimum difference to find out which course is the upcoming course
         // We also make a note of the count variable which calculates if there are any upcoming classes or not
         // If the count == 0 then an error course is returned which indicates the nullity of upcoming classes
+        
         let currentTimeHour = calendar.component(.hour, from: Date())
         let currentTimeMinute = calendar.component(.minute, from: Date())
         let currentTime = currentTimeHour * 60 + currentTimeMinute
         var minimumDifference = 1440
         var count = 0
         let currentDayIndex = (Calendar.current.component(.weekday, from: Date())) - 1
+        
         for courseClass in listWork {
             if shouldCourseBeIncluded(course: courseClass, index: currentDayIndex) {
                 let courseClassTime = courseClass.time
@@ -90,6 +94,7 @@ class UpcomingClassViewModel {
                 }
             }
         }
+        
         if count == 0 {
             return errorCourse
         }

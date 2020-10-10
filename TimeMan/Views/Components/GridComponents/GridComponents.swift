@@ -79,7 +79,6 @@ struct RowForGrid : View{
                 }
                 .frame(width: width, height: height)
                 .padding(4)
-                
                 GridItem(time: time, weekDay: 1)
                 GridItem(time: time, weekDay: 2)
                 GridItem(time: time, weekDay: 3)
