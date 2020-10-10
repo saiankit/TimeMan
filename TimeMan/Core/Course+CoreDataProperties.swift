@@ -36,5 +36,4 @@ extension Course {
 }
 
 extension Course: Identifiable {
-    
 }
