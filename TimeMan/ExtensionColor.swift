@@ -22,9 +22,9 @@ extension UIColor {
         let redNum = Int(color >> 16) & mask
         let greenNum = Int(color >> 8) & mask
         let blueNum = Int(color) & mask
-        let red   = CGFloat(redNum) / 255.0
+        let red = CGFloat(redNum) / 255.0
         let green = CGFloat(greenNum) / 255.0
-        let blue  = CGFloat(blueNum) / 255.0
+        let blue = CGFloat(blueNum) / 255.0
         self.init(
             red: red,
             green: green,
@@ -37,7 +37,7 @@ extension UIColor {
         var blueNum: CGFloat = 0
         var alphaNum: CGFloat = 0
         getRed(&redNum, green: &greenNum, blue: &blueNum, alpha: &alphaNum)
-        let rgbNum: Int = (Int)(redNum*255)<<16 | (Int)(greenNum*255)<<8 | (Int)(blueNum*255)<<0
+        let rgbNum: Int = (Int)(redNum * 255) << 16 | (Int)(greenNum * 255) << 8 | (Int)(blueNum * 255) << 0
         return String(format: "#%06x", rgbNum)
     }
 }

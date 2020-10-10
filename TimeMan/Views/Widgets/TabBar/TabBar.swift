@@ -13,7 +13,6 @@ struct TabBar: View {
     @Binding var isPresented: Bool
     var body: some View {
         HStack {
-            
             TabButton(title: "Scroll", image: "lineweight", selectedTab: $selectedTab)
             
             Spacer(minLength: 0)
@@ -23,7 +22,6 @@ struct TabBar: View {
             Spacer(minLength: 0)
             
             TabButton(title: "Grid", image: "calendar", selectedTab: $selectedTab)
-            
         }
         .padding(.vertical)
         .padding(.horizontal, 20)
@@ -33,13 +31,12 @@ struct TabBar: View {
 }
 
 struct TabButton: View {
-    
     var title: String
     var image: String
     @Binding var selectedTab: String
     var body: some View {
         Button(action: {
-                selectedTab = title
+            selectedTab = title
                 }
             ) {
             HStack(spacing: 10) {

@@ -15,7 +15,7 @@ class LocalNotificationManager {
     let utils = WeekDayUtilities()
     
     private func registerNotifications() {
-        center.requestAuthorization(options: options) { (granted, error) in
+        center.requestAuthorization(options: options) { granted, _ in
             if granted {
                 print("Notifications are registered")
             } else {

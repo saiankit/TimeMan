@@ -45,7 +45,6 @@ struct Line: View {
         Rectangle()
             .fill(Color.gray)
             .frame(height: 2)
-        
     }
 }
 

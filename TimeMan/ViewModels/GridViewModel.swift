@@ -35,8 +35,8 @@ class GridViewModel {
         weekDay: Int
     ) -> [String] {
         let calendar = Calendar.current
-        var gridCourse: Course = Course()
-        let gridLowerLimit =  gridTime * 60
+        var gridCourse = Course()
+        let gridLowerLimit = gridTime * 60
         let gridUpperLimit = gridLowerLimit + 60
         var isIncluded = false
         for courseItem in list {

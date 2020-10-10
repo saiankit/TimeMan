@@ -10,7 +10,6 @@ import SwiftUI
 
 class CourseListViewModel {
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool {
-        
         // To find if current course is scheduled on the given day of the week
         // We check if the given day of the week is present in the weekDayRepeat of current Course
         // If the course is scheduled on that day of week "true" is returned
@@ -25,7 +24,6 @@ class CourseListViewModel {
     }
     
     func areClassesAvailableToday(coursesList: FetchedResults<Course>, index: Int) -> Bool {
-        
         // To find if any classes are scheduled on that day
         // We loop across all the courses and
         // check if the given day of the week is present in the weekDayRepeat of the iterable Course

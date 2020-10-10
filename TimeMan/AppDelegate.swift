@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func requestNotificationsAuthorization(application: UIApplication) {
         let center = UNUserNotificationCenter.current()
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-        center.requestAuthorization(options: options) { granted, error in
+        center.requestAuthorization(options: options) { _, error in
             if let error = error {
                 print(error.localizedDescription)
             }
@@ -98,5 +98,4 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
-
 }

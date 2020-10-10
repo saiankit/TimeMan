@@ -9,7 +9,6 @@
 import SwiftUI
 
 class ColorCodes {
-    
     let colorNumbers: [Color] = [
         Color(UIColor(hexString: "#7D83FD")),
         Color(UIColor(hexString: "#FF8E6E")),

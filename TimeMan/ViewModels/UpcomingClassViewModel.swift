@@ -33,7 +33,6 @@ class UpcomingClassViewModel {
     }
     
     private var errorCourse: Course {
-        
         let errorCourse = Course(context: self.managedObjectContext)
         errorCourse.courseTitle = "No upcoming Classes"
         errorCourse.courseID = "E"
@@ -57,9 +56,8 @@ class UpcomingClassViewModel {
     }
     
     func getUpcomingClass(list: FetchedResults<Course>) -> Course {
-        
         let listWork = list
-        var upcomingCourse: Course = Course()
+        var upcomingCourse = Course()
         
         // Procedure followed to find the upcoming classes
         

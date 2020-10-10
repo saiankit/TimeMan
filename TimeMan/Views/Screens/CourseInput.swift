@@ -11,7 +11,7 @@ import SwiftUI
 
 struct CourseInput: View {
     @Environment(\.managedObjectContext) var managedObjectContext
-    @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
+    @ObservedObject var viewModel = CourseViewModel()
     @Binding var isPresented: Bool
     var colorCodes = ColorCodes()
     let appleEvents = AppleEvents()
@@ -52,7 +52,6 @@ struct CourseInput: View {
                         Toggle(isOn: $viewModel.isLectureNotificationsEnabled) {
                             Text("Enable Lecture Notifications")
                         }
-                        
                     }
                 }
                 
@@ -276,7 +275,8 @@ struct CourseInput: View {
                             if viewModel.isPracticalNotificationsEnabled {
                                 // Scheduling Notifications for Practical
                                 let notificationTitle = viewModel.courseCode + " "
-                                    + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
+                                    + viewModel.courseID + " "
+                                    + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)
                                 notificationManager.scheduleNotification(
                                     title: notificationTitle,
                                     subtitle: viewModel.courseTitle,
@@ -291,7 +291,6 @@ struct CourseInput: View {
                         Text("Add Course")
                     }
                 }
-                
             }
             .navigationBarTitle(Text("Add Course"), displayMode: .inline)
         }

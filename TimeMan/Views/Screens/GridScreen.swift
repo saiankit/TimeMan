@@ -26,7 +26,6 @@ struct GridScreen: View {
                     RowForGrid(time: 17)
                     RowForGrid(time: 18)
                     RowForGrid(time: 19)
-                    
                 }
             }
             FloatingActionButton(isPresented: $isPresented)
@@ -69,7 +68,6 @@ struct GridItem: View {
                 Text(gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[3])
                     .font(.system(size: 12))
                     .foregroundColor(.black)
-                
             }
             .frame(width: width, height: height)
             .padding(4)
