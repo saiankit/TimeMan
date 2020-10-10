@@ -8,18 +8,18 @@
 
 import SwiftUI
 
+enum GridValues {
+    static let height: CGFloat = 40
+    static let width: CGFloat = 40
+    static let spacing: CGFloat = 8
+}
+
 struct GridWeekItem: View {
     var title: String
     var body: some View {
         VStack {
             Text(title)
-                .font(
-                    .system(
-                        size: 18,
-                        weight: .bold,
-                        design: .rounded
-                    )
-                )
+                .font(.system(size: 18, weight: .bold, design: .rounded))
         }
         .frame(width: GridValues.width, height: GridValues.height)
         .padding(4)

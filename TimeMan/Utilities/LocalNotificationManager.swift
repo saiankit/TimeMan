@@ -9,11 +9,12 @@
 import Foundation
 import UserNotifications
 class LocalNotificationManager {
-    let center = UNUserNotificationCenter.current()
-    let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-    let calendar = Calendar.current
-    let utils = WeekDayUtilities()
-    
+    private let center = UNUserNotificationCenter.current()
+    private let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+    private let calendar = Calendar.current
+    private let weekDayUtilities = WeekDayUtilities()
+
+    // Method to register for Notifications on the Device
     private func registerNotifications() {
         center.requestAuthorization(options: options) { granted, _ in
             if granted {
@@ -32,22 +33,26 @@ class LocalNotificationManager {
         weekRepeat: Set<String>
     ) {
         self.registerNotifications()
+
+        // Content for the Notifications
         let content = UNMutableNotificationContent()
         content.title = title
         content.subtitle = subtitle
         content.body = body
-        let newTime = calendar.date(byAdding: .minute, value: -10, to: time) // 10 minutes earlier
+
+        // Setting time 10 minutes earlier of the class
+        let newTime = calendar.date(byAdding: .minute, value: -10, to: time)
         var dateComponents = DateComponents()
         let hour = calendar.component(.hour, from: newTime!)
         let minute = calendar.component(.minute, from: newTime!)
-        let mappedWeekDayArray: [Int] = utils.mapToWeekDays(weekDaySet: weekRepeat)
-        
+        let mappedWeekDayArray = weekDayUtilities.mapToWeekDays(weekDaySet: weekRepeat)
+
+        // We are looping across the weekDay and scheduling the notifcations
         for weekDay in mappedWeekDayArray {
             dateComponents.hour = hour
             dateComponents.minute = minute
             dateComponents.weekday = weekDay
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            
             let request = UNNotificationRequest(
                 identifier: UUID().uuidString,
                 content: content,

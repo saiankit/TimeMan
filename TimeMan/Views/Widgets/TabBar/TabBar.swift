@@ -14,13 +14,9 @@ struct TabBar: View {
     var body: some View {
         HStack {
             TabButton(title: "Scroll", image: "lineweight", selectedTab: $selectedTab)
-            
             Spacer(minLength: 0)
-            
             TabButton(title: "Home", image: "house", selectedTab: $selectedTab)
-            
             Spacer(minLength: 0)
-            
             TabButton(title: "Grid", image: "calendar", selectedTab: $selectedTab)
         }
         .padding(.vertical)

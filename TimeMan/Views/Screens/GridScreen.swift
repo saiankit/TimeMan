@@ -8,12 +8,6 @@
 
 import SwiftUI
 
-enum GridValues {
-    static let height: CGFloat = 40
-    static let width: CGFloat = 40
-    static let spacing: CGFloat = 8
-}
-
 struct GridScreen: View {
     @Binding var isPresented: Bool
     var body: some View {
