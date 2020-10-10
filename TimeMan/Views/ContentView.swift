@@ -13,9 +13,9 @@ struct ContentView: View {
     @State var selectedIndex = ""
     var body: some View {
         VStack {
-            if(selectedIndex == "Scroll") {
+            if selectedIndex == "Scroll" {
                 ScrollScreen(isPresented: $isPresented)
-            } else if(selectedIndex == "") {
+            } else if selectedIndex == "" {
                 HomeScreen()
             } else {
                 GridScreen(isPresented: $isPresented)

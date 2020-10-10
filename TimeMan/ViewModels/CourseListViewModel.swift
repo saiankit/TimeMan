@@ -12,7 +12,7 @@ class CourseListViewModel {
     func shouldCourseBeIncluded(course: Course, index: Int) -> Bool{
         let weekDayName = longWeekDaySymbols[index]
         let converted = course.weekDayRepeat
-        if(converted!.contains(weekDayName)){
+        if converted!.contains(weekDayName) {
             return true
         }
         return false
@@ -27,10 +27,9 @@ class CourseListViewModel {
                 count = count + 1
             }
         }
-        if(count == 0) {
+        if count == 0 {
             return false
         }
         return true
     }
-    
 }

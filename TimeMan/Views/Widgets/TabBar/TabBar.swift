@@ -45,9 +45,10 @@ struct TabButton : View {
             HStack(spacing: 10){
                 Image(systemName :image)
                     .renderingMode(.template)
-                if(title != "")
-                {Text(title)
-                    .fontWeight(.semibold)}
+                if title != "" {
+                    Text(title)
+                    .fontWeight(.semibold)
+                }
             }
             .foregroundColor(selectedTab == title ? Color(UIColor(hexString: "#FF9900")) : .gray)
             .padding(.vertical,10)
@@ -57,4 +58,3 @@ struct TabButton : View {
         }
     }
 }
-

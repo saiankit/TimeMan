@@ -27,5 +27,4 @@ struct Header: View {
             Spacer()
         }
     }
-    
 }

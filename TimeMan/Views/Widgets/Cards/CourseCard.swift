@@ -11,7 +11,6 @@ import SwiftUI
 struct CourseCard: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     var course: Course
-    var viewModel = CourseViewModel()
     var colorCodes = ColorCodes()
     private func getClassTime(time : Date) -> String {
         var timeType: String = "AM"
@@ -30,7 +29,8 @@ struct CourseCard: View {
                 //Course Information
                 VStack(alignment: .leading){
                     Text(course.courseTitle ?? "Default Title")
-                        .font(.system(size: 22, weight: .bold, design: .rounded)).padding(.bottom, 5)
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .padding(.bottom, 5)
                     Text(course.courseCode ?? "DDD" + "  " + course.courseID!)
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 10)

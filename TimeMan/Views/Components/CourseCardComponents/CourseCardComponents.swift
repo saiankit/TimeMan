@@ -67,23 +67,23 @@ struct ClassType: View {
 struct CourseNumbers: View {
     var course: Course
     var body: some View {
-        if(course.lectureExists && (course.tutorialExists && course.practicalExists) ) {
+        if course.lectureExists && (course.tutorialExists && course.practicalExists) {
             Triple(
                 ip1: course.lectureNumber ?? "L1",
                 ip2: course.tutorialNumber ?? "T1",
                 ip3: course.practicalNumber ?? "P1"
             )
-        } else if(course.lectureExists && course.tutorialExists) {
+        } else if course.lectureExists && course.tutorialExists {
             Double(
                 ip1: course.lectureNumber ?? "L1",
                 ip2: course.tutorialNumber ?? "T1"
             )
-        } else if(course.lectureExists && course.practicalExists) {
+        } else if course.lectureExists && course.practicalExists {
             Double(
                 ip1: course.lectureNumber ?? "L1",
                 ip2: course.practicalNumber ?? "P1"
             )
-        } else if(course.tutorialExists && course.practicalExists) {
+        } else if course.tutorialExists && course.practicalExists {
             Double(
                 ip1: course.tutorialNumber ?? "T1",
                 ip2: course.practicalNumber ?? "P1"

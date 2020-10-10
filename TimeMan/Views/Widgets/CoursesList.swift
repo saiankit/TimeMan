@@ -11,17 +11,17 @@ import SwiftUI
 struct CoursesList: View {
     @Binding var calendarIndex: Int
     @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var courseItemsList: FetchedResults<Course>
-    var viewModel = CourseListViewModel()
+    var courseViewModel = CourseListViewModel()
     var body: some View{
         if #available(iOS 14.0, *) {
             LazyVStack(alignment: .leading){
                 ForEach(self.courseItemsList, id: \.self) {
-                    if self.viewModel.shouldCourseBeIncluded(course: $0, index: self.calendarIndex) {
+                    if courseViewModel.shouldCourseBeIncluded(course: $0, index: self.calendarIndex) {
                         CourseCard(course: $0)
                     }
                 }
             }
-            if self.viewModel.areClassesAvailableToday(coursesList: self.courseItemsList, index: self.calendarIndex) == false {
+            if courseViewModel.areClassesAvailableToday(coursesList: courseItemsList, index: calendarIndex) == false {
                     Text("No Classes Today")
                         .font(
                             .system(

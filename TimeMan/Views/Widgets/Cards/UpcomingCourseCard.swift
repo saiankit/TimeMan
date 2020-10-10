@@ -11,7 +11,6 @@ import SwiftUI
 struct UpcomingCourseCard: View {
     var course: Course
     var date: Int = (Calendar.current.component(.minute, from: Date()))
-    var viewModel = CourseViewModel()
     var colorCodes = ColorCodes()
     private func getClassTime(time : Date) -> String {
         var timeType: String = "AM"

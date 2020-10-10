@@ -9,16 +9,12 @@
 import SwiftUI
 
 struct UpcomingClasses: View {
-    var viewModel = UpcomingClassViewModel()
+    var upcomingClassViewModel = UpcomingClassViewModel()
     @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var listForUpcoming: FetchedResults<Course>
     var body: some View {
         VStack{
-            if self.viewModel.getUpcomingClass(list: listForUpcoming).courseID == "E" {
+            if upcomingClassViewModel.getUpcomingClass(list: listForUpcoming).courseID == "E" {
                 VStack{
-                    Image(systemName: "snow")
-                        .resizable()
-                        .frame(width: 50, height: 50)
-                    
                     Text("No Upcoming Classes")
                         .font(
                             .system(
@@ -28,14 +24,12 @@ struct UpcomingClasses: View {
                             )
                         )
                         .padding(.bottom, 5)
-                    
                 }
             }
             else {
-                UpcomingCourseCard(course: self.viewModel.getUpcomingClass(list: listForUpcoming))
+                UpcomingCourseCard(course: upcomingClassViewModel.getUpcomingClass(list: listForUpcoming))
             }
         }
         .padding(20)
-        
     }
 }

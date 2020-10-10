@@ -137,7 +137,6 @@
 				6C8621E42529EE5A00F6A9E4 /* CourseCardComponents */,
 				6C8621E02529ED3100F6A9E4 /* ScrollScreenComponents */,
 				6C3EA3DD2529C2BF00D84CA1 /* GridComponents */,
-				6CD72478252834E800ED0EB0 /* TabBar */,
 				6C4589B72519B7A70023B4BD /* CalendarItem.swift */,
 				6C1444A1251DE16D00CFA2BF /* MultiSelector */,
 				6C1444A2251DE18500CFA2BF /* Header.swift */,
@@ -164,6 +163,7 @@
 		6C8621E82529EFA500F6A9E4 /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
+				6CD72478252834E800ED0EB0 /* TabBar */,
 				6C8621EB2529F0E000F6A9E4 /* Cards */,
 				6C4589B42519B7370023B4BD /* WeekScroll.swift */,
 				6C5FB769252788B500534BC9 /* UpcomingClasses.swift */,
