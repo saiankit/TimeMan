@@ -13,6 +13,7 @@ struct CourseInput: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var viewModel: CourseViewModel = CourseViewModel()
     @Binding var isPresented: Bool
+    var colorCodes = ColorCodes()
     let appleEvents = AppleEvents()
     let notificationManager = LocalNotificationManager()
     
@@ -107,8 +108,8 @@ struct CourseInput: View {
                 // MARK: - Color Coding
                 Section(){
                     Picker(selection: $viewModel.colorNum, label: Text("Color Code")) {
-                        ForEach(0 ..< viewModel.colorNumbers.count) {
-                            Text(viewModel.colorNames[ $0 ]).foregroundColor(viewModel.colorNumbers[ $0 ])
+                        ForEach(0 ..< colorCodes.colorNumbers.count) {
+                            Text(colorCodes.colorNames[ $0 ]).foregroundColor(colorCodes.colorNumbers[ $0 ])
                         }
                     }
                 }
@@ -222,12 +223,12 @@ struct CourseInput: View {
                             } catch {
                                 print(error)
                             }
-                            
+                            let practicalNote = viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName
                             appleEvents.addPractical(
                                 practicalRepeat: mappedPracticalRepeatWeek,
                                 title: viewModel.courseTitle + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber),
                                 startDate: viewModel.practicalTime,
-                                notes: viewModel.courseTitle + viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber) + " Instructor Name: " + viewModel.lectureInstructorName)
+                                notes: practicalNote)
                             
                             if viewModel.isPracticalNotificationsEnabled {
                                 let notifTitle = viewModel.courseCode + " " + viewModel.courseID + " " + viewModel.generatePracticalNumber(practicalNumber: viewModel.practicalNumber)

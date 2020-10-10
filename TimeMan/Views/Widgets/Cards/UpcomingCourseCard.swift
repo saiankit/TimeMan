@@ -12,6 +12,7 @@ struct UpcomingCourseCard: View {
     var course: Course
     var date: Int = (Calendar.current.component(.minute, from: Date()))
     var viewModel = CourseViewModel()
+    var colorCodes = ColorCodes()
     private func getClassTime(time : Date) -> String {
         var timeType: String = "AM"
         var hour: Int = (Calendar.current.component(.hour, from: time))
@@ -47,7 +48,7 @@ struct UpcomingCourseCard: View {
                                 ClassType(course: course).foregroundColor(.white)
                                 Image(systemName: "video.fill").foregroundColor(.white)
                             }.padding(8)
-                            .background(self.viewModel.colorNumbersLight[Int(course.colorNum)])
+                            .background(colorCodes.colorNumbersLight[Int(course.colorNum)])
                             .cornerRadius(15)
                         })
                     }
@@ -56,7 +57,7 @@ struct UpcomingCourseCard: View {
                 }
             }
         } .padding(20)
-        .background(self.viewModel.colorNumbers[Int(course.colorNum)])
+        .background(colorCodes.colorNumbers[Int(course.colorNum)])
         .foregroundColor(Color.black)
         .cornerRadius(20).padding(.bottom)
     }

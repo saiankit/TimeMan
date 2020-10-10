@@ -39,6 +39,7 @@ struct GridItem : View {
     var time : Int
     var weekDay : Int
     var viewModel = CourseViewModel()
+    var colorCodes = ColorCodes()
     @FetchRequest(entity: Course.entity(), sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]) var listForUpcoming: FetchedResults<Course>
     @Environment(\.managedObjectContext) var managedObjectContext
     var gridViewModel = GridViewModel()
@@ -69,7 +70,7 @@ struct GridItem : View {
             }
             .frame(width: width, height: height)
             .padding(4)
-            .background(viewModel.colorNumbers[Int(self.gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[2])!])
+            .background(colorCodes.colorNumbers[Int(self.gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[2])!])
             .cornerRadius(5)
         }
     }

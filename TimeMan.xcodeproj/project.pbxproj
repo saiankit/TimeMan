@@ -22,6 +22,7 @@
 		6C8621E22529ED4700F6A9E4 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8621E12529ED4700F6A9E4 /* FloatingActionButton.swift */; };
 		6C8621E62529EE7100F6A9E4 /* CourseCardComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8621E52529EE7100F6A9E4 /* CourseCardComponents.swift */; };
 		6C8621EE2529F39F00F6A9E4 /* CourseListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8621ED2529F39F00F6A9E4 /* CourseListViewModel.swift */; };
+		6C8C34C8253171E300E9A164 /* ColorCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8C34C7253171E300E9A164 /* ColorCodes.swift */; };
 		6C8DDFDA252850550055B7DB /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFD9252850550055B7DB /* HomeScreen.swift */; };
 		6C8DDFDD252850BF0055B7DB /* ScrollScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */; };
 		6C8DDFE0252850CE0055B7DB /* GridScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8DDFDF252850CE0055B7DB /* GridScreen.swift */; };
@@ -74,6 +75,7 @@
 		6C8621E12529ED4700F6A9E4 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		6C8621E52529EE7100F6A9E4 /* CourseCardComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCardComponents.swift; sourceTree = "<group>"; };
 		6C8621ED2529F39F00F6A9E4 /* CourseListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListViewModel.swift; sourceTree = "<group>"; };
+		6C8C34C7253171E300E9A164 /* ColorCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCodes.swift; sourceTree = "<group>"; };
 		6C8DDFD9252850550055B7DB /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		6C8DDFDC252850BF0055B7DB /* ScrollScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollScreen.swift; sourceTree = "<group>"; };
 		6C8DDFDF252850CE0055B7DB /* GridScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridScreen.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				6CABB8D4253EB09900024525 /* AppleEvents.swift */,
 				6C8DDFE525287B650055B7DB /* Shapes */,
 				6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */,
+				6C8C34C7253171E300E9A164 /* ColorCodes.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -398,6 +401,7 @@
 				6CF6341D2518B812005F022D /* ContentView.swift in Sources */,
 				6C04E3C0251A17A70018BD77 /* CourseInput.swift in Sources */,
 				6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */,
+				6C8C34C8253171E300E9A164 /* ColorCodes.swift in Sources */,
 				6CE81F932520966D00E6D390 /* CoursesList.swift in Sources */,
 				6C4589B82519B7A70023B4BD /* CalendarItem.swift in Sources */,
 				6CF634182518B812005F022D /* SceneDelegate.swift in Sources */,
