@@ -12,6 +12,7 @@
 		6C15DDA42525E0530068BCD8 /* Course+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15DDA22525E0530068BCD8 /* Course+CoreDataClass.swift */; };
 		6C15DDA52525E0530068BCD8 /* Course+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C15DDA32525E0530068BCD8 /* Course+CoreDataProperties.swift */; };
 		6C169CC02532A43000E7521E /* CourseCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C169CBF2532A43000E7521E /* CourseCardViewModel.swift */; };
+		6C169CC42532AADC00E7521E /* UpcomingCourseCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C169CC32532AADC00E7521E /* UpcomingCourseCardViewModel.swift */; };
 		6C16F6E5251904A10010857F /* CourseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C16F6E4251904A10010857F /* CourseCard.swift */; };
 		6C3EA3DB2529BEAD00D84CA1 /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EA3DA2529BEAD00D84CA1 /* GridViewModel.swift */; };
 		6C3EA3E02529C32E00D84CA1 /* GridComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C3EA3DF2529C32E00D84CA1 /* GridComponents.swift */; };
@@ -67,6 +68,7 @@
 		6C15DDA22525E0530068BCD8 /* Course+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataClass.swift"; sourceTree = "<group>"; };
 		6C15DDA32525E0530068BCD8 /* Course+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Course+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		6C169CBF2532A43000E7521E /* CourseCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCardViewModel.swift; sourceTree = "<group>"; };
+		6C169CC32532AADC00E7521E /* UpcomingCourseCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingCourseCardViewModel.swift; sourceTree = "<group>"; };
 		6C16F6E4251904A10010857F /* CourseCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseCard.swift; sourceTree = "<group>"; };
 		6C3EA3DA2529BEAD00D84CA1 /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		6C3EA3DF2529C32E00D84CA1 /* GridComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridComponents.swift; sourceTree = "<group>"; };
@@ -227,6 +229,7 @@
 				6C3EA3DA2529BEAD00D84CA1 /* GridViewModel.swift */,
 				6C8621ED2529F39F00F6A9E4 /* CourseListViewModel.swift */,
 				6C169CBF2532A43000E7521E /* CourseCardViewModel.swift */,
+				6C169CC32532AADC00E7521E /* UpcomingCourseCardViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -421,6 +424,7 @@
 				6CB2C3E9251CAC1400D70E8A /* MultiSelectionView.swift in Sources */,
 				6C8DDFEB252889A20055B7DB /* UpcomingCourseCard.swift in Sources */,
 				6CF6341D2518B812005F022D /* ContentView.swift in Sources */,
+				6C169CC42532AADC00E7521E /* UpcomingCourseCardViewModel.swift in Sources */,
 				6C04E3C0251A17A70018BD77 /* CourseInput.swift in Sources */,
 				6CABB8D2253EB09900024525 /* weekDaysUtilities.swift in Sources */,
 				6C8C34C8253171E300E9A164 /* ColorCodes.swift in Sources */,

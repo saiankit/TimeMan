@@ -10,10 +10,7 @@ import SwiftUI
 
 struct UpcomingCourseCard: View {
     var course: Course
-    var date: Int = (Calendar.current.component(.minute, from: Date()))
-    var colorCodes = ColorCodes()
-    var dateTimeUtilities = DateTimeUtilities()
-    var upcomingCourseCardViewModel = CourseCardViewModel()
+    var viewModel = UpcomingCourseCardViewModel()
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -31,13 +28,13 @@ struct UpcomingCourseCard: View {
                 }
                 Spacer()
                 VStack {
-                    Text(dateTimeUtilities.getClassTime(time: course.time ?? Date()))
+                    Text(viewModel.classTime(course: course))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {
                         Link(destination: URL(string: course.meetLink!)!) {
                             HStack {
-                                Text(upcomingCourseCardViewModel.getClassType(course: course))
+                                Text(viewModel.getClassType(course: course))
                                     .font(.largeTitle)
                                     .fontWeight(.heavy)
                                     .foregroundColor(.white)
@@ -45,7 +42,7 @@ struct UpcomingCourseCard: View {
                                     .foregroundColor(.white)
                             }
                             .padding(8)
-                            .background(colorCodes.colorNumbersLight[Int(course.colorNum)])
+                            .background(viewModel.secondaryBackground(course: course))
                             .cornerRadius(15)
                         }
                     }
@@ -53,7 +50,7 @@ struct UpcomingCourseCard: View {
             }
         }
         .padding(20)
-        .background(colorCodes.colorNumbers[Int(course.colorNum)])
+        .background(viewModel.primaryBackground(course: course))
         .foregroundColor(Color.black)
         .cornerRadius(20).padding(.bottom)
     }
