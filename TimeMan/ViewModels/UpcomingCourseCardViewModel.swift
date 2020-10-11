@@ -9,7 +9,7 @@
 import SwiftUI
 
 class UpcomingCourseCardViewModel {
-    var courseCardViewModel = CourseCardViewModel()
+    private var courseCardViewModel = CourseCardViewModel()
 
     func classTime(course: Course) -> String {
         return courseCardViewModel.classTime(course: course)

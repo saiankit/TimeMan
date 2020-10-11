@@ -16,8 +16,8 @@ class LocalNotificationManager {
 
     // Method to register for Notifications on the Device
     private func registerNotifications() {
-        center.requestAuthorization(options: options) { granted, _ in
-            if granted {
+        center.requestAuthorization(options: options) { granted, error in
+            if granted && error == nil {
                 print("Notifications are registered")
             } else {
                 print("D'oh.. Notifications aren't registered")

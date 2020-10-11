@@ -9,7 +9,7 @@
 import SwiftUI
 
 class GridViewModel {
-    var colorCodes = ColorCodes()
+    private var colorCodes = ColorCodes()
     private let calendar = Calendar.current
 
     private func getClassType(course: Course) -> String {

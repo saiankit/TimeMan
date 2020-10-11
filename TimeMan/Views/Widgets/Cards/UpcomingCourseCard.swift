@@ -14,24 +14,29 @@ struct UpcomingCourseCard: View {
     var body: some View {
         VStack {
             HStack(alignment: .top) {
+                // Course Information
                 VStack(alignment: .leading) {
+                    // Course Title
                     Text(course.courseTitle!)
                         .font(.system(size: 22, weight: .bold, design: .rounded))
                         .padding(.bottom, 5)
+                    // Course Code + ID
                     Text(course.courseCode! + "  " + course.courseID!)
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 10)
-                    HStack {
-                        Text(course.instructorName!)
-                            .font(.system(size: 16, design: .rounded))
-                    }
+                    // Instructor Name
+                    Text(course.instructorName!)
+                        .font(.system(size: 16, design: .rounded))
                 }
                 Spacer()
+                // Class Time and Meet Link
                 VStack {
+                    // Class Time
                     Text(viewModel.classTime(course: course))
                         .font(.system(size: 18, design: .rounded))
                         .padding(.bottom, 20)
                     if #available(iOS 14.0, *) {
+                        // Meet Link Button
                         Link(destination: URL(string: course.meetLink!)!) {
                             HStack {
                                 Text(viewModel.getClassType(course: course))
@@ -52,6 +57,6 @@ struct UpcomingCourseCard: View {
         .padding(20)
         .background(viewModel.primaryBackground(course: course))
         .foregroundColor(Color.black)
-        .cornerRadius(20).padding(.bottom)
+        .cornerRadius(20)
     }
 }

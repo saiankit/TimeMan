@@ -8,38 +8,41 @@
 
 import SwiftUI
 
-struct Single: View {
-    var input: String
+// If Single Course Type is Present - Centered Number
+struct CenteredSingleCourseTypeView: View {
+    var type: String
     var body: some View {
         HStack {
-            Text(input)
+            Text(type)
         }
     }
 }
 
-struct Double: View {
-    var ip1: String
-    var ip2: String
+// If Two Course Types are present - Numbers at the extreme ends
+struct ExtremeDualCourseTypeView: View {
+    var type1: String
+    var type2: String
     var body: some View {
         HStack {
-            Text(ip1)
+            Text(type1)
             Spacer()
-            Text(ip2)
+            Text(type2)
         }
     }
 }
 
-struct Triple: View {
-    var ip1: String
-    var ip2: String
-    var ip3: String
+// If all three Course Types are present - Equally Spaced
+struct EquallySpacedCourseTypeView: View {
+    var type1: String
+    var type2: String
+    var type3: String
     var body: some View {
         HStack {
-            Text(ip1)
+            Text(type1)
             Spacer()
-            Text(ip2)
+            Text(type2)
             Spacer()
-            Text(ip3)
+            Text(type3)
         }
     }
 }
@@ -48,32 +51,32 @@ struct CourseNumbers: View {
     var course: Course
     var body: some View {
         if course.lectureExists && (course.tutorialExists && course.practicalExists) {
-            Triple(
-                ip1: course.lectureNumber ?? "L1",
-                ip2: course.tutorialNumber ?? "T1",
-                ip3: course.practicalNumber ?? "P1"
+            EquallySpacedCourseTypeView(
+                type1: course.lectureNumber!,
+                type2: course.tutorialNumber!,
+                type3: course.practicalNumber!
             )
         } else if course.lectureExists && course.tutorialExists {
-            Double(
-                ip1: course.lectureNumber ?? "L1",
-                ip2: course.tutorialNumber ?? "T1"
+            ExtremeDualCourseTypeView(
+                type1: course.lectureNumber!,
+                type2: course.tutorialNumber!
             )
         } else if course.lectureExists && course.practicalExists {
-            Double(
-                ip1: course.lectureNumber ?? "L1",
-                ip2: course.practicalNumber ?? "P1"
+            ExtremeDualCourseTypeView(
+                type1: course.lectureNumber!,
+                type2: course.practicalNumber!
             )
         } else if course.tutorialExists && course.practicalExists {
-            Double(
-                ip1: course.tutorialNumber ?? "T1",
-                ip2: course.practicalNumber ?? "P1"
+            ExtremeDualCourseTypeView(
+                type1: course.tutorialNumber!,
+                type2: course.practicalNumber!
             )
         } else if course.lectureExists {
-            Single(input: course.lectureNumber ?? "L1")
+            CenteredSingleCourseTypeView(type: course.lectureNumber!)
         } else if course.tutorialExists {
-            Single(input: course.tutorialNumber ?? "T1")
+            CenteredSingleCourseTypeView(type: course.tutorialNumber!)
         } else if course.practicalExists {
-            Single(input: course.practicalNumber ?? "P1")
+            CenteredSingleCourseTypeView(type: course.practicalNumber!)
         }
     }
 }

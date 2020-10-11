@@ -10,8 +10,8 @@ import SwiftUI
 
 class CourseCardViewModel {
     @Environment(\.managedObjectContext) var managedObjectContext
-    var colorCodes = ColorCodes()
-    var dateTimeUtilities = DateTimeUtilities()
+    private var colorCodes = ColorCodes()
+    private var dateTimeUtilities = DateTimeUtilities()
     
     func deleteItem(course: Course) {
         managedObjectContext.delete(course)

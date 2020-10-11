@@ -17,12 +17,7 @@ struct GridScreen: View {
                 GridWeekRow().sheet(isPresented: $isPresented) {
                     CourseInput(isPresented: $isPresented)
                 }
-                ScrollView {
-                    TimeGrid()
-                    RowForGrid(time: 17)
-                    RowForGrid(time: 18)
-                    RowForGrid(time: 19)
-                }
+                TimeGrid()
             }
             FloatingActionButton(isPresented: $isPresented)
             }
@@ -51,7 +46,7 @@ struct GridItem: View {
             .padding(4)
             .background(Color("SecondaryBackground"))
         } else {
-            VStack {
+            VStack(alignment: .leading) {
                 Text(viewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[0])
                     .font(.system(size: 12))
                     .foregroundColor(.black)

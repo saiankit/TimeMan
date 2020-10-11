@@ -48,7 +48,7 @@ struct Line: View {
     }
 }
 
-struct TimeGrid: View {
+struct MorningTimeGridListView: View {
     var body: some View {
         VStack {
             RowForGrid(time: 7)
@@ -57,10 +57,29 @@ struct TimeGrid: View {
             RowForGrid(time: 10)
             RowForGrid(time: 11)
             RowForGrid(time: 12)
+        }
+    }
+}
+
+struct EveningTimeGridListView: View {
+    var body: some View {
+        VStack {
             RowForGrid(time: 13)
             RowForGrid(time: 14)
             RowForGrid(time: 15)
             RowForGrid(time: 16)
+            RowForGrid(time: 17)
+            RowForGrid(time: 18)
+            RowForGrid(time: 19)
+        }
+    }
+}
+
+struct TimeGrid: View {
+    var body: some View {
+        ScrollView {
+            MorningTimeGridListView()
+            EveningTimeGridListView()
         }
     }
 }
