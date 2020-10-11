@@ -10,7 +10,9 @@ import SwiftUI
 
 class CourseCardViewModel {
     @Environment(\.managedObjectContext) var managedObjectContext
-
+    var colorCodes = ColorCodes()
+    var dateTimeUtilities = DateTimeUtilities()
+    
     func deleteItem(course: Course) {
         managedObjectContext.delete(course)
         do {
@@ -29,5 +31,17 @@ class CourseCardViewModel {
             return course.practicalNumber!
         }
         return ""
+    }
+
+    func secondaryBackground(course: Course) -> Color {
+        return colorCodes.colorNumbersLight[Int(course.colorNum)]
+    }
+
+    func primaryBackground(course: Course) -> Color {
+        return colorCodes.colorNumbers[Int(course.colorNum)]
+    }
+
+    func classTime(course: Course) -> String {
+        return dateTimeUtilities.getClassTime(time: course.time ?? Date())
     }
 }
