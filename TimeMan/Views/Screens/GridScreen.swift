@@ -33,16 +33,13 @@ struct GridScreen: View {
 struct GridItem: View {
     var time: Int
     var weekDay: Int
-    var viewModel = CourseViewModel()
-    var colorCodes = ColorCodes()
     @FetchRequest(
         entity: Course.entity(),
         sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]
     ) var coursesList: FetchedResults<Course>
-    var gridViewModel = GridViewModel()
-    var courseCardViewModel = CourseCardViewModel()
+    var viewModel = GridViewModel()
     var body: some View {
-        if gridViewModel.getCourseForGrid(
+        if viewModel.getCourseForGrid(
             list: coursesList,
             gridTime: time,
             weekDay: weekDay
@@ -55,23 +52,20 @@ struct GridItem: View {
             .background(Color("SecondaryBackground"))
         } else {
             VStack {
-                Text(gridViewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[0])
+                Text(viewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[0])
                     .font(.system(size: 12))
                     .foregroundColor(.black)
-                Text(gridViewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[1])
+                Text(viewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[1])
                     .font(.system(size: 12))
                     .foregroundColor(.black)
-                Text(gridViewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[3])
+                Text(viewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[3])
                     .font(.system(size: 12))
                     .foregroundColor(.black)
             }
             .frame(width: GridValues.width, height: GridValues.height)
             .padding(4)
             .background(
-                colorCodes.colorNumbers[Int(gridViewModel.getCourseForGrid(
-                                                list: coursesList,
-                                                gridTime: time,
-                                                weekDay: weekDay)[2])!]
+                viewModel.gridBackground(list: coursesList, gridTime: time, weekDay: weekDay)
             )
             .cornerRadius(5)
         }

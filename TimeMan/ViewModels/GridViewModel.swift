@@ -9,6 +9,7 @@
 import SwiftUI
 
 class GridViewModel {
+    var colorCodes = ColorCodes()
     private let calendar = Calendar.current
 
     private func getClassType(course: Course) -> String {
@@ -30,7 +31,19 @@ class GridViewModel {
         }
         return false
     }
-    
+
+    func gridBackground(
+        list: FetchedResults<Course>,
+        gridTime: Int,
+        weekDay: Int
+    ) -> Color {
+        let colorCodeIndex = self.getCourseForGrid(
+            list: list,
+            gridTime: gridTime,
+            weekDay: weekDay)[2]
+        return  colorCodes.colorNumbers[Int(colorCodeIndex)!]
+    }
+
     func getCourseForGrid(
         list: FetchedResults<Course>,
         gridTime: Int,
