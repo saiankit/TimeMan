@@ -9,18 +9,10 @@
 import SwiftUI
 
 struct CourseCard: View {
-    @Environment(\.managedObjectContext) var managedObjectContext
     var course: Course
     var colorCodes = ColorCodes()
     var dateTimeUtilities = DateTimeUtilities()
-    func deleteItem(course: Course) {
-        managedObjectContext.delete(course)
-        do {
-            try self.managedObjectContext.save()
-        } catch {
-            print(error)
-        }
-    }
+    var courseCardViewModel = CourseCardViewModel()
     //CardView
     var body: some View {
         VStack {
@@ -47,7 +39,9 @@ struct CourseCard: View {
                     if #available(iOS 14.0, *) {
                         Link(destination: URL(string: course.meetLink!)!) {
                             HStack {
-                                ClassType(course: course)
+                                Text(courseCardViewModel.getClassType(course: course))
+                                    .font(.largeTitle)
+                                    .fontWeight(.heavy)
                                     .foregroundColor(.white)
                                 Image(systemName: "video.fill")
                                     .foregroundColor(.white)
@@ -73,7 +67,7 @@ struct CourseCard: View {
         .padding(.bottom)
         .contextMenu {
             Button {
-                deleteItem(course: course)
+                courseCardViewModel.deleteItem(course: course)
             } label: {
                 Text("Delete")
             }

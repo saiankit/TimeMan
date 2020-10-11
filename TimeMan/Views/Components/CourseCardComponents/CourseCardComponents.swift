@@ -44,25 +44,6 @@ struct Triple: View {
     }
 }
 
-struct ClassType: View {
-    var course: Course
-    var body: some View {
-        if course.isLecture {
-            Text(course.lectureNumber!)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-        } else if course.isTutorial {
-            Text(course.tutorialNumber!)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-        } else if course.isPractical {
-            Text(course.practicalNumber!)
-                .font(.largeTitle)
-                .fontWeight(.heavy)
-        }
-    }
-}
-
 struct CourseNumbers: View {
     var course: Course
     var body: some View {

@@ -13,6 +13,7 @@ struct UpcomingCourseCard: View {
     var date: Int = (Calendar.current.component(.minute, from: Date()))
     var colorCodes = ColorCodes()
     var dateTimeUtilities = DateTimeUtilities()
+    var upcomingCourseCardViewModel = CourseCardViewModel()
     var body: some View {
         VStack {
             HStack(alignment: .top) {
@@ -36,7 +37,9 @@ struct UpcomingCourseCard: View {
                     if #available(iOS 14.0, *) {
                         Link(destination: URL(string: course.meetLink!)!) {
                             HStack {
-                                ClassType(course: course)
+                                Text(upcomingCourseCardViewModel.getClassType(course: course))
+                                    .font(.largeTitle)
+                                    .fontWeight(.heavy)
                                     .foregroundColor(.white)
                                 Image(systemName: "video.fill")
                                     .foregroundColor(.white)

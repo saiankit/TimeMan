@@ -38,12 +38,12 @@ struct GridItem: View {
     @FetchRequest(
         entity: Course.entity(),
         sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]
-    ) var listForUpcoming: FetchedResults<Course>
-    @Environment(\.managedObjectContext) var managedObjectContext
+    ) var coursesList: FetchedResults<Course>
     var gridViewModel = GridViewModel()
+    var courseCardViewModel = CourseCardViewModel()
     var body: some View {
         if gridViewModel.getCourseForGrid(
-            list: listForUpcoming,
+            list: coursesList,
             gridTime: time,
             weekDay: weekDay
         )[0] == "Error" {
@@ -55,13 +55,13 @@ struct GridItem: View {
             .background(Color("SecondaryBackground"))
         } else {
             VStack {
-                Text(gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[0])
+                Text(gridViewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[0])
                     .font(.system(size: 12))
                     .foregroundColor(.black)
-                Text(gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[1])
+                Text(gridViewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[1])
                     .font(.system(size: 12))
                     .foregroundColor(.black)
-                Text(gridViewModel.getCourseForGrid(list: listForUpcoming, gridTime: time, weekDay: weekDay)[3])
+                Text(gridViewModel.getCourseForGrid(list: coursesList, gridTime: time, weekDay: weekDay)[3])
                     .font(.system(size: 12))
                     .foregroundColor(.black)
             }
@@ -69,9 +69,10 @@ struct GridItem: View {
             .padding(4)
             .background(
                 colorCodes.colorNumbers[Int(gridViewModel.getCourseForGrid(
-                                                list: listForUpcoming,
+                                                list: coursesList,
                                                 gridTime: time,
-                                                weekDay: weekDay)[2])!])
+                                                weekDay: weekDay)[2])!]
+            )
             .cornerRadius(5)
         }
     }
