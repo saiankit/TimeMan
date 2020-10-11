@@ -120,6 +120,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6C02F2E82532CCD700EA493C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */,
+				6CABB8D4253EB09900024525 /* AppleEvents.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		6C1444A1251DE16D00CFA2BF /* MultiSelector */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,8 +220,6 @@
 		6CABB8D0253EB09900024525 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				6CABB8CD253EB09800024525 /* LocalNotificationManager.swift */,
-				6CABB8D4253EB09900024525 /* AppleEvents.swift */,
 				6C8DDFE525287B650055B7DB /* Shapes */,
 				6CABB8D1253EB09900024525 /* weekDaysUtilities.swift */,
 				6C8C34C7253171E300E9A164 /* ColorCodes.swift */,
@@ -262,10 +269,14 @@
 		6CF634142518B812005F022D /* TimeMan */ = {
 			isa = PBXGroup;
 			children = (
+				6CF634262518B815005F022D /* Info.plist */,
+				6CF634152518B812005F022D /* AppDelegate.swift */,
+				6CF634232518B815005F022D /* LaunchScreen.storyboard */,
+				6CF634172518B812005F022D /* SceneDelegate.swift */,
+				6C02F2E82532CCD700EA493C /* Services */,
 				6CABB8D0253EB09900024525 /* Utilities */,
 				6CD5FF73251B6E6700DBB204 /* ViewModels */,
 				6CF634322518B9C7005F022D /* Core */,
-				6CF634312518B9AD005F022D /* App */,
 				6CF6342F2518B97C005F022D /* Views */,
 				6CF6341E2518B815005F022D /* Assets.xcassets */,
 				6CF634202518B815005F022D /* Preview Content */,
@@ -291,17 +302,6 @@
 				6CF6341C2518B812005F022D /* ContentView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		6CF634312518B9AD005F022D /* App */ = {
-			isa = PBXGroup;
-			children = (
-				6CF634262518B815005F022D /* Info.plist */,
-				6CF634152518B812005F022D /* AppDelegate.swift */,
-				6CF634232518B815005F022D /* LaunchScreen.storyboard */,
-				6CF634172518B812005F022D /* SceneDelegate.swift */,
-			);
-			name = App;
 			sourceTree = "<group>";
 		};
 		6CF634322518B9C7005F022D /* Core */ = {
