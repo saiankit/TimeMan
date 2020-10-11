@@ -26,6 +26,8 @@ var longWeekDaySymbols: [String] = ["Sunday",
                                     "Saturday"]
 
 class WeekDayUtilities {
+    // MARK: - Integer Mapping
+    // Mapping the weekDayRepeat to Native Integer Indices
     func mapToWeekDays(weekDaySet: Set<String>) -> [Int] {
         let lowerCasedSet = weekDaySet.map { $0.lowercased() }
         var mappedWeekDayArray: [Int] = []
@@ -52,6 +54,8 @@ class WeekDayUtilities {
         return mappedWeekDayArray
     }
     
+    // MARK: - EKRecurrenceDayOfWeek Mapping
+    // Mapping the weekDayRepeat to EKRecurrenceDayOfWeek for Apple Event
     func mapToEvents(weekDaySet: Set<String>) -> [EKRecurrenceDayOfWeek] {
         let lowerCasedSet = weekDaySet.map { $0.lowercased() }
         var mappedWeekEventArray: [EKRecurrenceDayOfWeek] = []

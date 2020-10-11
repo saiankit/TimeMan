@@ -8,6 +8,7 @@
 
 import Foundation
 import UserNotifications
+
 class LocalNotificationManager {
     private let center = UNUserNotificationCenter.current()
     private let options: UNAuthorizationOptions = [.alert, .sound, .badge]
@@ -24,7 +25,8 @@ class LocalNotificationManager {
             }
         }
     }
-    
+
+    // Public Method used to schedule for Notifications
     func scheduleNotification(
         title: String,
         subtitle: String,
@@ -34,7 +36,7 @@ class LocalNotificationManager {
     ) {
         self.registerNotifications()
 
-        // Content for the Notifications
+        // Content for the Notification
         let content = UNMutableNotificationContent()
         content.title = title
         content.subtitle = subtitle
