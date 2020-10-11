@@ -23,8 +23,8 @@ class UpcomingClassViewModel {
         return ""
     }
 
-    private func shouldCourseBeIncluded(course: Course, index: Int) -> Bool {
-        let weekDayName = longWeekDaySymbols[index]
+    private func shouldCourseBeIncluded(course: Course, weekDayindex: Int) -> Bool {
+        let weekDayName = longWeekDaySymbols[weekDayindex]
         let converted = course.weekDayRepeat
         if converted!.contains(weekDayName) {
             return true
@@ -55,9 +55,13 @@ class UpcomingClassViewModel {
         
         return errorCourse
     }
+
+    func areUpcomingClassesAvailable(list: FetchedResults<Course>) -> Bool {
+        return getUpcomingClass(list: list).courseID != "E"
+    }
     
     func getUpcomingClass(list: FetchedResults<Course>) -> Course {
-        let listWork = list
+        let courseslist = list
         var upcomingCourse = Course()
         // Procedure followed to find the upcoming classes
         
@@ -75,8 +79,8 @@ class UpcomingClassViewModel {
         var areUpcomingClassesAvailable = false
         let currentDayIndex = (Calendar.current.component(.weekday, from: Date())) - 1
         
-        for courseClass in listWork {
-            if shouldCourseBeIncluded(course: courseClass, index: currentDayIndex) {
+        for courseClass in courseslist {
+            if shouldCourseBeIncluded(course: courseClass, weekDayindex: currentDayIndex) {
                 let courseClassTime = courseClass.time
                 let courseHour = calendar.component(.hour, from: courseClassTime!)
                 let courseMinute = calendar.component(.minute, from: courseClassTime!)
@@ -84,15 +88,15 @@ class UpcomingClassViewModel {
                 let difference = courseTime - currentTime
                 if difference > 0 {
                     if difference < minimumDifference {
-                        minimumDifference = courseTime - currentTime
+                        minimumDifference = difference
                         upcomingCourse = courseClass
                         areUpcomingClassesAvailable = true
                     }
                 }
             }
         }
-        
-        if !areUpcomingClassesAvailable {
+
+        guard areUpcomingClassesAvailable else {
             return errorCourse
         }
         return upcomingCourse

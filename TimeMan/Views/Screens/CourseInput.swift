@@ -13,9 +13,9 @@ struct CourseInput: View {
     @Environment(\.managedObjectContext) var managedObjectContext
     @ObservedObject var viewModel = CourseViewModel()
     @Binding var isPresented: Bool
-    var colorCodes = ColorCodes()
-    let appleEvents = AppleEvents()
-    let notificationManager = LocalNotificationManager()
+    private let colorCodes = ColorCodes()
+    private let appleEvents = AppleEvents()
+    private let notificationManager = LocalNotificationManager()
     
     var body: some View {
         NavigationView {

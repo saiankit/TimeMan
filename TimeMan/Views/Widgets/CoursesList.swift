@@ -13,17 +13,17 @@ struct CoursesList: View {
     @FetchRequest(
         entity: Course.entity(),
         sortDescriptors: [NSSortDescriptor(key: "time", ascending: true)]
-    ) var courseItemsList: FetchedResults<Course>
-    var courseListViewModel = CourseListViewModel()
+    ) var coursesList: FetchedResults<Course>
+    var viewModel = CourseListViewModel()
     
     var body: some View {
         if #available(iOS 14.0, *) {
-            if !courseListViewModel.areClassesAvailableToday(coursesList: courseItemsList, index: calendarIndex) {
+            if !viewModel.areClassesAvailableToday(coursesList: coursesList, index: calendarIndex) {
                 NoClassesToday()
             } else {
                 LazyVStack(alignment: .leading) {
-                    ForEach(self.courseItemsList, id: \.self) {
-                        if courseListViewModel.shouldCourseBeIncluded(course: $0, index: self.calendarIndex) {
+                    ForEach(self.coursesList, id: \.self) {
+                        if viewModel.shouldCourseBeIncluded(course: $0, index: self.calendarIndex) {
                             CourseCard(course: $0)
                         }
                     }

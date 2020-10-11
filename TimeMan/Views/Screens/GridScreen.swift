@@ -13,13 +13,14 @@ struct GridScreen: View {
     var body: some View {
         if #available(iOS 14.0, *) {
             ZStack {
-            VStack {
-                GridWeekRow().sheet(isPresented: $isPresented) {
-                    CourseInput(isPresented: $isPresented)
+                VStack {
+                    GridWeekRow()
+                        .sheet(isPresented: $isPresented) {
+                            CourseInput(isPresented: $isPresented)
+                        }
+                    TimeGrid()
                 }
-                TimeGrid()
-            }
-            FloatingActionButton(isPresented: $isPresented)
+                FloatingActionButton(isPresented: $isPresented)
             }
         }
     }
@@ -59,9 +60,7 @@ struct GridItem: View {
             }
             .frame(width: GridValues.width, height: GridValues.height)
             .padding(4)
-            .background(
-                viewModel.gridBackground(list: coursesList, gridTime: time, weekDay: weekDay)
-            )
+            .background(viewModel.gridBackground(list: coursesList, gridTime: time, weekDay: weekDay))
             .cornerRadius(5)
         }
     }

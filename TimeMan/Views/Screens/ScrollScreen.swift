@@ -9,8 +9,10 @@
 import SwiftUI
 
 struct ScrollScreen: View {
+    private let calendar = Calendar.current
     @Binding var isPresented: Bool
     @State var calendarIndex = ((Calendar.current.component(.weekday, from: Date())) - 1)
+
     var body: some View {
         if #available(iOS 14.0, *) {
             ZStack {
@@ -21,7 +23,7 @@ struct ScrollScreen: View {
                             WeekScroll(index: $calendarIndex).padding(.top, 20)
                             VStack(alignment: .leading) {
                                 HStack {
-                                    Text(calendarIndex == (Calendar.current.component(.weekday, from: Date()) - 1)
+                                    Text(calendarIndex == (calendar.component(.weekday, from: Date()) - 1)
                                             ? "Today's Classes" : longWeekDaySymbols[calendarIndex]
                                             + "'s Classes")
                                         .font(
@@ -30,9 +32,10 @@ struct ScrollScreen: View {
                                         .padding(.bottom, 15)
                                     Spacer()
                                 }
-                                CoursesList(calendarIndex: $calendarIndex).sheet(isPresented: $isPresented) {
-                                    CourseInput(isPresented: $isPresented)
-                                }
+                                CoursesList(calendarIndex: $calendarIndex)
+                                    .sheet(isPresented: $isPresented) {
+                                        CourseInput(isPresented: $isPresented)
+                                    }
                             }
                             .frame(minHeight: 800.0, alignment: .top)
                             .padding(25)
