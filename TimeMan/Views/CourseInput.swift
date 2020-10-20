@@ -63,7 +63,7 @@ struct CourseInput: View {
             weeksOfTheYear: nil,
             daysOfTheYear: nil,
             setPositions: nil,
-            end: EKRecurrenceEnd.init(occurrenceCount: 10))
+            end: EKRecurrenceEnd.init(occurrenceCount: 200))
 
           event.recurrenceRules = [recurrenceRule]
         

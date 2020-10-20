@@ -25,6 +25,50 @@ struct ContentView: View{
                         .padding(.bottom,20)
                     
                     WeekScroll(index: $calendarIndex)
+                    Button(action: {
+                        let center = UNUserNotificationCenter.current()
+
+                            center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                                if granted {
+                                    print("Yay!")
+                                } else {
+                                    print("D'oh")
+                                }
+                            }
+                    }){
+                        Text("Register")
+                    }
+                    Button(action: {
+                                let content = UNMutableNotificationContent()
+                                content.title = "ECE F215"
+                                content.body = "Lecture in 10 min"
+                                content.categoryIdentifier = "Lecture"
+
+                                // this time interval represents the delay time of notification
+                                // ie., the notification will be delivered after the delay.....
+//                                let date = Date(timeIntervalSinceNow: 5)
+//                                let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
+                        //                                let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
+                        //                                UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+                        
+                        // Sunday | Monday | Tue | Wec | Thu | Fri | Sat
+                        // 1        2          3    4     5     6     7
+                        
+                        //["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+                        // 0         1          2        3           4           5         6
+                                var dateComponents = DateComponents()
+                                dateComponents.hour = 9
+                                dateComponents.minute = 50
+                                dateComponents.weekday = 3
+                                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+
+                                let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+//                        UNUserNotificationCenter.removeAllPendingNotificationRequests()
+                        UNUserNotificationCenter.current().add(request)
+                        }
+                    ) {
+                        Text("Send Notification")
+                    }
 
                     Spacer()
                     VStack(alignment: .leading){
@@ -68,35 +112,3 @@ struct ContentView_Previews: PreviewProvider {
 
 
 
-//Button(action: {
-//
-//    UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.sound,.badge]) { (status, _) in
-//        if status{
-//
-//            let content = UNMutableNotificationContent()
-//            content.title = "ECE F215"
-//            content.body = "Lecture in 10 min"
-//
-//            // this time interval represents the delay time of notification
-//            // ie., the notification will be delivered after the delay.....
-//            let date = Date(timeIntervalSinceNow: 5)
-//            let triggerDate = Calendar.current.dateComponents([.year,.month,.day,.hour,.minute,.second,], from: date)
-//            let trigger = UNCalendarNotificationTrigger(dateMatching: triggerDate, repeats: false)
-//
-//            let request = UNNotificationRequest(identifier: "noti", content: content, trigger: trigger)
-//            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
-//
-//            return
-//        }
-//
-//        self.alert.toggle()
-//    }
-//
-//}) {
-//
-//    Text("Send Notification")
-//
-//}.alert(isPresented: $alert) {
-//
-//    return Alert(title: Text("Please Enable Notification Access In Settings Pannel !!!"))
-//}

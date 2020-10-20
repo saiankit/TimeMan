@@ -26,13 +26,11 @@ struct CoursesList: View {
         ScrollView(.vertical,showsIndicators: false){
             if #available(iOS 14.0, *) {
                 LazyVStack(alignment: .leading){
-                    
                     ForEach(self.courseItemsList, id: \.self) {
                         if(shouldCourseBeIncluded(course: $0, index: self.calendarIndex))
                         {
                             CourseCard(course: $0)
                         }
-                        
                     }
                 }
             }
